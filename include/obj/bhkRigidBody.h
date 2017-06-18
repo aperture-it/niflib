@@ -66,6 +66,244 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// The collision response. See hkResponseType for hkpWorld default implementations.
+	// \return The current value.
+	hkResponseType GetCollisionResponse_() const;
+
+	// The collision response. See hkResponseType for hkpWorld default implementations.
+	// \param[in] value The new value.
+	void SetCollisionResponse_( const hkResponseType & value );
+
+	// Lowers the frequency for processContactCallbacks. A value of 5 means that a
+	// callback is raised every 5th frame.
+	// \return The current value.
+	unsigned short GetProcessContactCallbackDelay_() const;
+
+	// Lowers the frequency for processContactCallbacks. A value of 5 means that a
+	// callback is raised every 5th frame.
+	// \param[in] value The new value.
+	void SetProcessContactCallbackDelay_( unsigned short value );
+
+	// Copy of Layer value?
+	// \return The current value.
+	OblivionLayer GetLayerCopy() const;
+
+	// Copy of Layer value?
+	// \param[in] value The new value.
+	void SetLayerCopy( const OblivionLayer & value );
+
+	// Copy of Col Filter value?
+	// \return The current value.
+	byte GetColFilterCopy() const;
+
+	// Copy of Col Filter value?
+	// \param[in] value The new value.
+	void SetColFilterCopy( byte value );
+
+	// Copy of Skyrim Layer value?
+	// \return The current value.
+	SkyrimLayer GetSkyrimLayerCopy() const;
+
+	// Copy of Skyrim Layer value?
+	// \param[in] value The new value.
+	void SetSkyrimLayerCopy( const SkyrimLayer & value );
+
+	// Copy of Flags & Part number?
+	// \return The current value.
+	byte GetFlagsAndPartNumberCopy() const;
+
+	// Copy of Flags & Part number?
+	// \param[in] value The new value.
+	void SetFlagsAndPartNumberCopy( byte value );
+
+	// A vector that moves the body by the specified amount. Only enabled in
+	// bhkRigidBodyT objects.
+	// \return The current value.
+	Vector4 GetTranslation() const;
+
+	// A vector that moves the body by the specified amount. Only enabled in
+	// bhkRigidBodyT objects.
+	// \param[in] value The new value.
+	void SetTranslation( const Vector4 & value );
+
+	// The rotation Yaw/Pitch/Roll to apply to the body. Only enabled in bhkRigidBodyT
+	// objects.
+	// \return The current value.
+	QuaternionXYZW GetRotation() const;
+
+	// The rotation Yaw/Pitch/Roll to apply to the body. Only enabled in bhkRigidBodyT
+	// objects.
+	// \param[in] value The new value.
+	void SetRotation( const QuaternionXYZW & value );
+
+	// Linear velocity.
+	// \return The current value.
+	Vector4 GetLinearVelocity() const;
+
+	// Linear velocity.
+	// \param[in] value The new value.
+	void SetLinearVelocity( const Vector4 & value );
+
+	// Angular velocity.
+	// \return The current value.
+	Vector4 GetAngularVelocity() const;
+
+	// Angular velocity.
+	// \param[in] value The new value.
+	void SetAngularVelocity( const Vector4 & value );
+
+	// Defines how the mass is distributed among the body.
+	// \return The current value.
+	InertiaMatrix GetInertia() const;
+
+	// Defines how the mass is distributed among the body.
+	// \param[in] value The new value.
+	void SetInertia( const InertiaMatrix & value );
+
+	// This seems to be used to relocate the object's center of mass. Useful for
+	// balancing objects in contraints.
+	// \return The current value.
+	Vector4 GetCenter() const;
+
+	// This seems to be used to relocate the object's center of mass. Useful for
+	// balancing objects in contraints.
+	// \param[in] value The new value.
+	void SetCenter( const Vector4 & value );
+
+	// The body's mass in kg. A mass of zero represents an immovable object.
+	// \return The current value.
+	float GetMass() const;
+
+	// The body's mass in kg. A mass of zero represents an immovable object.
+	// \param[in] value The new value.
+	void SetMass( float value );
+
+	// Damping value for linear movement. A value that is too small fixes the object in
+	// place.
+	// \return The current value.
+	float GetLinearDamping() const;
+
+	// Damping value for linear movement. A value that is too small fixes the object in
+	// place.
+	// \param[in] value The new value.
+	void SetLinearDamping( float value );
+
+	// Damping value for angular movement.
+	// \return The current value.
+	float GetAngularDamping() const;
+
+	// Damping value for angular movement.
+	// \param[in] value The new value.
+	void SetAngularDamping( float value );
+
+	// The body's friction.
+	// \return The current value.
+	float GetFriction() const;
+
+	// The body's friction.
+	// \param[in] value The new value.
+	void SetFriction( float value );
+
+	// Unknown.
+	// \return The current value.
+	float GetRollingfrictionmultiplier_() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetRollingfrictionmultiplier_( float value );
+
+	// The body's restitution (elasticity).
+	//             If the restitution is not 0.0 the object will need extra CPU for all
+	// new collisions.
+	//             Try to set restitution to 0 for maximum performance (e.g. collapsing
+	// buildings)
+	// \return The current value.
+	float GetRestitution() const;
+
+	// The body's restitution (elasticity).
+	//             If the restitution is not 0.0 the object will need extra CPU for all
+	// new collisions.
+	//             Try to set restitution to 0 for maximum performance (e.g. collapsing
+	// buildings)
+	// \param[in] value The new value.
+	void SetRestitution( float value );
+
+	// Maximal linear velocity.
+	// \return The current value.
+	float GetMaxLinearVelocity() const;
+
+	// Maximal linear velocity.
+	// \param[in] value The new value.
+	void SetMaxLinearVelocity( float value );
+
+	// Maximal angular velocity. Pi x 10?
+	// \return The current value.
+	float GetMaxAngularVelocity() const;
+
+	// Maximal angular velocity. Pi x 10?
+	// \param[in] value The new value.
+	void SetMaxAngularVelocity( float value );
+
+	// The maximum allowed penetration for this object.
+	//             This is a hint to the engine to see how much CPU the engine should
+	// invest to keep this object from penetrating.
+	//             A good choice is 5% - 20% of the smallest diameter of the object.
+	// \return The current value.
+	float GetPenetrationDepth() const;
+
+	// The maximum allowed penetration for this object.
+	//             This is a hint to the engine to see how much CPU the engine should
+	// invest to keep this object from penetrating.
+	//             A good choice is 5% - 20% of the smallest diameter of the object.
+	// \param[in] value The new value.
+	void SetPenetrationDepth( float value );
+
+	// Motion system? Overrides Quality when on Keyframed?
+	// \return The current value.
+	MotionSystem GetMotionSystem() const;
+
+	// Motion system? Overrides Quality when on Keyframed?
+	// \param[in] value The new value.
+	void SetMotionSystem( const MotionSystem & value );
+
+	// The initial deactivator type of the body.
+	// \return The current value.
+	DeactivatorType GetDeactivatorType() const;
+
+	// The initial deactivator type of the body.
+	// \param[in] value The new value.
+	void SetDeactivatorType( const DeactivatorType & value );
+
+	// Usually set to 1 for fixed objects, or set to 2 for moving ones.  Seems to
+	// always be same as Unknown Byte 1.
+	// \return The current value.
+	SolverDeactivation GetSolverDeactivation() const;
+
+	// Usually set to 1 for fixed objects, or set to 2 for moving ones.  Seems to
+	// always be same as Unknown Byte 1.
+	// \param[in] value The new value.
+	void SetSolverDeactivation( const SolverDeactivation & value );
+
+	// The motion type. Determines quality of motion?
+	// \return The current value.
+	MotionQuality GetQualityType() const;
+
+	// The motion type. Determines quality of motion?
+	// \param[in] value The new value.
+	void SetQualityType( const MotionQuality & value );
+
+	// Unknown.
+	// \return The current value.
+	vector<Ref<bhkSerializable > > GetConstraints() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetConstraints( const vector<Ref<bhkSerializable > >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	/*!
@@ -79,9 +317,6 @@ public:
 	 * \param[in] value The new duplicate layer value.
 	 */
 	NIFLIB_API void SetLayerCopy( OblivionLayer value );
-
-	NIFLIB_API SkyrimLayer GetSkyrimLayerCopy() const;
-	NIFLIB_API void SetSkyrimLayerCopy( SkyrimLayer value );
 
 	/*!
 	 * Gets the current translation of this rigid body.
@@ -322,18 +557,6 @@ public:
 	//  is given then the density argument is ignored.
 	NIFLIB_API void UpdateMassProperties(float density = 1.0f, bool solid = true, float mass = 0.0f);
 
-	/*!
-	 * Returns the unknown 7 shorts
-	 * \return An array containing the 7 unknown shorts within this object.
-	 */
-	NIFLIB_API virtual array<7,unsigned short > GetUnknown7Shorts() const;
-
-	/*! Replaces the unknown 7 shorts with new data
-	 * \param in An array containing the new data.  Size is 7.
-	 */
-	NIFLIB_API virtual void SetUnknown7Shorts( const array<7,unsigned short > & in );
-
-
 	//--END CUSTOM CODE--//
 protected:
 	/*! Unknown. Could be 2 shorts corresponding to Unknown 7 Shorts[1] and [2]. */
@@ -357,9 +580,9 @@ protected:
 	OblivionLayer layerCopy;
 	/*! Copy of Col Filter value? */
 	byte colFilterCopy;
-	/*! Copy of Layer value? */
+	/*! Copy of Skyrim Layer value? */
 	SkyrimLayer skyrimLayerCopy;
-	/*! Copy of  value? */
+	/*! Copy of Flags & Part number? */
 	byte flagsAndPartNumberCopy;
 	/*!
 	 * Unknown.

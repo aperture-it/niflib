@@ -33,5 +33,4 @@ MeshData & MeshData::operator=( const MeshData & src ) {
 MeshData::~MeshData() {};
 
 //--BEGIN MISC CUSTOM CODE--//
-
 //--END CUSTOM CODE--//

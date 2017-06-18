@@ -50,7 +50,6 @@ struct MeshData {
 	/*! Describes the semantic of each component. */
 	vector<SemanticData > componentSemantics;
 	//--BEGIN MISC CUSTOM CODE--//
-
 	//--END CUSTOM CODE--//
 };
 

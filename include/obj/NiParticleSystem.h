@@ -20,6 +20,7 @@ All rights reserved.  Please see niflib.h for license. */
 namespace Niflib {
 
 // Forward define of referenced NIF objects
+class NiPSysData;
 class NiPSysModifier;
 class NiParticleSystem;
 typedef Ref<NiParticleSystem> NiParticleSystemRef;
@@ -57,7 +58,56 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Unknown
+	// \return The current value.
+	Ref<NiPSysData > GetData_() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetData_( Ref<NiPSysData > value );
+
+	// If true, Particles are birthed into world space.  If false, Particles are
+	// birthed into object space.
+	// \return The current value.
+	bool GetWorldSpace() const;
+
+	// If true, Particles are birthed into world space.  If false, Particles are
+	// birthed into object space.
+	// \param[in] value The new value.
+	void SetWorldSpace( bool value );
+
+	// The list of particle modifiers.
+	// \return The current value.
+	vector<Ref<NiPSysModifier > > GetModifiers() const;
+
+	// The list of particle modifiers.
+	// \param[in] value The new value.
+	void SetModifiers( const vector<Ref<NiPSysModifier > >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
+
+	// If true, Particles are birthed into world space.  If false, Particles are
+	// birthed into object space.
+	// \return The current value.
+	NIFLIB_API bool GetWorldSpace() const;
+
+	// If true, Particles are birthed into world space.  If false, Particles are
+	// birthed into object space.
+	// \param[in] value The new value.
+	NIFLIB_API void SetWorldSpace(bool value);
+
+	// The list of particle modifiers.
+	// \return The current value.
+	NIFLIB_API vector<Ref<NiPSysModifier > > GetModifiers() const;
+
+	// The list of particle modifiers.
+	// \param[in] value The new value.
+	NIFLIB_API void SetModifiers(const vector<Ref<NiPSysModifier > >& value);
+
 	//--END CUSTOM CODE--//
 protected:
 	/*! Unknown */
@@ -66,6 +116,12 @@ protected:
 	unsigned short unknownShort3;
 	/*! Unknown */
 	unsigned int unknownInt1;
+	/*! Unknown */
+	int unknownInteger4;
+	/*! Unknown */
+	int unknownInteger5;
+	/*! Unknown */
+	Ref<NiPSysData > data_;
 	/*!
 	 * If true, Particles are birthed into world space.  If false, Particles are
 	 * birthed into object space.

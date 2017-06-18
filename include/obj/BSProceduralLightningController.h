@@ -22,6 +22,7 @@ namespace Niflib {
 
 // Forward define of referenced NIF objects
 class NiInterpolator;
+class NiObject;
 class BSProceduralLightningController;
 typedef Ref<BSProceduralLightningController> BSProceduralLightningControllerRef;
 
@@ -61,6 +62,146 @@ public:
 	 * \return The type constant for the actual type of the object.
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
+
+	/***Begin Example Naive Implementation****
+
+	// References interpolator for Mutation of strips
+	// \return The current value.
+	Ref<NiInterpolator > GetInterpolator2_Mutation() const;
+
+	// References interpolator for Mutation of strips
+	// \param[in] value The new value.
+	void SetInterpolator2_Mutation( Ref<NiInterpolator > value );
+
+	// Unknown
+	// \return The current value.
+	Ref<NiInterpolator > GetInterpolator3() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetInterpolator3( Ref<NiInterpolator > value );
+
+	// Unknown
+	// \return The current value.
+	Ref<NiInterpolator > GetInterpolator4() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetInterpolator4( Ref<NiInterpolator > value );
+
+	// Unknown
+	// \return The current value.
+	Ref<NiInterpolator > GetInterpolator5() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetInterpolator5( Ref<NiInterpolator > value );
+
+	// Unknown
+	// \return The current value.
+	Ref<NiInterpolator > GetInterpolator6() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetInterpolator6( Ref<NiInterpolator > value );
+
+	// Unknown
+	// \return The current value.
+	Ref<NiInterpolator > GetInterpolator7() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetInterpolator7( Ref<NiInterpolator > value );
+
+	// Unknown
+	// \return The current value.
+	Ref<NiInterpolator > GetInterpolator8() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetInterpolator8( Ref<NiInterpolator > value );
+
+	// References interpolator for Amplitutde control. 0=straight, 50=wide
+	// \return The current value.
+	Ref<NiInterpolator > GetInterpolator9_ArcOffset() const;
+
+	// References interpolator for Amplitutde control. 0=straight, 50=wide
+	// \param[in] value The new value.
+	void SetInterpolator9_ArcOffset( Ref<NiInterpolator > value );
+
+	// How far lightning will stretch to.
+	// \return The current value.
+	float GetDistanceWeight() const;
+
+	// How far lightning will stretch to.
+	// \param[in] value The new value.
+	void SetDistanceWeight( float value );
+
+	// Unknown
+	// \return The current value.
+	float GetFloat2() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetFloat2( float value );
+
+	// How wide the bolt will be
+	// \return The current value.
+	float GetStripWidth() const;
+
+	// How wide the bolt will be
+	// \param[in] value The new value.
+	void SetStripWidth( float value );
+
+	// Influences forking behavior
+	// \return The current value.
+	float GetFork() const;
+
+	// Influences forking behavior
+	// \param[in] value The new value.
+	void SetFork( float value );
+
+	// Unknown
+	// \return The current value.
+	float GetFloat5() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetFloat5( float value );
+
+	// Unknown
+	// \return The current value.
+	byte GetByte1() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetByte1( byte value );
+
+	// Unknown
+	// \return The current value.
+	byte GetByte2() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetByte2( byte value );
+
+	// Unknown
+	// \return The current value.
+	byte GetByte3() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetByte3( byte value );
+
+	// Unknown, unsure if this is actually another interpolator link.
+	// \return The current value.
+	Ref<NiObject > GetInterpolator10_() const;
+
+	// Unknown, unsure if this is actually another interpolator link.
+	// \param[in] value The new value.
+	void SetInterpolator10_( Ref<NiObject > value );
+
+	****End Example Naive Implementation***/
 
 	//--BEGIN MISC CUSTOM CODE--//
 
@@ -105,7 +246,7 @@ protected:
 	/*! Unknown */
 	byte byte3;
 	/*! Unknown, unsure if this is actually another interpolator link. */
-	Ref<NiInterpolator > interpolator10_;
+	Ref<NiObject > interpolator10_;
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
 	NIFLIB_HIDDEN virtual void Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info );

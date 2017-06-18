@@ -246,6 +246,42 @@ std::list<NiObject *> NiBezierMesh::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Ref<NiBezierTriangle4 > > NiBezierMesh::GetBezierTriangle() const {
+	return bezierTriangle;
+}
+
+void NiBezierMesh::SetBezierTriangle( const vector<Ref<NiBezierTriangle4 > >& value ) {
+	bezierTriangle = value;
+}
+
+vector<Vector3 > NiBezierMesh::GetPoints1() const {
+	return points1;
+}
+
+void NiBezierMesh::SetPoints1( const vector<Vector3 >& value ) {
+	points1 = value;
+}
+
+vector< array<2,float > > NiBezierMesh::GetPoints2() const {
+	return points2;
+}
+
+void NiBezierMesh::SetPoints2( const vector< array<2,float > >& value ) {
+	points2 = value;
+}
+
+vector< array<4,unsigned short > > NiBezierMesh::GetData2() const {
+	return data2;
+}
+
+void NiBezierMesh::SetData2( const vector< array<4,unsigned short > >& value ) {
+	data2 = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

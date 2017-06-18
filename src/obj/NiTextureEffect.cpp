@@ -203,6 +203,98 @@ std::list<NiObject *> NiTextureEffect::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Matrix33 NiTextureEffect::GetModelProjectionMatrix() const {
+	return modelProjectionMatrix;
+}
+
+void NiTextureEffect::SetModelProjectionMatrix( const Matrix33 & value ) {
+	modelProjectionMatrix = value;
+}
+
+Vector3 NiTextureEffect::GetModelProjectionTransform() const {
+	return modelProjectionTransform;
+}
+
+void NiTextureEffect::SetModelProjectionTransform( const Vector3 & value ) {
+	modelProjectionTransform = value;
+}
+
+TexFilterMode NiTextureEffect::GetTextureFiltering() const {
+	return textureFiltering;
+}
+
+void NiTextureEffect::SetTextureFiltering( const TexFilterMode & value ) {
+	textureFiltering = value;
+}
+
+TexClampMode NiTextureEffect::GetTextureClamping() const {
+	return textureClamping;
+}
+
+void NiTextureEffect::SetTextureClamping( const TexClampMode & value ) {
+	textureClamping = value;
+}
+
+EffectType NiTextureEffect::GetTextureType() const {
+	return textureType;
+}
+
+void NiTextureEffect::SetTextureType( const EffectType & value ) {
+	textureType = value;
+}
+
+CoordGenType NiTextureEffect::GetCoordinateGenerationType() const {
+	return coordinateGenerationType;
+}
+
+void NiTextureEffect::SetCoordinateGenerationType( const CoordGenType & value ) {
+	coordinateGenerationType = value;
+}
+
+Ref<NiImage > NiTextureEffect::GetImage() const {
+	return image;
+}
+
+void NiTextureEffect::SetImage( Ref<NiImage > value ) {
+	image = value;
+}
+
+Ref<NiSourceTexture > NiTextureEffect::GetSourceTexture() const {
+	return sourceTexture;
+}
+
+void NiTextureEffect::SetSourceTexture( Ref<NiSourceTexture > value ) {
+	sourceTexture = value;
+}
+
+byte NiTextureEffect::GetClippingPlane() const {
+	return clippingPlane;
+}
+
+void NiTextureEffect::SetClippingPlane( byte value ) {
+	clippingPlane = value;
+}
+
+short NiTextureEffect::GetPs2L() const {
+	return ps2L;
+}
+
+void NiTextureEffect::SetPs2L( short value ) {
+	ps2L = value;
+}
+
+short NiTextureEffect::GetPs2K() const {
+	return ps2K;
+}
+
+void NiTextureEffect::SetPs2K( short value ) {
+	ps2K = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 Matrix33 NiTextureEffect::GetModelProjectionMatrix() const {

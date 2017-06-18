@@ -120,6 +120,58 @@ std::list<NiObject *> BSSkyShaderProperty::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+SkyrimShaderPropertyFlags1 BSSkyShaderProperty::GetShaderFlags1() const {
+	return shaderFlags1;
+}
+
+void BSSkyShaderProperty::SetShaderFlags1( const SkyrimShaderPropertyFlags1 & value ) {
+	shaderFlags1 = value;
+}
+
+SkyrimShaderPropertyFlags2 BSSkyShaderProperty::GetShaderFlags2() const {
+	return shaderFlags2;
+}
+
+void BSSkyShaderProperty::SetShaderFlags2( const SkyrimShaderPropertyFlags2 & value ) {
+	shaderFlags2 = value;
+}
+
+TexCoord BSSkyShaderProperty::GetUvOffset() const {
+	return uvOffset;
+}
+
+void BSSkyShaderProperty::SetUvOffset( const TexCoord & value ) {
+	uvOffset = value;
+}
+
+TexCoord BSSkyShaderProperty::GetUvScale() const {
+	return uvScale;
+}
+
+void BSSkyShaderProperty::SetUvScale( const TexCoord & value ) {
+	uvScale = value;
+}
+
+string BSSkyShaderProperty::GetSourceTexture() const {
+	return sourceTexture;
+}
+
+void BSSkyShaderProperty::SetSourceTexture( const string & value ) {
+	sourceTexture = value;
+}
+
+SkyObjectType BSSkyShaderProperty::GetSkyObjectType() const {
+	return skyObjectType;
+}
+
+void BSSkyShaderProperty::SetSkyObjectType( const SkyObjectType & value ) {
+	skyObjectType = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

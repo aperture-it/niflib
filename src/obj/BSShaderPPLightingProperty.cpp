@@ -154,6 +154,34 @@ std::list<NiObject *> BSShaderPPLightingProperty::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Ref<BSShaderTextureSet > BSShaderPPLightingProperty::GetTextureSet() const {
+	return textureSet;
+}
+
+void BSShaderPPLightingProperty::SetTextureSet( Ref<BSShaderTextureSet > value ) {
+	textureSet = value;
+}
+
+int BSShaderPPLightingProperty::GetRefractionPeriod() const {
+	return refractionPeriod;
+}
+
+void BSShaderPPLightingProperty::SetRefractionPeriod( int value ) {
+	refractionPeriod = value;
+}
+
+Color4 BSShaderPPLightingProperty::GetEmissiveColor() const {
+	return emissiveColor;
+}
+
+void BSShaderPPLightingProperty::SetEmissiveColor( const Color4 & value ) {
+	emissiveColor = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 Ref<BSShaderTextureSet > BSShaderPPLightingProperty::GetTextureSet() const {

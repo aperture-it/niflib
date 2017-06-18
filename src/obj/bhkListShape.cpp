@@ -201,6 +201,34 @@ std::list<NiObject *> bhkListShape::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Ref<bhkShape > > bhkListShape::GetSubShapes() const {
+	return subShapes;
+}
+
+void bhkListShape::SetSubShapes( const vector<Ref<bhkShape > >& value ) {
+	subShapes = value;
+}
+
+HavokMaterial bhkListShape::GetMaterial() const {
+	return material;
+}
+
+void bhkListShape::SetMaterial( const HavokMaterial & value ) {
+	material = value;
+}
+
+SkyrimHavokMaterial bhkListShape::GetSkyrimMaterial() const {
+	return skyrimMaterial;
+}
+
+void bhkListShape::SetSkyrimMaterial( const SkyrimHavokMaterial & value ) {
+	skyrimMaterial = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 HavokMaterial bhkListShape::GetMaterial() const {
@@ -211,7 +239,15 @@ void bhkListShape::SetMaterial( HavokMaterial value ) {
 	material = value;
 }
 
-vector<Ref<bhkShape > > bhkListShape::GetSubShapes() const {
+SkyrimHavokMaterial bhkListShape::GetSkyrimMaterial() const {
+	return skyrimMaterial;
+}
+
+void bhkListShape::SetSkyrimMaterial(SkyrimHavokMaterial value) {
+	skyrimMaterial = value;
+}
+
+const vector<Ref<bhkShape > >& bhkListShape::GetSubShapes() const {
 	return subShapes;
 }
 
@@ -225,6 +261,13 @@ void bhkListShape::SetSubShapes(const vector<Ref<bhkShape > >& shapes) {
 	// Becuase this vector matches the subshape vector
 	unknownInts.resize(subShapes.size(), 0);
 }
+
+void bhkListShape::AppendSubShape(const Ref<bhkShape>& shape)
+{
+	subShapes.push_back(shape);
+	unknownInts.push_back(0); // Because this vector matches the subshape vector
+}
+
 
 void bhkListShape::CalcMassProperties(float density, bool solid, float &mass, float &volume, Vector3 &center, InertiaMatrix& inertia)
 {

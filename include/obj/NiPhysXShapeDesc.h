@@ -58,6 +58,18 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// PhysX Mesh Description
+	// \return The current value.
+	Ref<NiPhysXMeshDesc > GetMeshDescription() const;
+
+	// PhysX Mesh Description
+	// \param[in] value The new value.
+	void SetMeshDescription( Ref<NiPhysXMeshDesc > value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

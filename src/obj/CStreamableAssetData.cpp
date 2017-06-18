@@ -146,6 +146,18 @@ std::list<NiObject *> CStreamableAssetData::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Ref<NiNode > CStreamableAssetData::GetRoot() const {
+	return root;
+}
+
+void CStreamableAssetData::SetRoot( Ref<NiNode > value ) {
+	root = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

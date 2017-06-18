@@ -58,6 +58,18 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Unknown.
+	// \return The current value.
+	Ref<NiNode > GetRoot() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetRoot( Ref<NiNode > value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

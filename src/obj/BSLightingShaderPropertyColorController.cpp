@@ -20,7 +20,7 @@ using namespace Niflib;
 //Definition of TYPE constant
 const Type BSLightingShaderPropertyColorController::TYPE("BSLightingShaderPropertyColorController", &NiFloatInterpController::TYPE );
 
-BSLightingShaderPropertyColorController::BSLightingShaderPropertyColorController() : targetColor(LSCC_SPECULAR_COLOR) {
+BSLightingShaderPropertyColorController::BSLightingShaderPropertyColorController() : typeOfControlledColor((LightingShaderControlledColor)0) {
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
@@ -46,7 +46,7 @@ void BSLightingShaderPropertyColorController::Read( istream& in, list<unsigned i
 	//--END CUSTOM CODE--//
 
 	NiFloatInterpController::Read( in, link_stack, info );
-	NifStream( targetColor, in, info );
+	NifStream( typeOfControlledColor, in, info );
 
 	//--BEGIN POST-READ CUSTOM CODE--//
 
@@ -59,7 +59,7 @@ void BSLightingShaderPropertyColorController::Write( ostream& out, const map<NiO
 	//--END CUSTOM CODE--//
 
 	NiFloatInterpController::Write( out, link_map, missing_link_stack, info );
-	NifStream( targetColor, out, info );
+	NifStream( typeOfControlledColor, out, info );
 
 	//--BEGIN POST-WRITE CUSTOM CODE--//
 
@@ -73,7 +73,7 @@ std::string BSLightingShaderPropertyColorController::asString( bool verbose ) co
 
 	stringstream out;
 	out << NiFloatInterpController::asString();
-	out << "  targetColor:  " << targetColor << endl;
+	out << "  Type of Controlled Color:  " << typeOfControlledColor << endl;
 	return out.str();
 
 	//--BEGIN POST-STRING CUSTOM CODE--//
@@ -105,12 +105,18 @@ std::list<NiObject *> BSLightingShaderPropertyColorController::GetPtrs() const {
 	return ptrs;
 }
 
-//--BEGIN MISC CUSTOM CODE--//
-LightingShaderControlledColor BSLightingShaderPropertyColorController::GetTargetColor() const {
-	return targetColor;
+/***Begin Example Naive Implementation****
+
+LightingShaderControlledColor BSLightingShaderPropertyColorController::GetTypeOfControlledColor() const {
+	return typeOfControlledColor;
 }
 
-void BSLightingShaderPropertyColorController::SetTargetColor(LightingShaderControlledColor value) {
-	targetColor = value;
+void BSLightingShaderPropertyColorController::SetTypeOfControlledColor( const LightingShaderControlledColor & value ) {
+	typeOfControlledColor = value;
 }
+
+****End Example Naive Implementation***/
+
+//--BEGIN MISC CUSTOM CODE--//
+
 //--END CUSTOM CODE--//

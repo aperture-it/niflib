@@ -155,6 +155,18 @@ std::list<NiObject *> NiPSSimulatorCollidersStep::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Ref<NiObject > > NiPSSimulatorCollidersStep::GetColliders() const {
+	return colliders;
+}
+
+void NiPSSimulatorCollidersStep::SetColliders( const vector<Ref<NiObject > >& value ) {
+	colliders = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

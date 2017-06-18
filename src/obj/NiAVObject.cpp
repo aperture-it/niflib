@@ -28,9 +28,6 @@ NiAVObject::NiAVObject() : flags((unsigned short)0), unknownShort1((unsigned sho
 
 	parent = NULL;
 
-
-	parent = NULL;
-
 	//--END CUSTOM CODE--//
 }
 
@@ -277,6 +274,82 @@ std::list<NiObject *> NiAVObject::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned short NiAVObject::GetFlags() const {
+	return flags;
+}
+
+void NiAVObject::SetFlags( unsigned short value ) {
+	flags = value;
+}
+
+Vector3 NiAVObject::GetTranslation() const {
+	return translation;
+}
+
+void NiAVObject::SetTranslation( const Vector3 & value ) {
+	translation = value;
+}
+
+Matrix33 NiAVObject::GetRotation() const {
+	return rotation;
+}
+
+void NiAVObject::SetRotation( const Matrix33 & value ) {
+	rotation = value;
+}
+
+float NiAVObject::GetScale() const {
+	return scale;
+}
+
+void NiAVObject::SetScale( float value ) {
+	scale = value;
+}
+
+Vector3 NiAVObject::GetVelocity() const {
+	return velocity;
+}
+
+void NiAVObject::SetVelocity( const Vector3 & value ) {
+	velocity = value;
+}
+
+vector<Ref<NiProperty > > NiAVObject::GetProperties() const {
+	return properties;
+}
+
+void NiAVObject::SetProperties( const vector<Ref<NiProperty > >& value ) {
+	properties = value;
+}
+
+bool NiAVObject::GetHasBoundingBox() const {
+	return hasBoundingBox;
+}
+
+void NiAVObject::SetHasBoundingBox( bool value ) {
+	hasBoundingBox = value;
+}
+
+BoundingBox NiAVObject::GetBoundingBox() const {
+	return boundingBox;
+}
+
+void NiAVObject::SetBoundingBox( const BoundingBox & value ) {
+	boundingBox = value;
+}
+
+Ref<NiCollisionObject > NiAVObject::GetCollisionObject() const {
+	return collisionObject;
+}
+
+void NiAVObject::SetCollisionObject( Ref<NiCollisionObject > value ) {
+	collisionObject = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 Matrix44 NiAVObject::GetLocalTransform() const {
@@ -458,5 +531,20 @@ void NiAVObject::SetBoundingBox( const BoundingBox & n ) {
 	boundingBox = n;
 	hasBoundingBox = true;
 }
+
+
+// empty skinbinding implementation
+bool NiAVObject::SupportsSkinBinding() const { return false; }
+void NiAVObject::BindSkin(vector< Ref<NiNode> >& bone_nodes) {}
+void NiAVObject::BindSkinWith(vector< Ref<NiNode> >& bone_nodes, NiObject * (*SkinInstConstructor)()) {}
+void NiAVObject::UnbindSkin() {}
+void NiAVObject::SetBoneWeights(unsigned int bone_index, const vector<SkinWeight> & n) {}
+void NiAVObject::GetSkinDeformation(vector<Vector3> & vertices, vector<Vector3> & normals) const {}
+void NiAVObject::ApplyTransforms() {}
+void NiAVObject::ApplySkinOffset() {}
+void NiAVObject::NormalizeSkinWeights() {}
+bool NiAVObject::IsSkin() { return false; }
+
+
 
 //--END CUSTOM CODE--//

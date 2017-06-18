@@ -53,11 +53,35 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Unknown
+	// \return The current value.
+	unsigned int GetLevel0Size() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetLevel0Size( unsigned int value );
+
+	// Unknown
+	// \return The current value.
+	unsigned int GetLevel1Size() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetLevel1Size( unsigned int value );
+
+	// Unknown
+	// \return The current value.
+	unsigned int GetLevel2Size() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetLevel2Size( unsigned int value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
-
-	NIFLIB_API virtual unsigned int GetLODLevelSize(const unsigned int level) const;
-
-	NIFLIB_API virtual void SetLODLevelSize(const unsigned int level, unsigned int size);
 
 	//--END CUSTOM CODE--//
 protected:

@@ -134,6 +134,18 @@ std::list<NiObject *> BSMultiBoundNode::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Ref<BSMultiBound > BSMultiBoundNode::GetMultiBound() const {
+	return multiBound;
+}
+
+void BSMultiBoundNode::SetMultiBound( Ref<BSMultiBound > value ) {
+	multiBound = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

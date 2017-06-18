@@ -58,313 +58,655 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Skyrim Shader Flags for setting render/shader options.
+	// \return The current value.
+	SkyrimShaderPropertyFlags1 GetShaderFlags1() const;
+
+	// Skyrim Shader Flags for setting render/shader options.
+	// \param[in] value The new value.
+	void SetShaderFlags1( const SkyrimShaderPropertyFlags1 & value );
+
+	// Skyrim Shader Flags for setting render/shader options.
+	// \return The current value.
+	SkyrimShaderPropertyFlags2 GetShaderFlags2() const;
+
+	// Skyrim Shader Flags for setting render/shader options.
+	// \param[in] value The new value.
+	void SetShaderFlags2( const SkyrimShaderPropertyFlags2 & value );
+
+	// Offset UVs
+	// \return The current value.
+	TexCoord GetUvOffset() const;
+
+	// Offset UVs
+	// \param[in] value The new value.
+	void SetUvOffset( const TexCoord & value );
+
+	// Offset UV Scale to repeat tiling textures, see above.
+	// \return The current value.
+	TexCoord GetUvScale() const;
+
+	// Offset UV Scale to repeat tiling textures, see above.
+	// \param[in] value The new value.
+	void SetUvScale( const TexCoord & value );
+
+	// Texture Set, can have override in an esm/esp
+	// \return The current value.
+	Ref<BSShaderTextureSet > GetTextureSet() const;
+
+	// Texture Set, can have override in an esm/esp
+	// \param[in] value The new value.
+	void SetTextureSet( Ref<BSShaderTextureSet > value );
+
+	// Glow color and alpha
+	// \return The current value.
+	Color3 GetEmissiveColor() const;
+
+	// Glow color and alpha
+	// \param[in] value The new value.
+	void SetEmissiveColor( const Color3 & value );
+
+	// Multiplied emissive colors
+	// \return The current value.
+	float GetEmissiveMultiple() const;
+
+	// Multiplied emissive colors
+	// \param[in] value The new value.
+	void SetEmissiveMultiple( float value );
+
+	// Unknown.
+	// \return The current value.
+	IndexString GetRootMaterial() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetRootMaterial( const IndexString & value );
+
+	// How to handle texture borders.
+	// \return The current value.
+	TexClampMode GetTextureClampMode() const;
+
+	// How to handle texture borders.
+	// \param[in] value The new value.
+	void SetTextureClampMode( const TexClampMode & value );
+
+	// The materials opacity (1=non-transparent).
+	// \return The current value.
+	float GetAlpha() const;
+
+	// The materials opacity (1=non-transparent).
+	// \param[in] value The new value.
+	void SetAlpha( float value );
+
+	// Refraction strength increases as value increases
+	// \return The current value.
+	float GetRefractionStrength() const;
+
+	// Refraction strength increases as value increases
+	// \param[in] value The new value.
+	void SetRefractionStrength( float value );
+
+	// The material's specular power, or glossiness (0-999).
+	// \return The current value.
+	float GetGlossiness() const;
+
+	// The material's specular power, or glossiness (0-999).
+	// \param[in] value The new value.
+	void SetGlossiness( float value );
+
+	// Adds a colored highlight.
+	// \return The current value.
+	Color3 GetSpecularColor() const;
+
+	// Adds a colored highlight.
+	// \param[in] value The new value.
+	void SetSpecularColor( const Color3 & value );
+
+	// Brightness of specular highlight. (0=not visible) (0-999)
+	// \return The current value.
+	float GetSpecularStrength() const;
+
+	// Brightness of specular highlight. (0=not visible) (0-999)
+	// \param[in] value The new value.
+	void SetSpecularStrength( float value );
+
+	// Controls strength for envmap/backlight/rim/softlight lighting effect?
+	// \return The current value.
+	float GetLightingEffect1() const;
+
+	// Controls strength for envmap/backlight/rim/softlight lighting effect?
+	// \param[in] value The new value.
+	void SetLightingEffect1( float value );
+
+	// Controls strength for envmap/backlight/rim/softlight lighting effect?
+	// \return The current value.
+	float GetLightingEffect2() const;
+
+	// Controls strength for envmap/backlight/rim/softlight lighting effect?
+	// \param[in] value The new value.
+	void SetLightingEffect2( float value );
+
+	// Unknown.
+	// \return The current value.
+	float GetSubsurfaceRolloff() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetSubsurfaceRolloff( float value );
+
+	// Unknown.
+	// \return The current value.
+	float GetBacklightPower() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetBacklightPower( float value );
+
+	// GrayscaleToPaletteScale
+	// \return The current value.
+	float GetGrayscaleToPaletteScale() const;
+
+	// GrayscaleToPaletteScale
+	// \param[in] value The new value.
+	void SetGrayscaleToPaletteScale( float value );
+
+	// Fresnel Power
+	// \return The current value.
+	float GetFresnelPower() const;
+
+	// Fresnel Power
+	// \param[in] value The new value.
+	void SetFresnelPower( float value );
+
+	// Unknown.
+	// \return The current value.
+	float GetWetnessSpecScale() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetWetnessSpecScale( float value );
+
+	// Unknown.
+	// \return The current value.
+	float GetWetnessSpecPower() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetWetnessSpecPower( float value );
+
+	// Unknown.
+	// \return The current value.
+	float GetWetnessMinVar() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetWetnessMinVar( float value );
+
+	// Unknown.
+	// \return The current value.
+	float GetWetnessEnvMapScale() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetWetnessEnvMapScale( float value );
+
+	// Unknown.
+	// \return The current value.
+	float GetWetnessFresnelPower() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetWetnessFresnelPower( float value );
+
+	// Unknown.
+	// \return The current value.
+	float GetWetnessMetalness() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetWetnessMetalness( float value );
+
+	// Scales the intensity of the environment/cube map. (0-1)
+	// \return The current value.
+	float GetEnvironmentMapScale() const;
+
+	// Scales the intensity of the environment/cube map. (0-1)
+	// \param[in] value The new value.
+	void SetEnvironmentMapScale( float value );
+
+	// Tints the base texture. Overridden by game settings.
+	// \return The current value.
+	Color3 GetSkinTintColor() const;
+
+	// Tints the base texture. Overridden by game settings.
+	// \param[in] value The new value.
+	void SetSkinTintColor( const Color3 & value );
+
+	// Tints the base texture. Overridden by game settings.
+	// \return The current value.
+	Color3 GetHairTintColor() const;
+
+	// Tints the base texture. Overridden by game settings.
+	// \param[in] value The new value.
+	void SetHairTintColor( const Color3 & value );
+
+	// Max Passes
+	// \return The current value.
+	float GetMaxPasses() const;
+
+	// Max Passes
+	// \param[in] value The new value.
+	void SetMaxPasses( float value );
+
+	// Scale
+	// \return The current value.
+	float GetScale() const;
+
+	// Scale
+	// \param[in] value The new value.
+	void SetScale( float value );
+
+	// How far from the surface the inner layer appears to be.
+	// \return The current value.
+	float GetParallaxInnerLayerThickness() const;
+
+	// How far from the surface the inner layer appears to be.
+	// \param[in] value The new value.
+	void SetParallaxInnerLayerThickness( float value );
+
+	// Depth of inner parallax layer effect.
+	// \return The current value.
+	float GetParallaxRefractionScale() const;
+
+	// Depth of inner parallax layer effect.
+	// \param[in] value The new value.
+	void SetParallaxRefractionScale( float value );
+
+	// Scales the inner parallax layer texture.
+	// \return The current value.
+	TexCoord GetParallaxInnerLayerTextureScale() const;
+
+	// Scales the inner parallax layer texture.
+	// \param[in] value The new value.
+	void SetParallaxInnerLayerTextureScale( const TexCoord & value );
+
+	// How strong the environment/cube map is. (0-??)
+	// \return The current value.
+	float GetParallaxEnvmapStrength() const;
+
+	// How strong the environment/cube map is. (0-??)
+	// \param[in] value The new value.
+	void SetParallaxEnvmapStrength( float value );
+
+	// Unknown/unused?  CK lists "snow material" when used.
+	// \return The current value.
+	Vector4 GetSparkleParameters() const;
+
+	// Unknown/unused?  CK lists "snow material" when used.
+	// \param[in] value The new value.
+	void SetSparkleParameters( const Vector4 & value );
+
+	// Eye cubemap scale
+	// \return The current value.
+	float GetEyeCubemapScale() const;
+
+	// Eye cubemap scale
+	// \param[in] value The new value.
+	void SetEyeCubemapScale( float value );
+
+	// Offset to set center for left eye cubemap
+	// \return The current value.
+	Vector3 GetLeftEyeReflectionCenter() const;
+
+	// Offset to set center for left eye cubemap
+	// \param[in] value The new value.
+	void SetLeftEyeReflectionCenter( const Vector3 & value );
+
+	// Offset to set center for right eye cubemap
+	// \return The current value.
+	Vector3 GetRightEyeReflectionCenter() const;
+
+	// Offset to set center for right eye cubemap
+	// \param[in] value The new value.
+	void SetRightEyeReflectionCenter( const Vector3 & value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
-	/*!
-	 * Shader flags used by Skyrim
-	 * \return The value of the shader flags
-	 */
-	NIFLIB_API SkyrimShaderPropertyFlags1 GetShaderFlags1() const;
+	// Skyrim's shaders: 0=default 1=EnvMap, 2=Glow, 5=Skin, 6=Hair, 7=Unknown,
+	// 11=Ice/Parallax, 15=Eye.
+	// \return The current value.
+	BSLightingShaderPropertyShaderType GetSkyrimShaderType() const;
 
-	/*!
-	 * Sets the value of the shader flags used by Skyrim
-	 * \param[in] The new value of the shader flags
-	 */
-	NIFLIB_API void SetShaderFlags1(SkyrimShaderPropertyFlags1 value);
+	// Skyrim's shaders: 0=default 1=EnvMap, 2=Glow, 5=Skin, 6=Hair, 7=Unknown,
+	// 11=Ice/Parallax, 15=Eye.
+	// \param[in] value The new value.
+	void SetSkyrimShaderType( BSLightingShaderPropertyShaderType value );
 
-	/*!
-	 * Gets the second set of shader flags used by Skyrim
-	 * \return The value of the second set of flags
-	 */
-	NIFLIB_API SkyrimShaderPropertyFlags2 GetShaderFlags2() const;
 
-	/*!
-	 * Sets the value of the second set of skyrim shader flags
-	 * \param[in] the value of the second set of flags
-	 */
-	NIFLIB_API void SetShaderFlags2(SkyrimShaderPropertyFlags2 value); 
+   // Skyrim Shader Flags for setting render/shader options.
+   // \return The current value.
+   SkyrimShaderPropertyFlags1 GetShaderFlags1() const;
 
-	/*!
-	 * Used to reposition the texture coordinates of the uv's
-	 * \return The texture translation the the uv's
-	 */
-	NIFLIB_API TexCoord GetUVOffset() const;
+   // Skyrim Shader Flags for setting render/shader options.
+   // \param[in] value The new value.
+   void SetShaderFlags1( const SkyrimShaderPropertyFlags1 & value );
 
-	/*!
-	 * Sets the value of the texture offset of the uv's
-	 * \param[in] The new value of the uv offsets
-	 */
-	NIFLIB_API void SetUVOffset(const TexCoord & value);
+   // Skyrim Shader Flags for setting render/shader options.
+   // \return The current value.
+   SkyrimShaderPropertyFlags2 GetShaderFlags2() const;
 
-	/*!
-	 * Used to get the offset of the texture coordinates or uv's
-	 * \return The second texture offsets for the uv
-	 */
-	NIFLIB_API TexCoord GetUVScale() const;
+   // Skyrim Shader Flags for setting render/shader options.
+   // \param[in] value The new value.
+   void SetShaderFlags2( const SkyrimShaderPropertyFlags2 & value );
 
-	/*!
-	 * Used to set the second texture offsets
-	 * \param[in] The second texture offsets
-	 */
-	NIFLIB_API void SetUVScale(const TexCoord & value);
+   // UV Offset
+   // \return The current value.
+   TexCoord GetUvOffset() const;
 
-	/*!
-	 * Returns the current texture set used
-	 * \return A reference to the texture set
-	 */
-	NIFLIB_API Ref<BSShaderTextureSet > GetTextureSet() const;
+   // UV Offset
+   // \param[in] value The new value.
+   void SetUvOffset( const TexCoord & value );
 
-	/*!
-	 * Sets the texture set used by this material
-	 * \param[in] A reference to the texture set
-	 */
-	NIFLIB_API void SetTextureSet( Ref<BSShaderTextureSet> value);
+   // UV Scale
+   // \return The current value.
+   TexCoord GetUvScale() const;
 
-	/*!
-	 * Returns the emissive color of the material
-	 * \return The emissive color value
-	 */
-	NIFLIB_API Color3 GetEmissiveColor() const;
+   // UV Scale
+   // \param[in] value The new value.
+   void SetUvScale( const TexCoord & value );
 
-	/*!
-	 * Sets the emissive color of this material
-	 * \param[in] The new emissive color
-	 */
-	NIFLIB_API void SetEmissiveColor(const Color3 & value);
+   // Texture Set, can have override in an esm/esp
+   // \return The current value.
+   Ref<BSShaderTextureSet > GetTextureSet() const;
 
-	/*!
-	 * Get the emissive saturation
-	 * \return The emissive saturation
-	 */
-	NIFLIB_API float GetEmissiveMultiple() const;
+   // Texture Set, can have override in an esm/esp
+   // \param[in] value The new value.
+   void SetTextureSet( Ref<BSShaderTextureSet > value );
 
-	/*!
-	 * Sets the emissive saturation of the material
-	 * \param[in] The new emissive saturation value
-	 */
-	NIFLIB_API void SetEmissiveMultiple(float value);
+   // Glow color and alpha
+   // \return The current value.
+   Color3 GetEmissiveColor() const;
 
-	/*!
-	 * Gets unknown unsigned int7
-	 * \return The current value
-	 */
-	NIFLIB_API TexClampMode  GetTextureClampMode() const;
+   // Glow color and alpha
+   // \param[in] value The new value.
+   void SetEmissiveColor( const Color3 & value );
 
-	/*!
-	 * Sets the unknown int7 of this material
-	 * \param[in] The new value
-	 */
-	NIFLIB_API void SetTextureClampMode(TexClampMode value);
+   // Multiplied emissive colors
+   // \return The current value.
+   float GetEmissiveMultiple() const;
 
-	/*!
-	 * Get the transparency or "alpha" of this material
-	 * \return The current alpha value of the material
-	 */
-	NIFLIB_API float GetAlpha() const;
+   // Multiplied emissive colors
+   // \param[in] value The new value.
+   void SetEmissiveMultiple( float value );
 
-	/*!
-	 * Sets the transparency or alpha of this material
-	 * \param[in] The new alpha value
-	 */
-	NIFLIB_API void SetAlpha(float value);
+   // Unknown.
+   // \return The current value.
+   string GetRootMaterial() const;
 
-	/*!
-	 * Get the unknown float2 of the material
-	 * WARNING: API not stable
-	 * \return The unknown float2 value
-	 */
-	NIFLIB_API float GetUnknownFloat2() const;
+   // Unknown.
+   // \param[in] value The new value.
+   void SetRootMaterial(const string & value);
 
-	/*!
-	 * Sets the unknown float2 of the material
-	 * WARNING: API not stable
-	 * \param[in] The new unknown float2 value
-	 */
-	 NIFLIB_API void SetUnknownFloat2(float value);
+   // How to handle texture borders.
+   // \return The current value.
+   TexClampMode GetTextureClampMode() const;
 
-	/*!
-	 * Gets the glossiness of the material
-	 * \return The glossiness 
-	 */
-	NIFLIB_API float GetGlossiness() const;
+   // How to handle texture borders.
+   // \param[in] value The new value.
+   void SetTextureClampMode( TexClampMode value );
 
-	/*!
-	 * Sets the glossiness of the material
-	 * \param[in] The new glossiness value
-	 */
-	NIFLIB_API void SetGlossiness(float value);
+   // The materials opacity (1=non-transparent).
+   // \return The current value.
+   float GetAlpha() const;
 
-	/*!
-	 * Gets the specular color of the material
-	 * \return The specular color
-	 */
-	NIFLIB_API Color3 GetSpecularColor() const;
+   // The materials opacity (1=non-transparent).
+   // \param[in] value The new value.
+   void SetAlpha( float value );
 
-	/*!
-	 * Sets the specular color of the material
-	 * \param[in] The new specular color 
-	 */
-	NIFLIB_API void SetSpecularColor(const Color3 & value);
 
-	/*!
-	 * Gets the specular strength of the material
-	 * \return The specular strength value
-	 */
-	NIFLIB_API float GetSpecularStrength() const;
+	// Refraction strength increases as value increases
+	// \return The current value.
+	float GetRefractionStrength() const;
 
-	/*!
-	 * Sets the specular strength of the material
-	 * \param[in] The new specular strength value
-	 */
-	NIFLIB_API void SetSpecularStrength(float value);
+	// Refraction strength increases as value increases
+	// \param[in] value The new value.
+	void SetRefractionStrength( float value );
 
-	/*!
-	 * Gets the lightning effect1 of the material
-	 * \return The lightning effect2 value 
-	 */
-	NIFLIB_API float GetLightingEffect1() const;
+   // The material's glossiness. (0-999)
+   // \return The current value.
+   float GetSpecularPower_Glossiness() const;
 
-	/*!
-	 * Sets the lightning effect1 of the material
-	 * \param[in] The new lighting effect1 value
-	 */
-	NIFLIB_API void SetLightingEffect1(float value);
+   // The material's glossiness. (0-999)
+   // \param[in] value The new value.
+   void SetSpecularPower_Glossiness( float value );
 
-	/*!
-	 * Gets the lighting effect2 of the material
-	 * \return The lightning effect2 value
-	 */
-	NIFLIB_API float GetLightingEffect2() const;
+   // Adds a colored highlight.
+   // \return The current value.
+   Color3 GetSpecularColor() const;
 
-	/*!
-	 * Sets the lighting effect2 of the material
-	 * \param[in] The new lighting effect2 of the material
-	 */
-	NIFLIB_API void SetLightingEffect2(float value);
+   // Adds a colored highlight.
+   // \param[in] value The new value.
+   void SetSpecularColor( const Color3 & value );
 
-	/*!
-	 * Gets the environment map strength of the material
-	 * \return The environment map strength
-	 */
-	NIFLIB_API float GetEnvironmentMapScale() const;
+   // Brightness of specular highlight. (0=not visible) (0-999)
+   // \return The current value.
+   float GetSpecularStrength() const;
 
-	/*!
-	 * Sets the environment map strength of the material
-	 * \param[in] The new environment map strength value
-	 */
-	NIFLIB_API void SetEnvironmentMapScale(float value);
+   // Brightness of specular highlight. (0=not visible) (0-999)
+   // \param[in] value The new value.
+   void SetSpecularStrength( float value );
+
+   // Controls strength for envmap/backlight/rim/softlight lighting effect?
+   // \return The current value.
+   float GetLightingEffect1() const;
+
+   // Controls strength for envmap/backlight/rim/softlight lighting effect?
+   // \param[in] value The new value.
+   void SetLightingEffect1( float value );
+
+   // Controls strength for envmap/backlight/rim/softlight lighting effect?
+   // \return The current value.
+   float GetLightingEffect2() const;
+
+   // Controls strength for envmap/backlight/rim/softlight lighting effect?
+   // \param[in] value The new value.
+   void SetLightingEffect2( float value );
+
+   // Unknown.
+   // \return The current value.
+   float GetSubsurfaceRolloff() const;
+
+   // Unknown.
+   // \param[in] value The new value.
+   void SetSubsurfaceRolloff(float value);
+
+   // Unknown.
+   // \return The current value.
+   float GetUnknownFloat1() const;
+
+   // Unknown.
+   // \param[in] value The new value.
+   void SetUnknownFloat1(float value);
+
+	// Unknown.
+   // \return The current value.
+   float GetBacklightPower() const;
+
+   // Unknown.
+   // \param[in] value The new value.
+   void SetBacklightPower(float value);
+
+   // GrayscaleToPaletteScale
+   // \return The current value.
+   float GetGrayscaleToPaletteScale() const;
+
+   // GrayscaleToPaletteScale
+   // \param[in] value The new value.
+   void SetGrayscaleToPaletteScale(float value);
+
+   // Fresnel Power
+   // \return The current value.
+   float GetFresnelPower() const;
+
+   // Fresnel Power
+   // \param[in] value The new value.
+   void SetFresnelPower(float value);
+
+   // Unknown.
+   // \return The current value.
+   float GetWetnessSpecScale() const;
+
+   // Unknown.
+   // \param[in] value The new value.
+   void SetWetnessSpecScale(float value);
+
+   // Unknown.
+   // \return The current value.
+   float GetWetnessSpecPower() const;
+
+   // Unknown.
+   // \param[in] value The new value.
+   void SetWetnessSpecPower(float value);
+
+   // Unknown.
+   // \return The current value.
+   float GetWetnessMinVar() const;
+
+   // Unknown.
+   // \param[in] value The new value.
+   void SetWetnessMinVar(float value);
+
+   // Unknown.
+   // \return The current value.
+   float GetWetnessEnvMapScale() const;
+
+   // Unknown.
+   // \param[in] value The new value.
+   void SetWetnessEnvMapScale(float value);
+
+   // Unknown.
+   // \return The current value.
+   float GetWetnessFresnelPower() const;
+
+   // Unknown.
+   // \param[in] value The new value.
+   void SetWetnessFresnelPower(float value);
+
+   // Unknown.
+   // \return The current value.
+   float GetWetnessMetalness() const;
+
+   // Unknown.
+   // \param[in] value The new value.
+   void SetWetnessMetalness(float value);
+
+   // Scales the environment/cube map. (0-??)
+   // \return The current value.
+   float GetEnvironmentMapScale() const;
+
+   // Scales the environment/cube map. (0-??)
+   // \param[in] value The new value.
+   void SetEnvironmentMapScale( float value );
 
    // Tints the base texture. Overridden by game settings.
    // \return The current value.
-   NIFLIB_API Color3 GetSkinTintColor() const;
+   Color3 GetSkinTintColor() const;
 
    // Tints the base texture. Overridden by game settings.
    // \param[in] value The new value.
-   NIFLIB_API void SetSkinTintColor( const Color3 & value );
+   void SetSkinTintColor( const Color3 & value );
 
    // Tints the base texture. Overridden by game settings.
    // \return The current value.
-   NIFLIB_API Color3 GetHairTintColor() const;
+   Color3 GetHairTintColor() const;
 
    // Tints the base texture. Overridden by game settings.
    // \param[in] value The new value.
-   NIFLIB_API void SetHairTintColor( const Color3 & value );
+   void SetHairTintColor( const Color3 & value );
 
    // Max Passes
    // \return The current value.
-   NIFLIB_API float GetMaxPasses() const;
+   float GetMaxPasses() const;
 
    // Max Passes
    // \param[in] value The new value.
-   NIFLIB_API void SetMaxPasses( float value );
+   void SetMaxPasses( float value );
 
    // Scale
    // \return The current value.
-   NIFLIB_API float GetScale() const;
+   float GetScale() const;
 
    // Scale
    // \param[in] value The new value.
-   NIFLIB_API void SetScale( float value );
+   void SetScale( float value );
 
    // How far from the surface the inner layer appears to be.
    // \return The current value.
-   NIFLIB_API float GetParallaxInnerLayerThickness() const;
+   float GetParallaxInnerLayerThickness() const;
 
    // How far from the surface the inner layer appears to be.
    // \param[in] value The new value.
-   NIFLIB_API void SetParallaxInnerLayerThickness( float value );
+   void SetParallaxInnerLayerThickness( float value );
 
    // Depth of inner parallax layer effect.
    // \return The current value.
-   NIFLIB_API float GetParallaxRefractionScale() const;
+   float GetParallaxRefractionScale() const;
 
    // Depth of inner parallax layer effect.
    // \param[in] value The new value.
-   NIFLIB_API void SetParallaxRefractionScale( float value );
+   void SetParallaxRefractionScale( float value );
 
    // Scales the inner parallax layer texture.
    // \return The current value.
-   NIFLIB_API TexCoord GetParallaxInnerLayerTextureScale() const;
+   TexCoord GetParallaxInnerLayerTextureScale() const;
 
    // Scales the inner parallax layer texture.
    // \param[in] value The new value.
-   NIFLIB_API void SetParallaxInnerLayerTextureScale( const TexCoord & value );
+   void SetParallaxInnerLayerTextureScale( const TexCoord & value );
 
    // How strong the environment/cube map is. (0-??)
    // \return The current value.
-   NIFLIB_API float GetParallaxEnvmapStrength() const;
+   float GetParallaxEnvmapStrength() const;
 
    // How strong the environment/cube map is. (0-??)
    // \param[in] value The new value.
-   NIFLIB_API void SetParallaxEnvmapStrength( float value );
+   void SetParallaxEnvmapStrength( float value );
 
-	/*!
-	 * Gets the unknown float set5 of the material
-	 * \return The unknown float set5 value
-	 */
-	NIFLIB_API Vector4 GetSparkleParameters() const;
+   // Unknown/unused?  CK lists "snow material" when used.
+   // \return The current value.
+   Vector4 GetSparkleParameters() const;
 
-	/*!
-	 * Sets the unknown float set5 of the material
-	 * \param[in] The new unknown float set5 value
-	 */
-	NIFLIB_API void SetSparkleParameters(const Vector4 & value);
+   // Unknown/unused?  CK lists "snow material" when used.
+   // \param[in] value The new value.
+   void SetSparkleParameters( const Vector4 & value );
 
-	/*!
-	 * Get the eye cubemap scale
-	 * \return The eye cubemap scale value
-	 */
-	NIFLIB_API float GetEyeCubemapScale() const;
+   // Eye cubemap scale
+   // \return The current value.
+   float GetEyeCubemapScale() const;
 
-	/*!
-	 * Sets the eye cubemap scale
-	 * \param[in] The new eye cubemap scale value
-	 */
-	NIFLIB_API void SetEyeCubemapScale(float value);
+   // Eye cubemap scale
+   // \param[in] value The new value.
+   void SetEyeCubemapScale( float value );
 
-	/*!
-	 * Gets the left eye reflection center
-	 * \return The left eye reflection center value
-	 */
-	NIFLIB_API Vector3 GetLeftEyeReflectionCenter() const;
+   // Offset to set center for left eye cubemap
+   // \return The current value.
+   Vector3 GetLeftEyeReflectionCenter() const;
 
-	/*!
-	 * Sets the left eye reflection center
-	 * \param[in] The new left eye reflection center value
-	 */
-	NIFLIB_API void SetLeftEyeReflectionCenter(const Vector3 & value);
+   // Offset to set center for left eye cubemap
+   // \param[in] value The new value.
+   void SetLeftEyeReflectionCenter( const Vector3 & value );
 
-	/*!
-	 * Get the right eye reflection center
-	 * \return The right eye reflection center value
-	 */
-	NIFLIB_API Vector3 GetRightEyeReflectionCenter() const;
+   // Offset to set center for right eye cubemap
+   // \return The current value.
+   Vector3 GetRightEyeReflectionCenter() const;
 
-	/*!
-	 * Sets the right eye reflection center
-	 * \param[in] The new right eye reflection center value
-	 */
-	NIFLIB_API void SetRightEyeReflectionCenter( const Vector3 & value);
+   // Offset to set center for right eye cubemap
+   // \param[in] value The new value.
+   void SetRightEyeReflectionCenter( const Vector3 & value );
 
 	//--END CUSTOM CODE--//
 protected:
@@ -382,12 +724,14 @@ protected:
 	Color3 emissiveColor;
 	/*! Multiplied emissive colors */
 	float emissiveMultiple;
+	/*! Unknown. */
+	IndexString rootMaterial;
 	/*! How to handle texture borders. */
 	TexClampMode textureClampMode;
 	/*! The materials opacity (1=non-transparent). */
 	float alpha;
-	/*! Unknown */
-	float unknownFloat2;
+	/*! Refraction strength increases as value increases */
+	float refractionStrength;
 	/*! The material's specular power, or glossiness (0-999). */
 	float glossiness;
 	/*! Adds a colored highlight. */
@@ -398,10 +742,36 @@ protected:
 	float lightingEffect1;
 	/*! Controls strength for envmap/backlight/rim/softlight lighting effect? */
 	float lightingEffect2;
-	/*! Scales the environment/cube map. (0-??) */
+	/*! Unknown. */
+	float subsurfaceRolloff;
+	/*! Unknown. */
+	float unknownFloat1;
+	/*! Unknown. */
+	float backlightPower;
+	/*! GrayscaleToPaletteScale */
+	float grayscaleToPaletteScale;
+	/*! Fresnel Power */
+	float fresnelPower;
+	/*! Unknown. */
+	float wetnessSpecScale;
+	/*! Unknown. */
+	float wetnessSpecPower;
+	/*! Unknown. */
+	float wetnessMinVar;
+	/*! Unknown. */
+	float wetnessEnvMapScale;
+	/*! Unknown. */
+	float wetnessFresnelPower;
+	/*! Unknown. */
+	float wetnessMetalness;
+	/*! Scales the intensity of the environment/cube map. (0-1) */
 	float environmentMapScale;
+	/*! Unknown */
+	unsigned short unknownEmapInt1;
 	/*! Tints the base texture. Overridden by game settings. */
 	Color3 skinTintColor;
+	/*! Unknown */
+	unsigned int unknownTintInt1;
 	/*! Tints the base texture. Overridden by game settings. */
 	Color3 hairTintColor;
 	/*! Max Passes */

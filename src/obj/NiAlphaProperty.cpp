@@ -107,6 +107,26 @@ std::list<NiObject *> NiAlphaProperty::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned short NiAlphaProperty::GetFlags() const {
+	return flags;
+}
+
+void NiAlphaProperty::SetFlags( unsigned short value ) {
+	flags = value;
+}
+
+byte NiAlphaProperty::GetThreshold() const {
+	return threshold;
+}
+
+void NiAlphaProperty::SetThreshold( byte value ) {
+	threshold = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 unsigned short NiAlphaProperty::GetFlags() const {

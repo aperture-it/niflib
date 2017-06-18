@@ -59,6 +59,26 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Group of target NiNodes?
+	// \return The current value.
+	vector<Ref<NiNode > > GetNodes() const;
+
+	// Group of target NiNodes?
+	// \param[in] value The new value.
+	void SetNodes( const vector<Ref<NiNode > >& value );
+
+	// Unknown
+	// \return The current value.
+	Ref<NiPSysModifier > GetModifier() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetModifier( Ref<NiPSysModifier > value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

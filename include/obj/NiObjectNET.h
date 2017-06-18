@@ -58,6 +58,82 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Configures the main shader path
+	// \return The current value.
+	BSLightingShaderPropertyShaderType GetSkyrimShaderType() const;
+
+	// Configures the main shader path
+	// \param[in] value The new value.
+	void SetSkyrimShaderType( const BSLightingShaderPropertyShaderType & value );
+
+	// Name of this controllable object, used to refer to the object in .kf files.
+	// \return The current value.
+	IndexString GetName() const;
+
+	// Name of this controllable object, used to refer to the object in .kf files.
+	// \param[in] value The new value.
+	void SetName( const IndexString & value );
+
+	// Extra data for pre-3.0 versions.
+	// \return The current value.
+	bool GetHasOldExtraData() const;
+
+	// Extra data for pre-3.0 versions.
+	// \param[in] value The new value.
+	void SetHasOldExtraData( bool value );
+
+	// (=NiStringExtraData)
+	// \return The current value.
+	IndexString GetOldExtraPropName() const;
+
+	// (=NiStringExtraData)
+	// \param[in] value The new value.
+	void SetOldExtraPropName( const IndexString & value );
+
+	// ref
+	// \return The current value.
+	unsigned int GetOldExtraInternalId() const;
+
+	// ref
+	// \param[in] value The new value.
+	void SetOldExtraInternalId( unsigned int value );
+
+	// Extra string data.
+	// \return The current value.
+	IndexString GetOldExtraString() const;
+
+	// Extra string data.
+	// \param[in] value The new value.
+	void SetOldExtraString( const IndexString & value );
+
+	// Extra data object index. (The first in a chain)
+	// \return The current value.
+	Ref<NiExtraData > GetExtraData() const;
+
+	// Extra data object index. (The first in a chain)
+	// \param[in] value The new value.
+	void SetExtraData( Ref<NiExtraData > value );
+
+	// List of extra data indices.
+	// \return The current value.
+	vector<Ref<NiExtraData > > GetExtraDataList() const;
+
+	// List of extra data indices.
+	// \param[in] value The new value.
+	void SetExtraDataList( const vector<Ref<NiExtraData > >& value );
+
+	// Controller object index. (The first in a chain)
+	// \return The current value.
+	Ref<NiTimeController > GetController() const;
+
+	// Controller object index. (The first in a chain)
+	// \param[in] value The new value.
+	void SetController( Ref<NiTimeController > value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	NIFLIB_API string GetName();
@@ -129,18 +205,6 @@ public:
 	 * \return All the controllers affecting this object.
 	 */
 	NIFLIB_API list< Ref<NiTimeController> > GetControllers() const;
-
-	/*!
-	* Gets the skyrim shader type
-	* \return The skyrim shader flag value
-	*/
-	NIFLIB_API BSLightingShaderPropertyShaderType GetSkyrimShaderType() const;
-
-	/*!
-	* Set the skyrim shader type
-	* \param[in] The new skyrim shader value
-	*/
-	NIFLIB_API void SetSkyrimShaderType(BSLightingShaderPropertyShaderType value);
 
 	//--END CUSTOM CODE--//
 protected:

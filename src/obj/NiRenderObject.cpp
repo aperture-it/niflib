@@ -133,6 +133,34 @@ std::list<NiObject *> NiRenderObject::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<MaterialData > NiRenderObject::GetMaterialData() const {
+	return materialData;
+}
+
+void NiRenderObject::SetMaterialData( const vector<MaterialData >& value ) {
+	materialData = value;
+}
+
+int NiRenderObject::GetActiveMaterial() const {
+	return activeMaterial;
+}
+
+void NiRenderObject::SetActiveMaterial( int value ) {
+	activeMaterial = value;
+}
+
+bool NiRenderObject::GetMaterialNeedsUpdateDefault() const {
+	return materialNeedsUpdateDefault;
+}
+
+void NiRenderObject::SetMaterialNeedsUpdateDefault( bool value ) {
+	materialNeedsUpdateDefault = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

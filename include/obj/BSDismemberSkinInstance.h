@@ -56,19 +56,27 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Unknown
+	// \return The current value.
+	vector<BodyPartList > GetPartitions() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetPartitions( const vector<BodyPartList >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
-	/*!
-     * Get list of dismemberment partitions
-     * \return The current value.
-	 */
-   NIFLIB_API vector<BodyPartList > GetPartitions() const;
+   // Get list of dismemberment partitions
+   // \return The current value.
+   vector<BodyPartList > GetPartitions() const;
 
-   /*!
-    * Assign the dismemberment partition list
-    * \param[in] value The new value.
-	*/
-   NIFLIB_API void SetPartitions( const vector<BodyPartList >& value );
+   // Assign the dismemberment partition list
+   // \param[in] value The new value.
+   void SetPartitions( const vector<BodyPartList >& value );
 
 	//--END CUSTOM CODE--//
 protected:

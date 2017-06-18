@@ -59,6 +59,62 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// USE_SOFTWARE_SKINNING = 0x0001
+	//             RECOMPUTE_BOUNDS = 0x0002
+	// \return The current value.
+	unsigned short GetFlags() const;
+
+	// USE_SOFTWARE_SKINNING = 0x0001
+	//             RECOMPUTE_BOUNDS = 0x0002
+	// \param[in] value The new value.
+	void SetFlags( unsigned short value );
+
+	// The root bone of the skeleton.
+	// \return The current value.
+	NiAVObject * GetSkeletonRoot() const;
+
+	// The root bone of the skeleton.
+	// \param[in] value The new value.
+	void SetSkeletonRoot( NiAVObject * value );
+
+	// The transform that takes the root bone parent coordinate system into the skin
+	// coordinate system.
+	// \return The current value.
+	SkinTransform GetSkeletonTransform() const;
+
+	// The transform that takes the root bone parent coordinate system into the skin
+	// coordinate system.
+	// \param[in] value The new value.
+	void SetSkeletonTransform( const SkinTransform & value );
+
+	// Pointers to the bone nodes that affect this skin.
+	// \return The current value.
+	vector<NiAVObject * > GetBones() const;
+
+	// Pointers to the bone nodes that affect this skin.
+	// \param[in] value The new value.
+	void SetBones( const vector<NiAVObject * >& value );
+
+	// The transforms that go from bind-pose space to bone space.
+	// \return The current value.
+	vector<SkinTransform > GetBoneTransforms() const;
+
+	// The transforms that go from bind-pose space to bone space.
+	// \param[in] value The new value.
+	void SetBoneTransforms( const vector<SkinTransform >& value );
+
+	// The bounds of the bones.  Only stored if the RECOMPUTE_BOUNDS bit is set.
+	// \return The current value.
+	vector<SphereBV > GetBoneBounds() const;
+
+	// The bounds of the bones.  Only stored if the RECOMPUTE_BOUNDS bit is set.
+	// \param[in] value The new value.
+	void SetBoneBounds( const vector<SphereBV >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

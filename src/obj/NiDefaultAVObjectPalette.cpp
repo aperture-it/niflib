@@ -147,6 +147,18 @@ std::list<NiObject *> NiDefaultAVObjectPalette::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<AVObject > NiDefaultAVObjectPalette::GetObjs() const {
+	return objs;
+}
+
+void NiDefaultAVObjectPalette::SetObjs( const vector<AVObject >& value ) {
+	objs = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 vector<Ref<NiAVObject> > NiDefaultAVObjectPalette::GetObjs() const {
@@ -165,45 +177,6 @@ void NiDefaultAVObjectPalette::SetObjs( const vector<Ref<NiAVObject> >& value ) 
       obj.avObject = (*itr);
       objs.push_back(obj);
    }
-}
-
-bool NiDefaultAVObjectPalette::AddObj( Ref<NiAVObject > obj ) {
-  for (vector<AVObject>::iterator itr = objs.begin(); itr != objs.end(); ++itr) {
-    if ( (*itr).avObject == obj ) {
-      return false;
-    }
-  }
-
-  struct AVObject avo;
-  avo.name = obj->GetName();
-  avo.avObject = obj;
-
-  objs.push_back(avo);
-  numObjs++;
-
-  return false;
-}
-
-bool NiDefaultAVObjectPalette::RemoveObj( Ref<NiAVObject > obj ) {
-  for (vector<AVObject>::iterator itr = objs.begin(); itr != objs.end(); ++itr) {
-    if ( (*itr).avObject == obj ) {
-      objs.erase(itr);
-      numObjs--;
-
-      return true;
-    }
-  }
-
-  return false;
-}
-
-void NiDefaultAVObjectPalette::ReplaceObj( const Ref<NiAVObject> newobj, const Ref<NiAVObject> oldobj ) {
-  for (vector<AVObject>::iterator itr = objs.begin(); itr != objs.end(); ++itr) {
-    if ( (*itr).avObject == oldobj ) {
-      (*itr).name = newobj->GetName();
-      (*itr).avObject = newobj;
-    }
-  }
 }
 
 //--END CUSTOM CODE--//

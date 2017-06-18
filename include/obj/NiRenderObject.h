@@ -56,6 +56,36 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Per-material data.
+	// \return The current value.
+	vector<MaterialData > GetMaterialData() const;
+
+	// Per-material data.
+	// \param[in] value The new value.
+	void SetMaterialData( const vector<MaterialData >& value );
+
+	// The index of the currently active material.
+	// \return The current value.
+	int GetActiveMaterial() const;
+
+	// The index of the currently active material.
+	// \param[in] value The new value.
+	void SetActiveMaterial( int value );
+
+	// The initial value for the flag that determines if the internal cached shader is
+	// valid.
+	// \return The current value.
+	bool GetMaterialNeedsUpdateDefault() const;
+
+	// The initial value for the flag that determines if the internal cached shader is
+	// valid.
+	// \param[in] value The new value.
+	void SetMaterialNeedsUpdateDefault( bool value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

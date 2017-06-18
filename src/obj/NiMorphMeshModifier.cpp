@@ -137,6 +137,34 @@ std::list<NiObject *> NiMorphMeshModifier::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+byte NiMorphMeshModifier::GetFlags() const {
+	return flags;
+}
+
+void NiMorphMeshModifier::SetFlags( byte value ) {
+	flags = value;
+}
+
+unsigned short NiMorphMeshModifier::GetNumTargets() const {
+	return numTargets;
+}
+
+void NiMorphMeshModifier::SetNumTargets( unsigned short value ) {
+	numTargets = value;
+}
+
+vector<ElementReference > NiMorphMeshModifier::GetElements() const {
+	return elements;
+}
+
+void NiMorphMeshModifier::SetElements( const vector<ElementReference >& value ) {
+	elements = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

@@ -131,6 +131,10 @@ void NifStream( float const & val, ostream& out, const NifInfo & info);
 void NifStream( string & val, istream& in, const NifInfo & info);
 void NifStream( string const & val, ostream& out, const NifInfo & info);
 
+//hfloat
+void NifStream(hfloat & val, istream& in, const NifInfo & info);
+void NifStream(hfloat const & val, ostream& out, const NifInfo & info);
+
 //--Structs--//
 
 //TexCoord
@@ -214,10 +218,16 @@ ostream & operator<<( ostream & out, Char8String const & val );
 void NifStream( InertiaMatrix & val, istream& in, const NifInfo & info);
 void NifStream( InertiaMatrix const & val, ostream& out, const NifInfo & info);
 
-//ByteColor4
+// ByteColor3
+struct ByteColor3;
+void NifStream( ByteColor3 & val, istream& in, const NifInfo & info);
+void NifStream( ByteColor3 const & val, ostream& out, const NifInfo & info );
+ostream & operator<<( ostream & out, ByteColor3 const & val );
+
+// ByteColor4
 struct ByteColor4;
 void NifStream( ByteColor4 & val, istream& in, const NifInfo & info);
-void NifStream( ByteColor4 const & val, ostream& out, const NifInfo & info);
+void NifStream( ByteColor4 const & val, ostream& out, const NifInfo & info );
 ostream & operator<<( ostream & out, ByteColor4 const & val );
 
 //--Templates--//

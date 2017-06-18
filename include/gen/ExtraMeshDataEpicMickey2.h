@@ -30,7 +30,6 @@ struct ExtraMeshDataEpicMickey2 {
 	/*! Unknown. */
 	array<10,short > unknownShorts;
 	//--BEGIN MISC CUSTOM CODE--//
-
 	//--END CUSTOM CODE--//
 };
 

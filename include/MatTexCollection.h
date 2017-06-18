@@ -159,7 +159,7 @@ public:
 	 * or NO_MATERIAL if no match is found.
 	 */
 	NIFLIB_API unsigned int GetMaterialIndex( const vector< Ref<NiProperty> > & properties );
-	
+
 	/*
 	 * Creates a new material and adds it to the end of the array of materials
 	 * contained in this collection.  The type of material data that will

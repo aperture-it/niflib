@@ -52,6 +52,58 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Base translation when translate curve not defined.
+	// \return The current value.
+	Vector3 GetTranslation() const;
+
+	// Base translation when translate curve not defined.
+	// \param[in] value The new value.
+	void SetTranslation( const Vector3 & value );
+
+	// Base rotation when rotation curve not defined.
+	// \return The current value.
+	Quaternion GetRotation() const;
+
+	// Base rotation when rotation curve not defined.
+	// \param[in] value The new value.
+	void SetRotation( const Quaternion & value );
+
+	// Base scale when scale curve not defined.
+	// \return The current value.
+	float GetScale() const;
+
+	// Base scale when scale curve not defined.
+	// \param[in] value The new value.
+	void SetScale( float value );
+
+	// Starting offset for the translation data. (USHRT_MAX for no data.)
+	// \return The current value.
+	unsigned int GetTranslationOffset() const;
+
+	// Starting offset for the translation data. (USHRT_MAX for no data.)
+	// \param[in] value The new value.
+	void SetTranslationOffset( unsigned int value );
+
+	// Starting offset for the rotation data. (USHRT_MAX for no data.)
+	// \return The current value.
+	unsigned int GetRotationOffset() const;
+
+	// Starting offset for the rotation data. (USHRT_MAX for no data.)
+	// \param[in] value The new value.
+	void SetRotationOffset( unsigned int value );
+
+	// Starting offset for the scale data. (USHRT_MAX for no data.)
+	// \return The current value.
+	unsigned int GetScaleOffset() const;
+
+	// Starting offset for the scale data. (USHRT_MAX for no data.)
+	// \param[in] value The new value.
+	void SetScaleOffset( unsigned int value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	/*!
@@ -67,18 +119,6 @@ public:
 	NIFLIB_API void SetTranslation( Vector3 value );
 
 	/*!
-	* Gets the translation offset for the control points in the NiSplineData
-	* \return The translation offset
-	*/
-	NIFLIB_API int GetTranslationOffset();
-
-	/*!
-	* Sets the translation offset for the control points in the NiSplineData
-	* \param[in] The new translation offset
-	*/
-	NIFLIB_API void SetTranslationOffset( int value );
-
-	/*!
 	* Gets the base rotation when a translate curve is not defined.
 	* \return The base rotation.
 	*/
@@ -91,18 +131,6 @@ public:
 	NIFLIB_API void SetRotation( Quaternion value );
 
 	/*!
-	* Gets the rotation offset for the control points in the NiSplineData
-	* \return The rotation offset
-	*/
-	NIFLIB_API int GetRotationOffset();
-
-	/*!
-	* Sets the rotation offset for the control points in the NiSplineData
-	* \param[in] The new rotation offset
-	*/
-	NIFLIB_API void SetRotationOffset( int value );
-
-	/*!
 	* Gets the base scale when a translate curve is not defined.
 	* \return The base scale.
 	*/
@@ -113,18 +141,6 @@ public:
 	* \param[in] value The new base scale.
 	*/
 	NIFLIB_API void SetScale( float value );
-
-	/*!
-	* Gets the scale offset for the control points in the NiSplineData
-	* \return The scale offset
-	*/
-	NIFLIB_API int GetScaleOffset();
-
-	/*!
-	* Sets the scale offset for the control points in the NiSplineData
-	* \param[in] The new scale offset
-	*/
-	NIFLIB_API void SetScaleOffset( int value );
 
 
 	/*!

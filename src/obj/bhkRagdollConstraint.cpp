@@ -189,5 +189,17 @@ std::list<NiObject *> bhkRagdollConstraint::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+RagdollDescriptor bhkRagdollConstraint::GetRagdoll() const {
+	return ragdoll;
+}
+
+void bhkRagdollConstraint::SetRagdoll( const RagdollDescriptor & value ) {
+	ragdoll = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

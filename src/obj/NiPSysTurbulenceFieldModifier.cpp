@@ -105,6 +105,18 @@ std::list<NiObject *> NiPSysTurbulenceFieldModifier::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+float NiPSysTurbulenceFieldModifier::GetFrequency() const {
+	return frequency;
+}
+
+void NiPSysTurbulenceFieldModifier::SetFrequency( float value ) {
+	frequency = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

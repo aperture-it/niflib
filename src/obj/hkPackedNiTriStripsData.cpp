@@ -191,6 +191,34 @@ std::list<NiObject *> hkPackedNiTriStripsData::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<hkTriangle > hkPackedNiTriStripsData::GetTriangles() const {
+	return triangles;
+}
+
+void hkPackedNiTriStripsData::SetTriangles( const vector<hkTriangle >& value ) {
+	triangles = value;
+}
+
+vector<Vector3 > hkPackedNiTriStripsData::GetVertices() const {
+	return vertices;
+}
+
+void hkPackedNiTriStripsData::SetVertices( const vector<Vector3 >& value ) {
+	vertices = value;
+}
+
+vector<OblivionSubShape > hkPackedNiTriStripsData::GetSubShapes() const {
+	return subShapes;
+}
+
+void hkPackedNiTriStripsData::SetSubShapes( const vector<OblivionSubShape >& value ) {
+	subShapes = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 vector<Triangle> hkPackedNiTriStripsData::GetTriangles() const {
@@ -199,18 +227,6 @@ vector<Triangle> hkPackedNiTriStripsData::GetTriangles() const {
 	for ( unsigned i = 0; i < triangles.size(); ++i ) {
 		const Triangle & t = triangles[i].triangle;
 		if ( t.v1 != t.v2 && t.v2 != t.v3 && t.v1 != t.v3 ) {
-			good_triangles.push_back(t);
-		}
-	}
-	return good_triangles;
-}
-
-vector<hkTriangle> hkPackedNiTriStripsData::GetHavokTriangles() const {
-	//Remove any bad triangles
-	vector<hkTriangle> good_triangles;
-	for ( unsigned i = 0; i < triangles.size(); ++i ) {
-		const hkTriangle & t = triangles[i];
-		if ( t.triangle.v1 != t.triangle.v2 && t.triangle.v2 != t.triangle.v3 && t.triangle.v1 != t.triangle.v3 ) {
 			good_triangles.push_back(t);
 		}
 	}
@@ -253,13 +269,6 @@ void hkPackedNiTriStripsData::SetTriangles( const vector<Triangle> & in ) {
 	for (size_t i=0; i<triangles.size(); ++i) {
 		triangles[i].triangle = in[i];
 	}
-}
-
-void hkPackedNiTriStripsData::SetHavokTriangles( const vector<hkTriangle> & in ) {
-	if ( in.size() > 65535 || in.size() < 0 ) {
-		throw runtime_error("Invalid Face Count: must be between 0 and 65535.");
-	}
-	triangles = in;
 }
 
 void hkPackedNiTriStripsData::SetNormals( const vector<Vector3> & in ) {

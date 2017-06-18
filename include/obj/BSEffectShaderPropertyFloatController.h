@@ -20,9 +20,7 @@ namespace Niflib {
 class BSEffectShaderPropertyFloatController;
 typedef Ref<BSEffectShaderPropertyFloatController> BSEffectShaderPropertyFloatControllerRef;
 
-/*!
- * This controller is used to animate float variables in BSEffectShaderProperty.
- */
+/*! This controller is used to animate float variables in BSEffectShaderProperty. */
 class BSEffectShaderPropertyFloatController : public NiFloatInterpController {
 public:
 	/*! Constructor */
@@ -55,21 +53,32 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
-	//--BEGIN MISC CUSTOM CODE--//
-	/*!
-	 * Get which float variable in BSEffectShaderProperty to animate
-	 */
-	NIFLIB_API EffectShaderControlledVariable GetTargetVariable() const;
+	/***Begin Example Naive Implementation****
 
-	/*!
-	 * Set which float variable in BSEffectShaderProperty to animate
-	 */
-	NIFLIB_API void SetTargetVariable(EffectShaderControlledVariable value);
+// Which float variable in BSEffectShaderProperty to animate:
+	// \return The current value.
+	EffectShaderControlledVariable GetTypeOfControlledVariable() const;
+
+// Which float variable in BSEffectShaderProperty to animate:
+	// \param[in] value The new value.
+	void SetTypeOfControlledVariable( const EffectShaderControlledVariable & value );
+
+	****End Example Naive Implementation***/
+
+	//--BEGIN MISC CUSTOM CODE--//
+
+	// Which float variable in BSEffectShaderProperty to animate:
+	// \return The current value.
+	EffectShaderControlledVariable GetTypeOfControlledVariable() const;
+
+	// Which float variable in BSEffectShaderProperty to animate:
+	// \param[in] value The new value.
+	void SetTypeOfControlledVariable(const EffectShaderControlledVariable & value);
 
 	//--END CUSTOM CODE--//
 protected:
-	/*! Which float variable in BSEffectShaderProperty to animate */
-	EffectShaderControlledVariable targetVariable;
+	/*! Which float variable in BSEffectShaderProperty to animate: */
+	EffectShaderControlledVariable typeOfControlledVariable;
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
 	NIFLIB_HIDDEN virtual void Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info );

@@ -206,6 +206,26 @@ std::list<NiObject *> NiShadowGenerator::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+IndexString NiShadowGenerator::GetName() const {
+	return name;
+}
+
+void NiShadowGenerator::SetName( const IndexString & value ) {
+	name = value;
+}
+
+NiLight * NiShadowGenerator::GetTarget() const {
+	return target;
+}
+
+void NiShadowGenerator::SetTarget( NiLight * value ) {
+	target = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

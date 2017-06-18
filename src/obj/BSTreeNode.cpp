@@ -205,6 +205,26 @@ std::list<NiObject *> BSTreeNode::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Ref<NiNode > > BSTreeNode::GetBones1() const {
+	return bones1;
+}
+
+void BSTreeNode::SetBones1( const vector<Ref<NiNode > >& value ) {
+	bones1 = value;
+}
+
+vector<Ref<NiNode > > BSTreeNode::GetBones() const {
+	return bones;
+}
+
+void BSTreeNode::SetBones( const vector<Ref<NiNode > >& value ) {
+	bones = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

@@ -16,6 +16,7 @@ All rights reserved.  Please see niflib.h for license. */
 #include "../../include/NIF_IO.h"
 #include "../../include/obj/BSProceduralLightningController.h"
 #include "../../include/obj/NiInterpolator.h"
+#include "../../include/obj/NiObject.h"
 using namespace Niflib;
 
 //Definition of TYPE constant
@@ -307,7 +308,7 @@ void BSProceduralLightningController::FixLinks( const map<unsigned int,NiObjectR
 	interpolator7 = FixLink<NiInterpolator>( objects, link_stack, missing_link_stack, info );
 	interpolator8 = FixLink<NiInterpolator>( objects, link_stack, missing_link_stack, info );
 	interpolator9_ArcOffset = FixLink<NiInterpolator>( objects, link_stack, missing_link_stack, info );
-	interpolator10_ = FixLink<NiInterpolator>( objects, link_stack, missing_link_stack, info );
+	interpolator10_ = FixLink<NiObject>( objects, link_stack, missing_link_stack, info );
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
 
@@ -343,6 +344,146 @@ std::list<NiObject *> BSProceduralLightningController::GetPtrs() const {
 	ptrs = NiFloatInterpController::GetPtrs();
 	return ptrs;
 }
+
+/***Begin Example Naive Implementation****
+
+Ref<NiInterpolator > BSProceduralLightningController::GetInterpolator2_Mutation() const {
+	return interpolator2_Mutation;
+}
+
+void BSProceduralLightningController::SetInterpolator2_Mutation( Ref<NiInterpolator > value ) {
+	interpolator2_Mutation = value;
+}
+
+Ref<NiInterpolator > BSProceduralLightningController::GetInterpolator3() const {
+	return interpolator3;
+}
+
+void BSProceduralLightningController::SetInterpolator3( Ref<NiInterpolator > value ) {
+	interpolator3 = value;
+}
+
+Ref<NiInterpolator > BSProceduralLightningController::GetInterpolator4() const {
+	return interpolator4;
+}
+
+void BSProceduralLightningController::SetInterpolator4( Ref<NiInterpolator > value ) {
+	interpolator4 = value;
+}
+
+Ref<NiInterpolator > BSProceduralLightningController::GetInterpolator5() const {
+	return interpolator5;
+}
+
+void BSProceduralLightningController::SetInterpolator5( Ref<NiInterpolator > value ) {
+	interpolator5 = value;
+}
+
+Ref<NiInterpolator > BSProceduralLightningController::GetInterpolator6() const {
+	return interpolator6;
+}
+
+void BSProceduralLightningController::SetInterpolator6( Ref<NiInterpolator > value ) {
+	interpolator6 = value;
+}
+
+Ref<NiInterpolator > BSProceduralLightningController::GetInterpolator7() const {
+	return interpolator7;
+}
+
+void BSProceduralLightningController::SetInterpolator7( Ref<NiInterpolator > value ) {
+	interpolator7 = value;
+}
+
+Ref<NiInterpolator > BSProceduralLightningController::GetInterpolator8() const {
+	return interpolator8;
+}
+
+void BSProceduralLightningController::SetInterpolator8( Ref<NiInterpolator > value ) {
+	interpolator8 = value;
+}
+
+Ref<NiInterpolator > BSProceduralLightningController::GetInterpolator9_ArcOffset() const {
+	return interpolator9_ArcOffset;
+}
+
+void BSProceduralLightningController::SetInterpolator9_ArcOffset( Ref<NiInterpolator > value ) {
+	interpolator9_ArcOffset = value;
+}
+
+float BSProceduralLightningController::GetDistanceWeight() const {
+	return distanceWeight;
+}
+
+void BSProceduralLightningController::SetDistanceWeight( float value ) {
+	distanceWeight = value;
+}
+
+float BSProceduralLightningController::GetFloat2() const {
+	return float2;
+}
+
+void BSProceduralLightningController::SetFloat2( float value ) {
+	float2 = value;
+}
+
+float BSProceduralLightningController::GetStripWidth() const {
+	return stripWidth;
+}
+
+void BSProceduralLightningController::SetStripWidth( float value ) {
+	stripWidth = value;
+}
+
+float BSProceduralLightningController::GetFork() const {
+	return fork;
+}
+
+void BSProceduralLightningController::SetFork( float value ) {
+	fork = value;
+}
+
+float BSProceduralLightningController::GetFloat5() const {
+	return float5;
+}
+
+void BSProceduralLightningController::SetFloat5( float value ) {
+	float5 = value;
+}
+
+byte BSProceduralLightningController::GetByte1() const {
+	return byte1;
+}
+
+void BSProceduralLightningController::SetByte1( byte value ) {
+	byte1 = value;
+}
+
+byte BSProceduralLightningController::GetByte2() const {
+	return byte2;
+}
+
+void BSProceduralLightningController::SetByte2( byte value ) {
+	byte2 = value;
+}
+
+byte BSProceduralLightningController::GetByte3() const {
+	return byte3;
+}
+
+void BSProceduralLightningController::SetByte3( byte value ) {
+	byte3 = value;
+}
+
+Ref<NiObject > BSProceduralLightningController::GetInterpolator10_() const {
+	return interpolator10_;
+}
+
+void BSProceduralLightningController::SetInterpolator10_( Ref<NiObject > value ) {
+	interpolator10_ = value;
+}
+
+****End Example Naive Implementation***/
 
 //--BEGIN MISC CUSTOM CODE--//
 

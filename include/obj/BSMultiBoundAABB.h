@@ -53,6 +53,26 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Position of the AABB's center
+	// \return The current value.
+	Vector3 GetPosition() const;
+
+	// Position of the AABB's center
+	// \param[in] value The new value.
+	void SetPosition( const Vector3 & value );
+
+	// Extent of the AABB in all directions
+	// \return The current value.
+	Vector3 GetExtent() const;
+
+	// Extent of the AABB in all directions
+	// \param[in] value The new value.
+	void SetExtent( const Vector3 & value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

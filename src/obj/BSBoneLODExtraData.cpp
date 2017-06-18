@@ -127,6 +127,18 @@ std::list<NiObject *> BSBoneLODExtraData::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<BoneLOD > BSBoneLODExtraData::GetBonelodInfo() const {
+	return bonelodInfo;
+}
+
+void BSBoneLODExtraData::SetBonelodInfo( const vector<BoneLOD >& value ) {
+	bonelodInfo = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

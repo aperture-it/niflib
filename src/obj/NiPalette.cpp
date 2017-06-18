@@ -122,6 +122,26 @@ std::list<NiObject *> NiPalette::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned int NiPalette::GetNumEntries() const {
+	return numEntries;
+}
+
+void NiPalette::SetNumEntries( unsigned int value ) {
+	numEntries = value;
+}
+
+array<256,ByteColor4 >  NiPalette::GetPalette() const {
+	return palette;
+}
+
+void NiPalette::SetPalette( const array<256,ByteColor4 >&  value ) {
+	palette = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 vector<Color4> NiPalette::GetPalette() const {

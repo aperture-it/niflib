@@ -30,7 +30,6 @@ struct ElementReference {
 	/*! Whether or not to normalize the data. */
 	unsigned int normalizeFlag;
 	//--BEGIN MISC CUSTOM CODE--//
-
 	//--END CUSTOM CODE--//
 };
 

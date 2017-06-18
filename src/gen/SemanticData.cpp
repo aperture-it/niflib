@@ -27,5 +27,4 @@ SemanticData & SemanticData::operator=( const SemanticData & src ) {
 SemanticData::~SemanticData() {};
 
 //--BEGIN MISC CUSTOM CODE--//
-
 //--END CUSTOM CODE--//

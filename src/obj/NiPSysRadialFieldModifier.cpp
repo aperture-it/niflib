@@ -105,6 +105,18 @@ std::list<NiObject *> NiPSysRadialFieldModifier::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+int NiPSysRadialFieldModifier::GetRadialType() const {
+	return radialType;
+}
+
+void NiPSysRadialFieldModifier::SetRadialType( int value ) {
+	radialType = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

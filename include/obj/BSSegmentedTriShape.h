@@ -56,6 +56,18 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Configuration of each segment
+	// \return The current value.
+	vector<BSSegment > GetSegment() const;
+
+	// Configuration of each segment
+	// \param[in] value The new value.
+	void SetSegment( const vector<BSSegment >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

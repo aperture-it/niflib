@@ -124,5 +124,25 @@ std::list<NiObject *> NiRotatingParticlesData::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+bool NiRotatingParticlesData::GetHasRotations2() const {
+	return hasRotations2;
+}
+
+void NiRotatingParticlesData::SetHasRotations2( bool value ) {
+	hasRotations2 = value;
+}
+
+vector<Quaternion > NiRotatingParticlesData::GetRotations2() const {
+	return rotations2;
+}
+
+void NiRotatingParticlesData::SetRotations2( const vector<Quaternion >& value ) {
+	rotations2 = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

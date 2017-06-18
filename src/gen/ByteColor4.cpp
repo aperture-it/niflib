@@ -29,4 +29,23 @@ ByteColor4 & ByteColor4::operator=( const ByteColor4 & src ) {
 ByteColor4::~ByteColor4() {};
 
 //--BEGIN MISC CUSTOM CODE--//
+
+//ByteColor4
+void Niflib::NifStream( ByteColor4 & val, istream& in, NifInfo const & info ) {
+	val.r = ReadByte( in );
+	val.g = ReadByte( in );
+	val.b = ReadByte( in );
+	val.a = ReadByte( in );
+};
+
+void Niflib::NifStream( ByteColor4 const & val, ostream& out, NifInfo const & info ) {
+	WriteByte( val.r, out );
+	WriteByte( val.g, out );
+	WriteByte( val.b, out );
+	WriteByte( val.a, out );
+};
+
+ostream & Niflib::operator<<( ostream & out, ByteColor4 const & val ) {
+	return out << "{R:" << setw(6) << val.r << " G:" << setw(6) << val.g << " B:" << setw(6) << val.b << " A:" << setw(6) << val.a << "}";
+}
 //--END CUSTOM CODE--//

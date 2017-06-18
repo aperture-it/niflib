@@ -408,5 +408,57 @@ std::list<NiObject *> bhkMalleableConstraint::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned int bhkMalleableConstraint::GetType() const {
+	return type;
+}
+
+void bhkMalleableConstraint::SetType( unsigned int value ) {
+	type = value;
+}
+
+HingeDescriptor bhkMalleableConstraint::GetHinge() const {
+	return hinge;
+}
+
+void bhkMalleableConstraint::SetHinge( const HingeDescriptor & value ) {
+	hinge = value;
+}
+
+RagdollDescriptor bhkMalleableConstraint::GetRagdoll() const {
+	return ragdoll;
+}
+
+void bhkMalleableConstraint::SetRagdoll( const RagdollDescriptor & value ) {
+	ragdoll = value;
+}
+
+LimitedHingeDescriptor bhkMalleableConstraint::GetLimitedHinge() const {
+	return limitedHinge;
+}
+
+void bhkMalleableConstraint::SetLimitedHinge( const LimitedHingeDescriptor & value ) {
+	limitedHinge = value;
+}
+
+float bhkMalleableConstraint::GetTau() const {
+	return tau;
+}
+
+void bhkMalleableConstraint::SetTau( float value ) {
+	tau = value;
+}
+
+float bhkMalleableConstraint::GetDamping() const {
+	return damping;
+}
+
+void bhkMalleableConstraint::SetDamping( float value ) {
+	damping = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

@@ -55,6 +55,18 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Ragdoll constraint.
+	// \return The current value.
+	RagdollDescriptor GetRagdoll() const;
+
+	// Ragdoll constraint.
+	// \param[in] value The new value.
+	void SetRagdoll( const RagdollDescriptor & value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 protected:

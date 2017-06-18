@@ -32,5 +32,4 @@ MotorDescriptor & MotorDescriptor::operator=( const MotorDescriptor & src ) {
 MotorDescriptor::~MotorDescriptor() {};
 
 //--BEGIN MISC CUSTOM CODE--//
-
 //--END CUSTOM CODE--//

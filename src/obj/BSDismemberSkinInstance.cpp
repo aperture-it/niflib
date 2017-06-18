@@ -120,6 +120,18 @@ std::list<NiObject *> BSDismemberSkinInstance::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<BodyPartList > BSDismemberSkinInstance::GetPartitions() const {
+	return partitions;
+}
+
+void BSDismemberSkinInstance::SetPartitions( const vector<BodyPartList >& value ) {
+	partitions = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 vector<BodyPartList > BSDismemberSkinInstance::GetPartitions() const {
@@ -127,10 +139,7 @@ vector<BodyPartList > BSDismemberSkinInstance::GetPartitions() const {
 }
 
 void BSDismemberSkinInstance::SetPartitions( const vector<BodyPartList >& value ) {
-   partitions.clear();
-   for(unsigned int i = 0; i < value.size(); i++) {
-	   partitions.push_back(value[i]);
-   }
+   partitions = value;
 }
 
 //--END CUSTOM CODE--//

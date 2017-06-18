@@ -55,6 +55,34 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Unknown
+	// \return The current value.
+	vector<Vector4 > GetFloats1() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetFloats1( const vector<Vector4 >& value );
+
+	// Unknown
+	// \return The current value.
+	vector<NiObject * > GetLinks() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetLinks( const vector<NiObject * >& value );
+
+	// Unknown
+	// \return The current value.
+	vector<NiObject * > GetLinks2() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetLinks2( const vector<NiObject * >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

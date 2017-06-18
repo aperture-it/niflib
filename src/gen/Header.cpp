@@ -29,6 +29,7 @@ Header & Header::operator=( const Header & src ) {
 	this->userVersion2 = src.userVersion2;
 	this->unknownInt3 = src.unknownInt3;
 	this->exportInfo = src.exportInfo;
+	this->exportInfo3 = src.exportInfo3;
 	this->numBlockTypes = src.numBlockTypes;
 	this->blockTypes = src.blockTypes;
 	this->blockTypeIndex = src.blockTypeIndex;
@@ -89,6 +90,9 @@ NifInfo Header::Read( istream& in ) {
 			NifStream( exportInfo.exportInfo1, in, info );
 			NifStream( exportInfo.exportInfo2, in, info );
 		};
+	};
+	if ( ((version >= 0x14020007) && ((userVersion >= 12) && (userVersion2 >= 130))) ) {
+		NifStream( exportInfo3, in, info );
 	};
 	if ( info.version >= 0x0A000100 ) {
 		NifStream( numBlockTypes, in, info );
@@ -182,6 +186,9 @@ void Header::Write( ostream& out, const NifInfo & info ) const {
 			NifStream( exportInfo.exportInfo2, out, info );
 		};
 	};
+	if ( ((version >= 0x14020007) && ((userVersion >= 12) && (userVersion2 >= 130))) ) {
+		NifStream( exportInfo3, out, info );
+	};
 	if ( info.version >= 0x0A000100 ) {
 		NifStream( numBlockTypes, out, info );
 		for (unsigned int i2 = 0; i2 < blockTypes.size(); i2++) {
@@ -239,6 +246,9 @@ string Header::asString( bool verbose ) const {
 	out << "  Creator:  " << exportInfo.creator << endl;
 	out << "  Export Info 1:  " << exportInfo.exportInfo1 << endl;
 	out << "  Export Info 2:  " << exportInfo.exportInfo2 << endl;
+	if ( ((version >= 0x14020007) && ((userVersion >= 12) && (userVersion2 >= 130))) ) {
+		out << "    Export Info 3:  " << exportInfo3 << endl;
+	};
 	out << "  Num Block Types:  " << numBlockTypes << endl;
 	array_output_count = 0;
 	for (unsigned int i1 = 0; i1 < blockTypes.size(); i1++) {
@@ -295,34 +305,4 @@ string Header::asString( bool verbose ) const {
 }
 
 //--BEGIN MISC CUSTOM CODE--//
-
-HeaderString Header::getHeaderString() {
-	return headerString;
-}
-
-unsigned int Header::getVersion() {
-	return version;
-}
-
-EndianType Header::getEndianType() {
-	return endianType;
-}
-
-unsigned int Header::getUserVersion() {
-	return userVersion;
-}
-
-unsigned int Header::getUserVersion2() {
-	return userVersion2;
-}
-
-vector<string> Header::getBlockTypes() {
-	return blockTypes;
-}
-
-
-vector<unsigned short> Niflib::Header::getBlockTypeIndex() {
-	return blockTypeIndex;
-}
-
 //--END CUSTOM CODE--//

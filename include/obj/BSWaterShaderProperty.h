@@ -56,6 +56,62 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Unknown.
+	// \return The current value.
+	SkyrimShaderPropertyFlags1 GetShaderFlags1() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetShaderFlags1( const SkyrimShaderPropertyFlags1 & value );
+
+	// Unknown.
+	// \return The current value.
+	SkyrimShaderPropertyFlags2 GetShaderFlags2() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetShaderFlags2( const SkyrimShaderPropertyFlags2 & value );
+
+	// Offset UVs. Seems to be unused, but it fits with the other Skyrim shader
+	// properties.
+	// \return The current value.
+	TexCoord GetUvOffset() const;
+
+	// Offset UVs. Seems to be unused, but it fits with the other Skyrim shader
+	// properties.
+	// \param[in] value The new value.
+	void SetUvOffset( const TexCoord & value );
+
+	// Offset UV Scale to repeat tiling textures, see above.
+	// \return The current value.
+	TexCoord GetUvScale() const;
+
+	// Offset UV Scale to repeat tiling textures, see above.
+	// \param[in] value The new value.
+	void SetUvScale( const TexCoord & value );
+
+	// Defines attributes for the water shader (will use SkyrimWaterShaderFlags)
+	// \return The current value.
+	SkyrimWaterShaderFlags GetWaterShaderFlags() const;
+
+	// Defines attributes for the water shader (will use SkyrimWaterShaderFlags)
+	// \param[in] value The new value.
+	void SetWaterShaderFlags( const SkyrimWaterShaderFlags & value );
+
+	// A bitflag, only the first/second bit controls water flow positive or negative
+	// along UVs.
+	// \return The current value.
+	byte GetWaterDirection() const;
+
+	// A bitflag, only the first/second bit controls water flow positive or negative
+	// along UVs.
+	// \param[in] value The new value.
+	void SetWaterDirection( byte value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

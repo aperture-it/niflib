@@ -57,6 +57,26 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Property flags.
+	// \return The current value.
+	unsigned short GetFlags() const;
+
+	// Property flags.
+	// \param[in] value The new value.
+	void SetFlags( unsigned short value );
+
+	// Link to the texture image.
+	// \return The current value.
+	Ref<NiImage > GetImage() const;
+
+	// Link to the texture image.
+	// \param[in] value The new value.
+	void SetImage( Ref<NiImage > value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	/*!

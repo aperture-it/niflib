@@ -58,6 +58,42 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// unknown
+	// \return The current value.
+	vector<Ref<NiBezierTriangle4 > > GetBezierTriangle() const;
+
+	// unknown
+	// \param[in] value The new value.
+	void SetBezierTriangle( const vector<Ref<NiBezierTriangle4 > >& value );
+
+	// data.
+	// \return The current value.
+	vector<Vector3 > GetPoints1() const;
+
+	// data.
+	// \param[in] value The new value.
+	void SetPoints1( const vector<Vector3 >& value );
+
+	// data.
+	// \return The current value.
+	vector< array<2,float > > GetPoints2() const;
+
+	// data.
+	// \param[in] value The new value.
+	void SetPoints2( const vector< array<2,float > >& value );
+
+	// data count.
+	// \return The current value.
+	vector< array<4,unsigned short > > GetData2() const;
+
+	// data count.
+	// \param[in] value The new value.
+	void SetData2( const vector< array<4,unsigned short > >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

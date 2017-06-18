@@ -53,6 +53,60 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Unknown.
+	// \return The current value.
+	SkyrimShaderPropertyFlags1 GetShaderFlags1() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetShaderFlags1( const SkyrimShaderPropertyFlags1 & value );
+
+	// Unknown.
+	// \return The current value.
+	SkyrimShaderPropertyFlags2 GetShaderFlags2() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetShaderFlags2( const SkyrimShaderPropertyFlags2 & value );
+
+	// Offset UVs. Seems to be unused, but it fits with the other Skyrim shader
+	// properties.
+	// \return The current value.
+	TexCoord GetUvOffset() const;
+
+	// Offset UVs. Seems to be unused, but it fits with the other Skyrim shader
+	// properties.
+	// \param[in] value The new value.
+	void SetUvOffset( const TexCoord & value );
+
+	// Offset UV Scale to repeat tiling textures, see above.
+	// \return The current value.
+	TexCoord GetUvScale() const;
+
+	// Offset UV Scale to repeat tiling textures, see above.
+	// \param[in] value The new value.
+	void SetUvScale( const TexCoord & value );
+
+	// points to an external texture.
+	// \return The current value.
+	string GetSourceTexture() const;
+
+	// points to an external texture.
+	// \param[in] value The new value.
+	void SetSourceTexture( const string & value );
+
+	// Sky Object Type
+	// \return The current value.
+	SkyObjectType GetSkyObjectType() const;
+
+	// Sky Object Type
+	// \param[in] value The new value.
+	void SetSkyObjectType( const SkyObjectType & value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

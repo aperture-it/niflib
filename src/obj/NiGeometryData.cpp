@@ -8,6 +8,7 @@ All rights reserved.  Please see niflib.h for license. */
 //-----------------------------------NOTICE----------------------------------//
 
 //--BEGIN FILE HEAD CUSTOM CODE--//
+#include <algorithm>
 //--END CUSTOM CODE--//
 
 #include "../../include/FixLink.h"
@@ -292,6 +293,8 @@ void NiGeometryData::Write( ostream& out, const map<NiObjectRef,unsigned int> & 
 
 std::string NiGeometryData::asString( bool verbose ) const {
 	//--BEGIN PRE-STRING CUSTOM CODE--//
+	bsNumUvSets = (bsNumUvSets & 0xF000) | (0x0FFF & (unsigned short)(uvSets.size()));
+	numUvSets = (numUvSets & 0xF000) | (0x0FFF & (unsigned short)(uvSets.size()));
 	//--END CUSTOM CODE--//
 
 	stringstream out;
@@ -325,7 +328,7 @@ std::string NiGeometryData::asString( bool verbose ) const {
 	out << "  Num UV Sets:  " << numUvSets << endl;
 	out << "  BS Num UV Sets:  " << bsNumUvSets << endl;
 	if ( (!IsDerivedType(NiPSysData::TYPE)) ) {
-		out << "    skyrimMaterial:  " << skyrimMaterial << endl;
+		out << "    Skyrim Material:  " << skyrimMaterial << endl;
 	};
 	out << "  Has Normals:  " << hasNormals << endl;
 	if ( hasNormals ) {
@@ -452,6 +455,194 @@ std::list<NiObject *> NiGeometryData::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned short NiGeometryData::GetBsMaxVertices() const {
+	return bsMaxVertices;
+}
+
+void NiGeometryData::SetBsMaxVertices( unsigned short value ) {
+	bsMaxVertices = value;
+}
+
+byte NiGeometryData::GetKeepFlags() const {
+	return keepFlags;
+}
+
+void NiGeometryData::SetKeepFlags( byte value ) {
+	keepFlags = value;
+}
+
+byte NiGeometryData::GetCompressFlags() const {
+	return compressFlags;
+}
+
+void NiGeometryData::SetCompressFlags( byte value ) {
+	compressFlags = value;
+}
+
+bool NiGeometryData::GetHasVertices() const {
+	return hasVertices;
+}
+
+void NiGeometryData::SetHasVertices( bool value ) {
+	hasVertices = value;
+}
+
+vector<Vector3 > NiGeometryData::GetVertices() const {
+	return vertices;
+}
+
+void NiGeometryData::SetVertices( const vector<Vector3 >& value ) {
+	vertices = value;
+}
+
+unsigned short NiGeometryData::GetNumUvSets() const {
+	return numUvSets;
+}
+
+void NiGeometryData::SetNumUvSets( unsigned short value ) {
+	numUvSets = value;
+}
+
+unsigned short NiGeometryData::GetBsNumUvSets() const {
+	return bsNumUvSets;
+}
+
+void NiGeometryData::SetBsNumUvSets( unsigned short value ) {
+	bsNumUvSets = value;
+}
+
+SkyrimHavokMaterial NiGeometryData::GetSkyrimMaterial() const {
+	return skyrimMaterial;
+}
+
+void NiGeometryData::SetSkyrimMaterial( const SkyrimHavokMaterial & value ) {
+	skyrimMaterial = value;
+}
+
+bool NiGeometryData::GetHasNormals() const {
+	return hasNormals;
+}
+
+void NiGeometryData::SetHasNormals( bool value ) {
+	hasNormals = value;
+}
+
+vector<Vector3 > NiGeometryData::GetNormals() const {
+	return normals;
+}
+
+void NiGeometryData::SetNormals( const vector<Vector3 >& value ) {
+	normals = value;
+}
+
+vector<Vector3 > NiGeometryData::GetTangents() const {
+	return tangents;
+}
+
+void NiGeometryData::SetTangents( const vector<Vector3 >& value ) {
+	tangents = value;
+}
+
+vector<Vector3 > NiGeometryData::GetBitangents() const {
+	return bitangents;
+}
+
+void NiGeometryData::SetBitangents( const vector<Vector3 >& value ) {
+	bitangents = value;
+}
+
+Vector3 NiGeometryData::GetCenter() const {
+	return center;
+}
+
+void NiGeometryData::SetCenter( const Vector3 & value ) {
+	center = value;
+}
+
+float NiGeometryData::GetRadius() const {
+	return radius;
+}
+
+void NiGeometryData::SetRadius( float value ) {
+	radius = value;
+}
+
+bool NiGeometryData::GetHasVertexColors() const {
+	return hasVertexColors;
+}
+
+void NiGeometryData::SetHasVertexColors( bool value ) {
+	hasVertexColors = value;
+}
+
+vector<Color4 > NiGeometryData::GetVertexColors() const {
+	return vertexColors;
+}
+
+void NiGeometryData::SetVertexColors( const vector<Color4 >& value ) {
+	vertexColors = value;
+}
+
+unsigned short NiGeometryData::GetNumUvSets() const {
+	return numUvSets;
+}
+
+void NiGeometryData::SetNumUvSets( unsigned short value ) {
+	numUvSets = value;
+}
+
+bool NiGeometryData::GetHasUv() const {
+	return hasUv;
+}
+
+void NiGeometryData::SetHasUv( bool value ) {
+	hasUv = value;
+}
+
+vector<vector<TexCoord > > NiGeometryData::GetUvSets() const {
+	return uvSets;
+}
+
+void NiGeometryData::SetUvSets( const vector<TexCoord >& value ) {
+	uvSets = value;
+}
+
+ConsistencyType NiGeometryData::GetConsistencyFlags() const {
+	return consistencyFlags;
+}
+
+void NiGeometryData::SetConsistencyFlags( const ConsistencyType & value ) {
+	consistencyFlags = value;
+}
+
+ConsistencyType NiGeometryData::GetConsistencyFlags() const {
+	return consistencyFlags;
+}
+
+void NiGeometryData::SetConsistencyFlags( const ConsistencyType & value ) {
+	consistencyFlags = value;
+}
+
+Ref<AbstractAdditionalGeometryData > NiGeometryData::GetAdditionalData() const {
+	return additionalData;
+}
+
+void NiGeometryData::SetAdditionalData( Ref<AbstractAdditionalGeometryData > value ) {
+	additionalData = value;
+}
+
+Ref<AbstractAdditionalGeometryData > NiGeometryData::GetAdditionalData() const {
+	return additionalData;
+}
+
+void NiGeometryData::SetAdditionalData( Ref<AbstractAdditionalGeometryData > value ) {
+	additionalData = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 // Calculate bounding sphere using minimum-volume axis-align bounding box.  Its fast but not a very good fit.
@@ -529,6 +720,10 @@ vector<Vector3> NiGeometryData::GetVertices() const {
 
 vector<Vector3> NiGeometryData::GetNormals() const {
 	return normals;
+}
+
+bool NiGeometryData::HasColors() const {
+	return vertexColors.size() > 0;
 }
 
 vector<Color4> NiGeometryData::GetColors() const {
@@ -683,14 +878,15 @@ void NiGeometryData::SetBound(Vector3 const & center, float radius)
 	this->radius = radius;
 }
 
-
 byte NiGeometryData::GetTspaceFlag() const {
-   return (numUvSets | bsNumUvSets) >> 8;
+	if (bsNumUvSets != 0) return (byte)((bsNumUvSets & 0xF000) >> 12);
+	if (numUvSets != 0) return (byte)((numUvSets & 0xF000) >> 12);
+	return 0;
 }
 
 void NiGeometryData::SetTspaceFlag( byte value ) {
-   numUvSets = ((value << 8) | numUvSets);
-   bsNumUvSets = ((value << 8) | bsNumUvSets);
+	numUvSets = (numUvSets & 0x0FFF) | (value << 12);
+	bsNumUvSets = (bsNumUvSets & 0x0FFF) | (value << 12);
 }
 
 bool NiGeometryData::GetHasNormals() const {
@@ -717,15 +913,16 @@ void NiGeometryData::SetTangents( const vector<Vector3 >& value ) {
    tangents = value;
 }
 
-unsigned short NiGeometryData::numUvSetsCalc(const NifInfo & info) const {
-  return (numUvSets & (~63))  | (unsigned short)(uvSets.size() & 63);
+// size calculation helper
+unsigned short NiGeometryData::bsNumUvSetsCalc(const NifInfo& info) const
+{
+	return (bsNumUvSets & 0xF000) | (0x0FFF & (unsigned short)(uvSets.size()));
 }
 
-unsigned short NiGeometryData::bsNumUvSetsCalc(const NifInfo & info) const {
-  return (numUvSets & (~1)) | (bsNumUvSets & (~1)) | (unsigned short)(uvSets.size() & 1);
+// size calculation helper
+unsigned short NiGeometryData::numUvSetsCalc(const NifInfo& info) const
+{
+	return (numUvSets & 0xF000) | (0x0FFF & (unsigned short)(uvSets.size()));
 }
 
-SkyrimHavokMaterial NiGeometryData::GetSkyrimMaterial() const {
-	return skyrimMaterial;
-}
 //--END CUSTOM CODE--//

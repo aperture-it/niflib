@@ -206,6 +206,50 @@ std::list<NiObject *> NiLookAtInterpolator::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+NiNode * NiLookAtInterpolator::GetLookAt() const {
+	return lookAt;
+}
+
+void NiLookAtInterpolator::SetLookAt( NiNode * value ) {
+	lookAt = value;
+}
+
+IndexString NiLookAtInterpolator::GetTarget() const {
+	return target;
+}
+
+void NiLookAtInterpolator::SetTarget( const IndexString & value ) {
+	target = value;
+}
+
+Vector3 NiLookAtInterpolator::GetTranslation() const {
+	return translation;
+}
+
+void NiLookAtInterpolator::SetTranslation( const Vector3 & value ) {
+	translation = value;
+}
+
+Quaternion NiLookAtInterpolator::GetRotation() const {
+	return rotation;
+}
+
+void NiLookAtInterpolator::SetRotation( const Quaternion & value ) {
+	rotation = value;
+}
+
+float NiLookAtInterpolator::GetScale() const {
+	return scale;
+}
+
+void NiLookAtInterpolator::SetScale( float value ) {
+	scale = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 Ref<NiNode> NiLookAtInterpolator::GetLookAt() const {

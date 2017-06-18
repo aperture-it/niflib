@@ -114,6 +114,42 @@ std::list<NiObject *> BSPSysLODModifier::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+float BSPSysLODModifier::GetUknownFloat1() const {
+	return uknownFloat1;
+}
+
+void BSPSysLODModifier::SetUknownFloat1( float value ) {
+	uknownFloat1 = value;
+}
+
+float BSPSysLODModifier::GetUknownFloat2() const {
+	return uknownFloat2;
+}
+
+void BSPSysLODModifier::SetUknownFloat2( float value ) {
+	uknownFloat2 = value;
+}
+
+float BSPSysLODModifier::GetUknownFloat3() const {
+	return uknownFloat3;
+}
+
+void BSPSysLODModifier::SetUknownFloat3( float value ) {
+	uknownFloat3 = value;
+}
+
+float BSPSysLODModifier::GetUknownFloat4() const {
+	return uknownFloat4;
+}
+
+void BSPSysLODModifier::SetUknownFloat4( float value ) {
+	uknownFloat4 = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

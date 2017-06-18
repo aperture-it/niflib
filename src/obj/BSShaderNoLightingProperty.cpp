@@ -121,6 +121,18 @@ std::list<NiObject *> BSShaderNoLightingProperty::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+string BSShaderNoLightingProperty::GetFileName() const {
+	return fileName;
+}
+
+void BSShaderNoLightingProperty::SetFileName( const string & value ) {
+	fileName = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 string BSShaderNoLightingProperty::GetFileName() const {

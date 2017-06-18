@@ -155,6 +155,18 @@ std::list<NiObject *> NiPSSimulator::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Ref<NiPSSimulatorStep > > NiPSSimulator::GetSimulationSteps() const {
+	return simulationSteps;
+}
+
+void NiPSSimulator::SetSimulationSteps( const vector<Ref<NiPSSimulatorStep > >& value ) {
+	simulationSteps = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

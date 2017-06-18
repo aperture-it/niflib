@@ -62,6 +62,58 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// The primitive type of the mesh, such as triangles or lines.
+	// \return The current value.
+	MeshPrimitiveType GetPrimitiveType() const;
+
+	// The primitive type of the mesh, such as triangles or lines.
+	// \param[in] value The new value.
+	void SetPrimitiveType( const MeshPrimitiveType & value );
+
+	// The number of submeshes contained in this mesh.
+	// \return The current value.
+	unsigned short GetNumSubmeshes() const;
+
+	// The number of submeshes contained in this mesh.
+	// \param[in] value The new value.
+	void SetNumSubmeshes( unsigned short value );
+
+	// Sets whether hardware instancing is being used.
+	// \return The current value.
+	bool GetInstancingEnabled() const;
+
+	// Sets whether hardware instancing is being used.
+	// \param[in] value The new value.
+	void SetInstancingEnabled( bool value );
+
+	// The combined bounding volume of all submeshes.
+	// \return The current value.
+	SphereBV GetBound() const;
+
+	// The combined bounding volume of all submeshes.
+	// \param[in] value The new value.
+	void SetBound( const SphereBV & value );
+
+	// Unknown.
+	// \return The current value.
+	vector<MeshData > GetDatas() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetDatas( const vector<MeshData >& value );
+
+	// Unknown.
+	// \return The current value.
+	vector<Ref<NiMeshModifier > > GetModifiers() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetModifiers( const vector<Ref<NiMeshModifier > >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

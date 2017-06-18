@@ -423,6 +423,42 @@ std::list<NiObject *> NiSequence::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+IndexString NiSequence::GetName() const {
+	return name;
+}
+
+void NiSequence::SetName( const IndexString & value ) {
+	name = value;
+}
+
+IndexString NiSequence::GetTextKeysName() const {
+	return textKeysName;
+}
+
+void NiSequence::SetTextKeysName( const IndexString & value ) {
+	textKeysName = value;
+}
+
+Ref<NiTextKeyExtraData > NiSequence::GetTextKeys() const {
+	return textKeys;
+}
+
+void NiSequence::SetTextKeys( Ref<NiTextKeyExtraData > value ) {
+	textKeys = value;
+}
+
+vector<ControllerLink > NiSequence::GetControlledBlocks() const {
+	return controlledBlocks;
+}
+
+void NiSequence::SetControlledBlocks( const vector<ControllerLink >& value ) {
+	controlledBlocks = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 string NiSequence::GetName() const {
    return name;

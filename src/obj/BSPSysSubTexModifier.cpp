@@ -123,6 +123,66 @@ std::list<NiObject *> BSPSysSubTexModifier::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned int BSPSysSubTexModifier::GetStartFrame() const {
+	return startFrame;
+}
+
+void BSPSysSubTexModifier::SetStartFrame( unsigned int value ) {
+	startFrame = value;
+}
+
+float BSPSysSubTexModifier::GetStartFrameFudge() const {
+	return startFrameFudge;
+}
+
+void BSPSysSubTexModifier::SetStartFrameFudge( float value ) {
+	startFrameFudge = value;
+}
+
+float BSPSysSubTexModifier::GetEndFrame() const {
+	return endFrame;
+}
+
+void BSPSysSubTexModifier::SetEndFrame( float value ) {
+	endFrame = value;
+}
+
+float BSPSysSubTexModifier::GetLoopStartFrame() const {
+	return loopStartFrame;
+}
+
+void BSPSysSubTexModifier::SetLoopStartFrame( float value ) {
+	loopStartFrame = value;
+}
+
+float BSPSysSubTexModifier::GetLoopStartFrameFudge() const {
+	return loopStartFrameFudge;
+}
+
+void BSPSysSubTexModifier::SetLoopStartFrameFudge( float value ) {
+	loopStartFrameFudge = value;
+}
+
+float BSPSysSubTexModifier::GetFrameCount() const {
+	return frameCount;
+}
+
+void BSPSysSubTexModifier::SetFrameCount( float value ) {
+	frameCount = value;
+}
+
+float BSPSysSubTexModifier::GetFrameCountFudge() const {
+	return frameCountFudge;
+}
+
+void BSPSysSubTexModifier::SetFrameCountFudge( float value ) {
+	frameCountFudge = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

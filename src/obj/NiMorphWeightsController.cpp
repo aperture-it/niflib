@@ -182,6 +182,26 @@ std::list<NiObject *> NiMorphWeightsController::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Ref<NiObject > > NiMorphWeightsController::GetInterpolators() const {
+	return interpolators;
+}
+
+void NiMorphWeightsController::SetInterpolators( const vector<Ref<NiObject > >& value ) {
+	interpolators = value;
+}
+
+vector<IndexString > NiMorphWeightsController::GetTargetNames() const {
+	return targetNames;
+}
+
+void NiMorphWeightsController::SetTargetNames( const vector<IndexString >& value ) {
+	targetNames = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

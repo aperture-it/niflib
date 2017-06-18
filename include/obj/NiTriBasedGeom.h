@@ -11,7 +11,6 @@ All rights reserved.  Please see niflib.h for license. */
 #define _NITRIBASEDGEOM_H_
 
 //--BEGIN FILE HEAD CUSTOM CODE--//
-#include "../gen/BodyPartList.h"
 //--END CUSTOM CODE--//
 
 #include "NiGeometry.h"
@@ -52,6 +51,8 @@ public:
 	 * \return The type constant for the actual type of the object.
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
+
+	//--This object has no eligable attributes.  No example implementation generated--//
 
 	//--BEGIN MISC CUSTOM CODE--//
 

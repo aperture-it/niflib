@@ -51,7 +51,6 @@ struct BSPackedAdditionalDataBlock {
 	 */
 	int numTotalBytesPerElement;
 	//--BEGIN MISC CUSTOM CODE--//
-
 	//--END CUSTOM CODE--//
 };
 

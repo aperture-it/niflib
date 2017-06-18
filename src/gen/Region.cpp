@@ -27,5 +27,4 @@ Region & Region::operator=( const Region & src ) {
 Region::~Region() {};
 
 //--BEGIN MISC CUSTOM CODE--//
-
 //--END CUSTOM CODE--//

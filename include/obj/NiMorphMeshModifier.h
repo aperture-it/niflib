@@ -56,6 +56,46 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// FLAG_RELATIVETARGETS = 0x01
+	//             FLAG_UPDATENORMALS   = 0x02
+	//             FLAG_NEEDSUPDATE     = 0x04
+	//             FLAG_ALWAYSUPDATE    = 0x08
+	//             FLAG_NEEDSCOMPLETION = 0x10
+	//             FLAG_SKINNED         = 0x20
+	//             FLAG_SWSKINNED       = 0x40
+	// \return The current value.
+	byte GetFlags() const;
+
+	// FLAG_RELATIVETARGETS = 0x01
+	//             FLAG_UPDATENORMALS   = 0x02
+	//             FLAG_NEEDSUPDATE     = 0x04
+	//             FLAG_ALWAYSUPDATE    = 0x08
+	//             FLAG_NEEDSCOMPLETION = 0x10
+	//             FLAG_SKINNED         = 0x20
+	//             FLAG_SWSKINNED       = 0x40
+	// \param[in] value The new value.
+	void SetFlags( byte value );
+
+	// The number of morph targets.
+	// \return The current value.
+	unsigned short GetNumTargets() const;
+
+	// The number of morph targets.
+	// \param[in] value The new value.
+	void SetNumTargets( unsigned short value );
+
+	// Semantics and normalization of the morphing data stream elements.
+	// \return The current value.
+	vector<ElementReference > GetElements() const;
+
+	// Semantics and normalization of the morphing data stream elements.
+	// \param[in] value The new value.
+	void SetElements( const vector<ElementReference >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

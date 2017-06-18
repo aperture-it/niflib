@@ -59,6 +59,58 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Number of node groups.
+	// \return The current value.
+	unsigned int GetNumNodeGroups2() const;
+
+	// Number of node groups.
+	// \param[in] value The new value.
+	void SetNumNodeGroups2( unsigned int value );
+
+	// A list of node groups (each group a sequence of bones).
+	// \return The current value.
+	vector<NodeGroup > GetNodeGroups() const;
+
+	// A list of node groups (each group a sequence of bones).
+	// \param[in] value The new value.
+	void SetNodeGroups( const vector<NodeGroup >& value );
+
+	// List of shape groups.
+	// \return The current value.
+	vector<SkinShapeGroup > GetShapeGroups1() const;
+
+	// List of shape groups.
+	// \param[in] value The new value.
+	void SetShapeGroups1( const vector<SkinShapeGroup >& value );
+
+	// List of shape groups.
+	// \return The current value.
+	vector<SkinShapeGroup > GetShapeGroups1() const;
+
+	// List of shape groups.
+	// \param[in] value The new value.
+	void SetShapeGroups1( const vector<SkinShapeGroup >& value );
+
+	// Group of NiTriShape indices.
+	// \return The current value.
+	vector<Ref<NiTriBasedGeom > > GetShapeGroups2() const;
+
+	// Group of NiTriShape indices.
+	// \param[in] value The new value.
+	void SetShapeGroups2( const vector<Ref<NiTriBasedGeom > >& value );
+
+	// Group of NiTriShape indices.
+	// \return The current value.
+	vector<Ref<NiTriBasedGeom > > GetShapeGroups2() const;
+
+	// Group of NiTriShape indices.
+	// \param[in] value The new value.
+	void SetShapeGroups2( const vector<Ref<NiTriBasedGeom > >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	/*!
@@ -106,25 +158,6 @@ public:
 	 * Clears all node groups.
 	 */
 	NIFLIB_API void ClearNodeGroups();
-	
-	/*!
-	 * Adds a single shape to the specified group. The group list will expand if necessary.
-	 * \param[in] shape The shape to add to the group.
-	 */
-	NIFLIB_API bool AddShapeToGroup( Ref<NiTriBasedGeom > shape );
-
-	/*!
-	 * Remove a single shape from the specified shape group.
-	 * \param[in] shape The shape remove from the group.
-	 */
-	NIFLIB_API bool RemoveShapeFromGroup( Ref<NiTriBasedGeom > shape );
-
-	/*!
-	 * Replace a single shape by another in the specified shape group.
-	 * \param[in] newshape The shape put from the group.
-	 * \param[in] oldshape The shape remove from the group.
-	 */
-	NIFLIB_API bool ReplaceShapeInGroup( Ref<NiTriBasedGeom > newshape, Ref<NiTriBasedGeom > oldshape );
 
 	//--END CUSTOM CODE--//
 protected:

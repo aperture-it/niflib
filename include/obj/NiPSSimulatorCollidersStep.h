@@ -58,6 +58,18 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// The colliders affecting the particle system.
+	// \return The current value.
+	vector<Ref<NiObject > > GetColliders() const;
+
+	// The colliders affecting the particle system.
+	// \param[in] value The new value.
+	void SetColliders( const vector<Ref<NiObject > >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

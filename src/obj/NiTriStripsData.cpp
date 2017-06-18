@@ -190,6 +190,34 @@ std::list<NiObject *> NiTriStripsData::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+bool NiTriStripsData::GetHasPoints() const {
+	return hasPoints;
+}
+
+void NiTriStripsData::SetHasPoints( bool value ) {
+	hasPoints = value;
+}
+
+vector<vector<unsigned short > > NiTriStripsData::GetPoints() const {
+	return points;
+}
+
+void NiTriStripsData::SetPoints( const vector<unsigned short >& value ) {
+	points = value;
+}
+
+vector<vector<unsigned short > > NiTriStripsData::GetPoints() const {
+	return points;
+}
+
+void NiTriStripsData::SetPoints( const vector<unsigned short >& value ) {
+	points = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 NiTriStripsData::NiTriStripsData(const vector<Triangle> &tris, bool nvtristrips) {

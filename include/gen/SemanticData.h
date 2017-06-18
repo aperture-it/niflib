@@ -37,7 +37,6 @@ struct SemanticData {
 	 */
 	unsigned int index;
 	//--BEGIN MISC CUSTOM CODE--//
-
 	//--END CUSTOM CODE--//
 };
 

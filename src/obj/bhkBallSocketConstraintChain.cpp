@@ -244,6 +244,34 @@ std::list<NiObject *> bhkBallSocketConstraintChain::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Vector4 > bhkBallSocketConstraintChain::GetFloats1() const {
+	return floats1;
+}
+
+void bhkBallSocketConstraintChain::SetFloats1( const vector<Vector4 >& value ) {
+	floats1 = value;
+}
+
+vector<NiObject * > bhkBallSocketConstraintChain::GetLinks() const {
+	return links;
+}
+
+void bhkBallSocketConstraintChain::SetLinks( const vector<NiObject * >& value ) {
+	links = value;
+}
+
+vector<NiObject * > bhkBallSocketConstraintChain::GetLinks2() const {
+	return links2;
+}
+
+void bhkBallSocketConstraintChain::SetLinks2( const vector<NiObject * >& value ) {
+	links2 = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

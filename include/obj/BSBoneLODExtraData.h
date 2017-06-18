@@ -56,6 +56,18 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Bone Entry
+	// \return The current value.
+	vector<BoneLOD > GetBonelodInfo() const;
+
+	// Bone Entry
+	// \param[in] value The new value.
+	void SetBonelodInfo( const vector<BoneLOD >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

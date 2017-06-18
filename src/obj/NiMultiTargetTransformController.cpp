@@ -145,6 +145,18 @@ std::list<NiObject *> NiMultiTargetTransformController::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<NiAVObject * > NiMultiTargetTransformController::GetExtraTargets() const {
+	return extraTargets;
+}
+
+void NiMultiTargetTransformController::SetExtraTargets( const vector<NiAVObject * >& value ) {
+	extraTargets = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 vector<NiAVObjectRef> NiMultiTargetTransformController::GetExtraTargets() const {
@@ -164,44 +176,5 @@ void NiMultiTargetTransformController::SetExtraTargets( const vector< Ref<NiAVOb
       extraTargets.push_back( value[i] );
    extraTargets.erase(std::remove(extraTargets.begin(), extraTargets.end(), (NiAVObject*)NULL), extraTargets.end());
 }
-
-bool NiMultiTargetTransformController::AddExtraTarget( NiAVObject *target ) {
-  vector<NiAVObject *>& targets = extraTargets;
-  vector<NiAVObject *>::iterator itr = std::find(targets.begin(), targets.end(), target);
-  if (itr == targets.end()) {
-    targets.push_back(target);
-    numExtraTargets++;
-
-    return true;
-  }
-
-  return false;
-}
-
-bool NiMultiTargetTransformController::RemoveExtraTarget( NiAVObject *target ) {
-  vector<NiAVObject *>& targets = extraTargets;
-  vector<NiAVObject *>::iterator itr = std::find(targets.begin(), targets.end(), target);
-  if (itr == targets.end()) {
-    targets.erase(itr);
-    numExtraTargets--;
-
-    return true;
-  }
-
-  return false;
-}
-
-bool NiMultiTargetTransformController::ReplaceExtraTarget( NiAVObject *newtarget, NiAVObject *oldtarget ) {
-  vector<NiAVObject *>& targets = extraTargets;
-  vector<NiAVObject *>::iterator itr = std::find(targets.begin(), targets.end(), oldtarget);
-  if (itr != targets.end()) {
-    *itr = newtarget;
-
-    return true;
-  }
-
-  return false;
-}
-
 
 //--END CUSTOM CODE--//

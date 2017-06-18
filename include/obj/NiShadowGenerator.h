@@ -59,6 +59,26 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Unknown.
+	// \return The current value.
+	IndexString GetName() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetName( const IndexString & value );
+
+	// Unknown.
+	// \return The current value.
+	NiLight * GetTarget() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetTarget( NiLight * value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

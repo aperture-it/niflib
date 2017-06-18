@@ -56,6 +56,34 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// The physics triangles?
+	// \return The current value.
+	vector<hkTriangle > GetTriangles() const;
+
+	// The physics triangles?
+	// \param[in] value The new value.
+	void SetTriangles( const vector<hkTriangle >& value );
+
+	// The vertices?
+	// \return The current value.
+	vector<Vector3 > GetVertices() const;
+
+	// The vertices?
+	// \param[in] value The new value.
+	void SetVertices( const vector<Vector3 >& value );
+
+	// The subparts.
+	// \return The current value.
+	vector<OblivionSubShape > GetSubShapes() const;
+
+	// The subparts.
+	// \param[in] value The new value.
+	void SetSubShapes( const vector<OblivionSubShape >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	/*!
@@ -64,13 +92,6 @@ public:
 	 * \sa hkPackedNiTriStripsData::SetTriangles
 	 */
 	NIFLIB_API virtual vector<Triangle> GetTriangles() const;
-	
-	/*!
-	 * Returns the triangle data that make up this mesh.
-	 * \return A vector containing the triangle data that make up this mesh.
-	 * \sa hkPackedNiTriStripsData::SetTriangles
-	 */
-	NIFLIB_API virtual vector<hkTriangle> GetHavokTriangles() const;
 
 	/*! 
 	 * Returns the number of vertices that make up this mesh.  This is also the number of normals, colors, and UV coordinates if these are used.
@@ -105,12 +126,6 @@ public:
 	* \sa ITriShapeData::GetTriangles
 	*/
 	NIFLIB_API virtual void SetTriangles( const vector<Triangle> & in );
-	
-	/*! Replaces the triangle face data in this mesh with new data.
-	* \param in A vector containing the new face data.  Maximum size is 65,535.
-	* \sa ITriShapeData::GetHavokTriangles
-	*/
-	NIFLIB_API virtual void SetHavokTriangles( const vector<hkTriangle> & in );
 
 	/*! Replaces the face normal data in this mesh with new data.
 	* \param in A vector containing the new face normal data.

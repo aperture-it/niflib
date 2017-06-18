@@ -159,6 +159,26 @@ std::list<NiObject *> bhkConvexVerticesShape::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Vector4 > bhkConvexVerticesShape::GetVertices() const {
+	return vertices;
+}
+
+void bhkConvexVerticesShape::SetVertices( const vector<Vector4 >& value ) {
+	vertices = value;
+}
+
+vector<Vector4 > bhkConvexVerticesShape::GetNormals() const {
+	return normals;
+}
+
+void bhkConvexVerticesShape::SetNormals( const vector<Vector4 >& value ) {
+	normals = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 vector<Vector3> bhkConvexVerticesShape::GetNormals() const {
 	//Remove any bad triangles
@@ -198,13 +218,12 @@ vector<float> bhkConvexVerticesShape::GetDistToCenter() const
 
 void bhkConvexVerticesShape::SetVertices( const vector<Vector3> & in )
 {
-	size_t size = in.size();
+	int size = in.size();
 	vertices.resize(size);
-	for (size_t i=0; i<size; ++i)
+	for (int i=0; i<size; ++i)
 	{
 		Vector4 &f = vertices[i];
 		const Vector3 &v = in[i];
-
 		f[0] = v.x;
 		f[1] = v.y;
 		f[2] = v.z;
@@ -214,13 +233,12 @@ void bhkConvexVerticesShape::SetVertices( const vector<Vector3> & in )
 
 void bhkConvexVerticesShape::SetNormals( const vector<Vector3> & in )
 {
-	size_t size = in.size();
+	int size = in.size();
 	normals.resize(size);
-	for (size_t i=0; i<size; ++i)
+	for (int i=0; i<size; ++i)
 	{
 		Vector4 &f = normals[i];
 		const Vector3 &v = in[i];
-
 		f[0] = v.x;
 		f[1] = v.y;
 		f[2] = v.z;
@@ -233,13 +251,11 @@ void bhkConvexVerticesShape::SetDistToCenter( const vector<float> & in )
 	if ( in.size() != normals.size() ) {
 		throw runtime_error("Distance vector size does not match normal size.");
 	}
-
-	size_t size = in.size();
+	int size = in.size();
 	normals.resize(size);
-	for (size_t i=0; i<size; ++i)
+	for (int i=0; i<size; ++i)
 	{
 		Vector4 &f = normals[i];
-
 		f[3] = in[i];
 	}
 }

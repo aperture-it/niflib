@@ -172,6 +172,18 @@ std::list<NiObject *> NiPhysXShapeDesc::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Ref<NiPhysXMeshDesc > NiPhysXShapeDesc::GetMeshDescription() const {
+	return meshDescription;
+}
+
+void NiPhysXShapeDesc::SetMeshDescription( Ref<NiPhysXMeshDesc > value ) {
+	meshDescription = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

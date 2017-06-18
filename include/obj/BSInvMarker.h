@@ -62,6 +62,42 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Unknown.
+	// \return The current value.
+	unsigned short GetRotationX() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetRotationX( unsigned short value );
+
+	// Unknown.
+	// \return The current value.
+	unsigned short GetRotationY() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetRotationY( unsigned short value );
+
+	// Unknown.
+	// \return The current value.
+	unsigned short GetRotationZ() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetRotationZ( unsigned short value );
+
+	// Zoom factor.
+	// \return The current value.
+	float GetZoom() const;
+
+	// Zoom factor.
+	// \param[in] value The new value.
+	void SetZoom( float value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

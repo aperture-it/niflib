@@ -250,6 +250,34 @@ std::list<NiObject *> BSPackedAdditionalGeometryData::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned short BSPackedAdditionalGeometryData::GetNumVertices() const {
+	return numVertices;
+}
+
+void BSPackedAdditionalGeometryData::SetNumVertices( unsigned short value ) {
+	numVertices = value;
+}
+
+vector<AdditionalDataInfo > BSPackedAdditionalGeometryData::GetBlockInfos() const {
+	return blockInfos;
+}
+
+void BSPackedAdditionalGeometryData::SetBlockInfos( const vector<AdditionalDataInfo >& value ) {
+	blockInfos = value;
+}
+
+vector<BSPackedAdditionalDataBlock > BSPackedAdditionalGeometryData::GetBlocks() const {
+	return blocks;
+}
+
+void BSPackedAdditionalGeometryData::SetBlocks( const vector<BSPackedAdditionalDataBlock >& value ) {
+	blocks = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

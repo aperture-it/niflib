@@ -146,6 +146,34 @@ std::list<NiObject *> NiImage::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+byte NiImage::GetUseExternal() const {
+	return useExternal;
+}
+
+void NiImage::SetUseExternal( byte value ) {
+	useExternal = value;
+}
+
+IndexString NiImage::GetFileName() const {
+	return fileName;
+}
+
+void NiImage::SetFileName( const IndexString & value ) {
+	fileName = value;
+}
+
+Ref<NiRawImageData > NiImage::GetImageData() const {
+	return imageData;
+}
+
+void NiImage::SetImageData( Ref<NiRawImageData > value ) {
+	imageData = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 bool NiImage::IsTextureExternal() const {

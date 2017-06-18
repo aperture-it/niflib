@@ -134,5 +134,17 @@ std::list<NiObject *> bhkHingeConstraint::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+HingeDescriptor bhkHingeConstraint::GetHinge() const {
+	return hinge;
+}
+
+void bhkHingeConstraint::SetHinge( const HingeDescriptor & value ) {
+	hinge = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

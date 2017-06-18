@@ -34,5 +34,4 @@ BSPackedAdditionalDataBlock & BSPackedAdditionalDataBlock::operator=( const BSPa
 BSPackedAdditionalDataBlock::~BSPackedAdditionalDataBlock() {};
 
 //--BEGIN MISC CUSTOM CODE--//
-
 //--END CUSTOM CODE--//

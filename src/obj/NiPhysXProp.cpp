@@ -243,6 +243,26 @@ std::list<NiObject *> NiPhysXProp::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Ref<NiPhysXTransformDest > > NiPhysXProp::GetTransformDests() const {
+	return transformDests;
+}
+
+void NiPhysXProp::SetTransformDests( const vector<Ref<NiPhysXTransformDest > >& value ) {
+	transformDests = value;
+}
+
+Ref<NiPhysXPropDesc > NiPhysXProp::GetPropDescription() const {
+	return propDescription;
+}
+
+void NiPhysXProp::SetPropDescription( Ref<NiPhysXPropDesc > value ) {
+	propDescription = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

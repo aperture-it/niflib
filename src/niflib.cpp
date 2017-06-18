@@ -387,7 +387,7 @@ vector<NiObjectRef> ReadNifList( istream & in, list<NiObjectRef> & missing_link_
 
 	// Check for accumulated warnings
 	if (errStream.tellp() > 0) {
-		throw runtime_error( errStream.str() );
+			throw runtime_error( errStream.str() );
 	}
 	
 #ifdef DEBUG_LINK_PHASE

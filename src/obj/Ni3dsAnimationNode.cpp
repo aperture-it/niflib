@@ -204,5 +204,33 @@ std::list<NiObject *> Ni3dsAnimationNode::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+IndexString Ni3dsAnimationNode::GetName() const {
+	return name;
+}
+
+void Ni3dsAnimationNode::SetName( const IndexString & value ) {
+	name = value;
+}
+
+bool Ni3dsAnimationNode::GetHasData() const {
+	return hasData;
+}
+
+void Ni3dsAnimationNode::SetHasData( bool value ) {
+	hasData = value;
+}
+
+Ref<NiObject > Ni3dsAnimationNode::GetChild() const {
+	return child;
+}
+
+void Ni3dsAnimationNode::SetChild( Ref<NiObject > value ) {
+	child = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

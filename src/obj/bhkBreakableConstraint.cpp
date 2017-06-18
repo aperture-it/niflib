@@ -219,6 +219,58 @@ std::list<NiObject *> bhkBreakableConstraint::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<bhkEntity * > bhkBreakableConstraint::GetEntities2() const {
+	return entities2;
+}
+
+void bhkBreakableConstraint::SetEntities2( const vector<bhkEntity * >& value ) {
+	entities2 = value;
+}
+
+unsigned int bhkBreakableConstraint::GetPriority2() const {
+	return priority2;
+}
+
+void bhkBreakableConstraint::SetPriority2( unsigned int value ) {
+	priority2 = value;
+}
+
+Vector3 bhkBreakableConstraint::GetPosition() const {
+	return position;
+}
+
+void bhkBreakableConstraint::SetPosition( const Vector3 & value ) {
+	position = value;
+}
+
+Vector3 bhkBreakableConstraint::GetRotation() const {
+	return rotation;
+}
+
+void bhkBreakableConstraint::SetRotation( const Vector3 & value ) {
+	rotation = value;
+}
+
+float bhkBreakableConstraint::GetThreshold() const {
+	return threshold;
+}
+
+void bhkBreakableConstraint::SetThreshold( float value ) {
+	threshold = value;
+}
+
+byte bhkBreakableConstraint::GetRemoveIfBroken() const {
+	return removeIfBroken;
+}
+
+void bhkBreakableConstraint::SetRemoveIfBroken( byte value ) {
+	removeIfBroken = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

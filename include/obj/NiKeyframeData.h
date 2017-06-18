@@ -17,6 +17,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 // Include structures
 #include "../gen/KeyGroup.h"
+#include "../gen/PosKeyGroup.h"
 namespace Niflib {
 
 class NiKeyframeData;
@@ -54,6 +55,52 @@ public:
 	 * \return The type constant for the actual type of the object.
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
+
+	/***Begin Example Naive Implementation****
+
+	// The type of interpolation to use for rotation.  Can also be 4 to indicate that
+	// separate X, Y, and Z values are used for the rotation instead of Quaternions.
+	// \return The current value.
+	KeyType GetRotationType() const;
+
+	// The type of interpolation to use for rotation.  Can also be 4 to indicate that
+	// separate X, Y, and Z values are used for the rotation instead of Quaternions.
+	// \param[in] value The new value.
+	void SetRotationType( const KeyType & value );
+
+	// The rotation keys if Quaternion rotation is used.
+	// \return The current value.
+	vector<Key<Quaternion > > GetQuaternionKeys() const;
+
+	// The rotation keys if Quaternion rotation is used.
+	// \param[in] value The new value.
+	void SetQuaternionKeys( const vector<Key<Quaternion > >& value );
+
+	// Individual arrays of keys for rotating X, Y, and Z individually.
+	// \return The current value.
+	array<3,KeyGroup<float > >  GetXyzRotations() const;
+
+	// Individual arrays of keys for rotating X, Y, and Z individually.
+	// \param[in] value The new value.
+	void SetXyzRotations( const array<3,KeyGroup<float > >&  value );
+
+	// Translation keys.
+	// \return The current value.
+	PosKeyGroup<Vector3 > GetTranslations() const;
+
+	// Translation keys.
+	// \param[in] value The new value.
+	void SetTranslations( const PosKeyGroup<Vector3 > & value );
+
+	// Scale keys.
+	// \return The current value.
+	KeyGroup<float > GetScales() const;
+
+	// Scale keys.
+	// \param[in] value The new value.
+	void SetScales( const KeyGroup<float > & value );
+
+	****End Example Naive Implementation***/
 
 	//--BEGIN MISC CUSTOM CODE--//
 
@@ -221,7 +268,7 @@ public:
 	NIFLIB_API void SetScaleKeys( vector< Key<float> > const & keys );
 
 protected:
-	void UpdateRotationKeyCount();
+	unsigned int numRotationKeysCalc(const NifInfo & info) const;
 
 	//--END CUSTOM CODE--//
 protected:
@@ -243,7 +290,7 @@ protected:
 	/*! Individual arrays of keys for rotating X, Y, and Z individually. */
 	array<3,KeyGroup<float > > xyzRotations;
 	/*! Translation keys. */
-	KeyGroup<Vector3 > translations;
+	PosKeyGroup<Vector3 > translations;
 	/*! Scale keys. */
 	KeyGroup<float > scales;
 public:

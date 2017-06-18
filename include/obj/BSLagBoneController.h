@@ -53,6 +53,34 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// How long it takes to rotate about an actor back to rest position.
+	// \return The current value.
+	float GetLinearVelocity() const;
+
+	// How long it takes to rotate about an actor back to rest position.
+	// \param[in] value The new value.
+	void SetLinearVelocity( float value );
+
+	// How the bone lags rotation
+	// \return The current value.
+	float GetLinearRotation() const;
+
+	// How the bone lags rotation
+	// \param[in] value The new value.
+	void SetLinearRotation( float value );
+
+	// How far bone will tail an actor.
+	// \return The current value.
+	float GetMaximumDistance() const;
+
+	// How far bone will tail an actor.
+	// \param[in] value The new value.
+	void SetMaximumDistance( float value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

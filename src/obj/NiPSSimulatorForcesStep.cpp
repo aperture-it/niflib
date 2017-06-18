@@ -155,6 +155,18 @@ std::list<NiObject *> NiPSSimulatorForcesStep::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Ref<NiObject > > NiPSSimulatorForcesStep::GetForces() const {
+	return forces;
+}
+
+void NiPSSimulatorForcesStep::SetForces( const vector<Ref<NiObject > >& value ) {
+	forces = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

@@ -130,6 +130,18 @@ std::list<NiObject *> BSSegmentedTriShape::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<BSSegment > BSSegmentedTriShape::GetSegment() const {
+	return segment;
+}
+
+void BSSegmentedTriShape::SetSegment( const vector<BSSegment >& value ) {
+	segment = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

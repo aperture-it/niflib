@@ -55,6 +55,58 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// The entities affected by this constraint.
+	// \return The current value.
+	vector<bhkEntity * > GetEntities2() const;
+
+	// The entities affected by this constraint.
+	// \param[in] value The new value.
+	void SetEntities2( const vector<bhkEntity * >& value );
+
+	// Usually 1. Higher values indicate higher priority of this constraint?
+	// \return The current value.
+	unsigned int GetPriority2() const;
+
+	// Usually 1. Higher values indicate higher priority of this constraint?
+	// \param[in] value The new value.
+	void SetPriority2( unsigned int value );
+
+	// Unknown
+	// \return The current value.
+	Vector3 GetPosition() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetPosition( const Vector3 & value );
+
+	// Unknown
+	// \return The current value.
+	Vector3 GetRotation() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetRotation( const Vector3 & value );
+
+	// Unknown
+	// \return The current value.
+	float GetThreshold() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetThreshold( float value );
+
+	// Unknown
+	// \return The current value.
+	byte GetRemoveIfBroken() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetRemoveIfBroken( byte value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

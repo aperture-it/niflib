@@ -28,7 +28,6 @@ struct MaterialData {
 	/*! Extra data associated with the material? */
 	unsigned int materialExtraData;
 	//--BEGIN MISC CUSTOM CODE--//
-
 	//--END CUSTOM CODE--//
 };
 

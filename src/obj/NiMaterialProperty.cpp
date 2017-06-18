@@ -127,6 +127,74 @@ std::list<NiObject *> NiMaterialProperty::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned short NiMaterialProperty::GetFlags() const {
+	return flags;
+}
+
+void NiMaterialProperty::SetFlags( unsigned short value ) {
+	flags = value;
+}
+
+Color3 NiMaterialProperty::GetAmbientColor() const {
+	return ambientColor;
+}
+
+void NiMaterialProperty::SetAmbientColor( const Color3 & value ) {
+	ambientColor = value;
+}
+
+Color3 NiMaterialProperty::GetDiffuseColor() const {
+	return diffuseColor;
+}
+
+void NiMaterialProperty::SetDiffuseColor( const Color3 & value ) {
+	diffuseColor = value;
+}
+
+Color3 NiMaterialProperty::GetSpecularColor() const {
+	return specularColor;
+}
+
+void NiMaterialProperty::SetSpecularColor( const Color3 & value ) {
+	specularColor = value;
+}
+
+Color3 NiMaterialProperty::GetEmissiveColor() const {
+	return emissiveColor;
+}
+
+void NiMaterialProperty::SetEmissiveColor( const Color3 & value ) {
+	emissiveColor = value;
+}
+
+float NiMaterialProperty::GetGlossiness() const {
+	return glossiness;
+}
+
+void NiMaterialProperty::SetGlossiness( float value ) {
+	glossiness = value;
+}
+
+float NiMaterialProperty::GetAlpha() const {
+	return alpha;
+}
+
+void NiMaterialProperty::SetAlpha( float value ) {
+	alpha = value;
+}
+
+float NiMaterialProperty::GetEmitMulti() const {
+	return emitMulti;
+}
+
+void NiMaterialProperty::SetEmitMulti( float value ) {
+	emitMulti = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 unsigned short NiMaterialProperty::GetFlags() const {

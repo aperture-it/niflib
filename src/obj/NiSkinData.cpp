@@ -245,6 +245,42 @@ std::list<NiObject *> NiSkinData::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+SkinTransform NiSkinData::GetSkinTransform() const {
+	return skinTransform;
+}
+
+void NiSkinData::SetSkinTransform( const SkinTransform & value ) {
+	skinTransform = value;
+}
+
+Ref<NiSkinPartition > NiSkinData::GetSkinPartition() const {
+	return skinPartition;
+}
+
+void NiSkinData::SetSkinPartition( Ref<NiSkinPartition > value ) {
+	skinPartition = value;
+}
+
+byte NiSkinData::GetHasVertexWeights() const {
+	return hasVertexWeights;
+}
+
+void NiSkinData::SetHasVertexWeights( byte value ) {
+	hasVertexWeights = value;
+}
+
+vector<SkinData > NiSkinData::GetBoneList() const {
+	return boneList;
+}
+
+void NiSkinData::SetBoneList( const vector<SkinData >& value ) {
+	boneList = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 unsigned int NiSkinData::GetBoneCount() const {
@@ -256,7 +292,9 @@ Matrix44 NiSkinData::GetBoneTransform( unsigned int bone_index ) const {
 		throw runtime_error( "The specified bone index was larger than the number of bones in this NiSkinData." );
 	}
 
-	return Matrix44( boneList[bone_index].skinTransform.translation, boneList[bone_index].skinTransform.rotation, boneList[bone_index].skinTransform.scale );
+	return Matrix44( boneList[bone_index].skinTransform.translation
+		, boneList[bone_index].skinTransform.rotation
+		, boneList[bone_index].skinTransform.scale );
 }
 
 vector<SkinWeight> NiSkinData::GetBoneWeights( unsigned int bone_index ) const {
@@ -276,15 +314,6 @@ void NiSkinData::SetBoneWeights( unsigned int bone_index, const vector<SkinWeigh
 	boneList[bone_index].vertexWeights = weights;
     boneList[bone_index].boundingSphereOffset = center;
     boneList[bone_index].boundingSphereRadius = radius;
-}
-
-void NiSkinData::SetBoneWeights( unsigned int bone_index, const vector<SkinWeight> & weights ) {
-	if ( bone_index > boneList.size() ) {
-		throw runtime_error( "The specified bone index was larger than the number of bones in this NiSkinData." );
-	}
-
-	hasVertexWeights = true;
-	boneList[bone_index].vertexWeights = weights;
 }
 
 Matrix44 NiSkinData::GetOverallTransform() const {
@@ -378,7 +407,9 @@ void NiSkinData::ResetOffsets( NiGeometry * owner ) {
 		res_mat = owner_mat * bone_mat.Inverse();
 
 		//Store result
-		res_mat.Decompose( boneList[i].skinTransform.translation, boneList[i].skinTransform.rotation, boneList[i].skinTransform.scale );
+		res_mat.Decompose( boneList[i].skinTransform.translation
+			, boneList[i].skinTransform.rotation
+			, boneList[i].skinTransform.scale );
 	}
 }
 

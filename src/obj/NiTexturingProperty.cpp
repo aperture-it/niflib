@@ -1687,6 +1687,274 @@ std::list<NiObject *> NiTexturingProperty::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned short NiTexturingProperty::GetFlags() const {
+	return flags;
+}
+
+void NiTexturingProperty::SetFlags( unsigned short value ) {
+	flags = value;
+}
+
+unsigned short NiTexturingProperty::GetFlags() const {
+	return flags;
+}
+
+void NiTexturingProperty::SetFlags( unsigned short value ) {
+	flags = value;
+}
+
+ApplyMode NiTexturingProperty::GetApplyMode() const {
+	return applyMode;
+}
+
+void NiTexturingProperty::SetApplyMode( const ApplyMode & value ) {
+	applyMode = value;
+}
+
+unsigned int NiTexturingProperty::GetTextureCount() const {
+	return textureCount;
+}
+
+void NiTexturingProperty::SetTextureCount( unsigned int value ) {
+	textureCount = value;
+}
+
+bool NiTexturingProperty::GetHasBaseTexture() const {
+	return hasBaseTexture;
+}
+
+void NiTexturingProperty::SetHasBaseTexture( bool value ) {
+	hasBaseTexture = value;
+}
+
+TexDesc NiTexturingProperty::GetBaseTexture() const {
+	return baseTexture;
+}
+
+void NiTexturingProperty::SetBaseTexture( const TexDesc & value ) {
+	baseTexture = value;
+}
+
+bool NiTexturingProperty::GetHasDarkTexture() const {
+	return hasDarkTexture;
+}
+
+void NiTexturingProperty::SetHasDarkTexture( bool value ) {
+	hasDarkTexture = value;
+}
+
+TexDesc NiTexturingProperty::GetDarkTexture() const {
+	return darkTexture;
+}
+
+void NiTexturingProperty::SetDarkTexture( const TexDesc & value ) {
+	darkTexture = value;
+}
+
+bool NiTexturingProperty::GetHasDetailTexture() const {
+	return hasDetailTexture;
+}
+
+void NiTexturingProperty::SetHasDetailTexture( bool value ) {
+	hasDetailTexture = value;
+}
+
+TexDesc NiTexturingProperty::GetDetailTexture() const {
+	return detailTexture;
+}
+
+void NiTexturingProperty::SetDetailTexture( const TexDesc & value ) {
+	detailTexture = value;
+}
+
+bool NiTexturingProperty::GetHasGlossTexture() const {
+	return hasGlossTexture;
+}
+
+void NiTexturingProperty::SetHasGlossTexture( bool value ) {
+	hasGlossTexture = value;
+}
+
+TexDesc NiTexturingProperty::GetGlossTexture() const {
+	return glossTexture;
+}
+
+void NiTexturingProperty::SetGlossTexture( const TexDesc & value ) {
+	glossTexture = value;
+}
+
+bool NiTexturingProperty::GetHasGlowTexture() const {
+	return hasGlowTexture;
+}
+
+void NiTexturingProperty::SetHasGlowTexture( bool value ) {
+	hasGlowTexture = value;
+}
+
+TexDesc NiTexturingProperty::GetGlowTexture() const {
+	return glowTexture;
+}
+
+void NiTexturingProperty::SetGlowTexture( const TexDesc & value ) {
+	glowTexture = value;
+}
+
+bool NiTexturingProperty::GetHasBumpMapTexture() const {
+	return hasBumpMapTexture;
+}
+
+void NiTexturingProperty::SetHasBumpMapTexture( bool value ) {
+	hasBumpMapTexture = value;
+}
+
+TexDesc NiTexturingProperty::GetBumpMapTexture() const {
+	return bumpMapTexture;
+}
+
+void NiTexturingProperty::SetBumpMapTexture( const TexDesc & value ) {
+	bumpMapTexture = value;
+}
+
+float NiTexturingProperty::GetBumpMapLumaScale() const {
+	return bumpMapLumaScale;
+}
+
+void NiTexturingProperty::SetBumpMapLumaScale( float value ) {
+	bumpMapLumaScale = value;
+}
+
+float NiTexturingProperty::GetBumpMapLumaOffset() const {
+	return bumpMapLumaOffset;
+}
+
+void NiTexturingProperty::SetBumpMapLumaOffset( float value ) {
+	bumpMapLumaOffset = value;
+}
+
+Matrix22 NiTexturingProperty::GetBumpMapMatrix() const {
+	return bumpMapMatrix;
+}
+
+void NiTexturingProperty::SetBumpMapMatrix( const Matrix22 & value ) {
+	bumpMapMatrix = value;
+}
+
+bool NiTexturingProperty::GetHasNormalTexture() const {
+	return hasNormalTexture;
+}
+
+void NiTexturingProperty::SetHasNormalTexture( bool value ) {
+	hasNormalTexture = value;
+}
+
+TexDesc NiTexturingProperty::GetNormalTexture() const {
+	return normalTexture;
+}
+
+void NiTexturingProperty::SetNormalTexture( const TexDesc & value ) {
+	normalTexture = value;
+}
+
+bool NiTexturingProperty::GetHasDecal0Texture() const {
+	return hasDecal0Texture;
+}
+
+void NiTexturingProperty::SetHasDecal0Texture( bool value ) {
+	hasDecal0Texture = value;
+}
+
+TexDesc NiTexturingProperty::GetDecal0Texture() const {
+	return decal0Texture;
+}
+
+void NiTexturingProperty::SetDecal0Texture( const TexDesc & value ) {
+	decal0Texture = value;
+}
+
+bool NiTexturingProperty::GetHasDecal1Texture() const {
+	return hasDecal1Texture;
+}
+
+void NiTexturingProperty::SetHasDecal1Texture( bool value ) {
+	hasDecal1Texture = value;
+}
+
+bool NiTexturingProperty::GetHasDecal1Texture() const {
+	return hasDecal1Texture;
+}
+
+void NiTexturingProperty::SetHasDecal1Texture( bool value ) {
+	hasDecal1Texture = value;
+}
+
+TexDesc NiTexturingProperty::GetDecal1Texture() const {
+	return decal1Texture;
+}
+
+void NiTexturingProperty::SetDecal1Texture( const TexDesc & value ) {
+	decal1Texture = value;
+}
+
+bool NiTexturingProperty::GetHasDecal2Texture() const {
+	return hasDecal2Texture;
+}
+
+void NiTexturingProperty::SetHasDecal2Texture( bool value ) {
+	hasDecal2Texture = value;
+}
+
+bool NiTexturingProperty::GetHasDecal2Texture() const {
+	return hasDecal2Texture;
+}
+
+void NiTexturingProperty::SetHasDecal2Texture( bool value ) {
+	hasDecal2Texture = value;
+}
+
+TexDesc NiTexturingProperty::GetDecal2Texture() const {
+	return decal2Texture;
+}
+
+void NiTexturingProperty::SetDecal2Texture( const TexDesc & value ) {
+	decal2Texture = value;
+}
+
+bool NiTexturingProperty::GetHasDecal3Texture() const {
+	return hasDecal3Texture;
+}
+
+void NiTexturingProperty::SetHasDecal3Texture( bool value ) {
+	hasDecal3Texture = value;
+}
+
+bool NiTexturingProperty::GetHasDecal3Texture() const {
+	return hasDecal3Texture;
+}
+
+void NiTexturingProperty::SetHasDecal3Texture( bool value ) {
+	hasDecal3Texture = value;
+}
+
+TexDesc NiTexturingProperty::GetDecal3Texture() const {
+	return decal3Texture;
+}
+
+void NiTexturingProperty::SetDecal3Texture( const TexDesc & value ) {
+	decal3Texture = value;
+}
+
+vector<ShaderTexDesc > NiTexturingProperty::GetShaderTextures() const {
+	return shaderTextures;
+}
+
+void NiTexturingProperty::SetShaderTextures( const vector<ShaderTexDesc >& value ) {
+	shaderTextures = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 ApplyMode NiTexturingProperty::GetApplyMode() const {

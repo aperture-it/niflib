@@ -227,6 +227,18 @@ std::list<NiObject *> bhkMeshShape::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Ref<NiTriStripsData > > bhkMeshShape::GetStripsData() const {
+	return stripsData;
+}
+
+void bhkMeshShape::SetStripsData( const vector<Ref<NiTriStripsData > >& value ) {
+	stripsData = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

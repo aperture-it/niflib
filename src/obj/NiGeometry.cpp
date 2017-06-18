@@ -18,6 +18,7 @@ All rights reserved.  Please see niflib.h for license. */
 #include "../../include/NIF_IO.h"
 #include "../../include/obj/NiGeometry.h"
 #include "../../include/obj/NiGeometryData.h"
+#include "../../include/obj/NiParticleSystem.h"
 #include "../../include/obj/NiProperty.h"
 #include "../../include/obj/NiSkinInstance.h"
 using namespace Niflib;
@@ -25,7 +26,7 @@ using namespace Niflib;
 //Definition of TYPE constant
 const Type NiGeometry::TYPE("NiGeometry", &NiAVObject::TYPE );
 
-NiGeometry::NiGeometry() : data(NULL), skinInstance(NULL), numMaterials((unsigned int)0), activeMaterial((int)0), hasShader(false), unknownInteger((int)0), unknownByte((byte)255), unknownInteger2((int)0), dirtyFlag(false) {
+NiGeometry::NiGeometry() : data(NULL), skinInstance(NULL), numMaterials((unsigned int)0), activeMaterial((int)0), hasShader(false), unknownInteger((int)0), unknownByte((byte)255), unknownInteger2((int)0), dirtyFlag(false), unknownInteger3((int)0) {
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
@@ -49,11 +50,20 @@ void NiGeometry::Read( istream& in, list<unsigned int> & link_stack, const NifIn
 
 	unsigned int block_num;
 	NiAVObject::Read( in, link_stack, info );
-	NifStream( block_num, in, info );
-	link_stack.push_back( block_num );
-	if ( info.version >= 0x0303000D ) {
+	if ( (!IsDerivedType(NiParticleSystem::TYPE)) ) {
 		NifStream( block_num, in, info );
 		link_stack.push_back( block_num );
+	};
+	if ( info.version >= 0x0303000D ) {
+		if ( (!IsDerivedType(NiParticleSystem::TYPE)) ) {
+			NifStream( block_num, in, info );
+			link_stack.push_back( block_num );
+		};
+	};
+	if ( IsDerivedType(NiParticleSystem::TYPE) ) {
+		for (unsigned int i2 = 0; i2 < 2; i2++) {
+			NifStream( emptyRefs[i2], in, info );
+		};
 	};
 	if ( info.version >= 0x14020007 ) {
 		NifStream( numMaterials, in, info );
@@ -80,8 +90,11 @@ void NiGeometry::Read( istream& in, list<unsigned int> & link_stack, const NifIn
 	if ( ( info.version >= 0x0A040001 ) && ( info.version <= 0x0A040001 ) ) {
 		NifStream( unknownInteger2, in, info );
 	};
-	if ( info.version >= 0x14020007 ) {
+	if ( ( info.version >= 0x14020007 ) && ( (info.userVersion2 < 130) ) ) {
 		NifStream( dirtyFlag, in, info );
+	};
+	if ( ((info.userVersion >= 12) && (info.userVersion2 >= 130)) ) {
+		NifStream( unknownInteger3, in, info );
 	};
 	if ( ( info.version >= 0x14020007 ) && ( info.userVersion == 12 ) ) {
 		for (unsigned int i2 = 0; i2 < 2; i2++) {
@@ -100,41 +113,50 @@ void NiGeometry::Write( ostream& out, const map<NiObjectRef,unsigned int> & link
 
 	NiAVObject::Write( out, link_map, missing_link_stack, info );
 	numMaterials = (unsigned int)(materialName.size());
-	if ( info.version < VER_3_3_0_13 ) {
-		WritePtr32( &(*data), out );
-	} else {
-		if ( data != NULL ) {
-			map<NiObjectRef,unsigned int>::const_iterator it = link_map.find( StaticCast<NiObject>(data) );
-			if (it != link_map.end()) {
-				NifStream( it->second, out, info );
-				missing_link_stack.push_back( NULL );
-			} else {
-				NifStream( 0xFFFFFFFF, out, info );
-				missing_link_stack.push_back( data );
-			}
-		} else {
-			NifStream( 0xFFFFFFFF, out, info );
-			missing_link_stack.push_back( NULL );
-		}
-	}
-	if ( info.version >= 0x0303000D ) {
+	if ( (!IsDerivedType(NiParticleSystem::TYPE)) ) {
 		if ( info.version < VER_3_3_0_13 ) {
-			WritePtr32( &(*skinInstance), out );
+			WritePtr32( &(*data), out );
 		} else {
-			if ( skinInstance != NULL ) {
-				map<NiObjectRef,unsigned int>::const_iterator it = link_map.find( StaticCast<NiObject>(skinInstance) );
+			if ( data != NULL ) {
+				map<NiObjectRef,unsigned int>::const_iterator it = link_map.find( StaticCast<NiObject>(data) );
 				if (it != link_map.end()) {
 					NifStream( it->second, out, info );
 					missing_link_stack.push_back( NULL );
 				} else {
 					NifStream( 0xFFFFFFFF, out, info );
-					missing_link_stack.push_back( skinInstance );
+					missing_link_stack.push_back( data );
 				}
 			} else {
 				NifStream( 0xFFFFFFFF, out, info );
 				missing_link_stack.push_back( NULL );
 			}
 		}
+	};
+	if ( info.version >= 0x0303000D ) {
+		if ( (!IsDerivedType(NiParticleSystem::TYPE)) ) {
+			if ( info.version < VER_3_3_0_13 ) {
+				WritePtr32( &(*skinInstance), out );
+			} else {
+				if ( skinInstance != NULL ) {
+					map<NiObjectRef,unsigned int>::const_iterator it = link_map.find( StaticCast<NiObject>(skinInstance) );
+					if (it != link_map.end()) {
+						NifStream( it->second, out, info );
+						missing_link_stack.push_back( NULL );
+					} else {
+						NifStream( 0xFFFFFFFF, out, info );
+						missing_link_stack.push_back( skinInstance );
+					}
+				} else {
+					NifStream( 0xFFFFFFFF, out, info );
+					missing_link_stack.push_back( NULL );
+				}
+			}
+		};
+	};
+	if ( IsDerivedType(NiParticleSystem::TYPE) ) {
+		for (unsigned int i2 = 0; i2 < 2; i2++) {
+			NifStream( emptyRefs[i2], out, info );
+		};
 	};
 	if ( info.version >= 0x14020007 ) {
 		NifStream( numMaterials, out, info );
@@ -159,8 +181,11 @@ void NiGeometry::Write( ostream& out, const map<NiObjectRef,unsigned int> & link
 	if ( ( info.version >= 0x0A040001 ) && ( info.version <= 0x0A040001 ) ) {
 		NifStream( unknownInteger2, out, info );
 	};
-	if ( info.version >= 0x14020007 ) {
+	if ( ( info.version >= 0x14020007 ) && ( (info.userVersion2 < 130) ) ) {
 		NifStream( dirtyFlag, out, info );
+	};
+	if ( ((info.userVersion >= 12) && (info.userVersion2 >= 130)) ) {
+		NifStream( unknownInteger3, out, info );
 	};
 	if ( ( info.version >= 0x14020007 ) && ( info.userVersion == 12 ) ) {
 		for (unsigned int i2 = 0; i2 < 2; i2++) {
@@ -196,8 +221,24 @@ std::string NiGeometry::asString( bool verbose ) const {
 	unsigned int array_output_count = 0;
 	out << NiAVObject::asString();
 	numMaterials = (unsigned int)(materialName.size());
-	out << "  Data:  " << data << endl;
-	out << "  Skin Instance:  " << skinInstance << endl;
+	if ( (!IsDerivedType(NiParticleSystem::TYPE)) ) {
+		out << "    Data:  " << data << endl;
+		out << "    Skin Instance:  " << skinInstance << endl;
+	};
+	if ( IsDerivedType(NiParticleSystem::TYPE) ) {
+		array_output_count = 0;
+		for (unsigned int i2 = 0; i2 < 2; i2++) {
+			if ( !verbose && ( array_output_count > MAXARRAYDUMP ) ) {
+				out << "<Data Truncated. Use verbose mode to see complete listing.>" << endl;
+				break;
+			};
+			if ( !verbose && ( array_output_count > MAXARRAYDUMP ) ) {
+				break;
+			};
+			out << "      Empty Refs[" << i2 << "]:  " << emptyRefs[i2] << endl;
+			array_output_count++;
+		};
+	};
 	out << "  Num Materials:  " << numMaterials << endl;
 	array_output_count = 0;
 	for (unsigned int i1 = 0; i1 < materialName.size(); i1++) {
@@ -232,6 +273,7 @@ std::string NiGeometry::asString( bool verbose ) const {
 	out << "  Unknown Byte:  " << unknownByte << endl;
 	out << "  Unknown Integer 2:  " << unknownInteger2 << endl;
 	out << "  Dirty Flag:  " << dirtyFlag << endl;
+	out << "  Unknown Integer 3:  " << unknownInteger3 << endl;
 	array_output_count = 0;
 	for (unsigned int i1 = 0; i1 < 2; i1++) {
 		if ( !verbose && ( array_output_count > MAXARRAYDUMP ) ) {
@@ -255,9 +297,13 @@ void NiGeometry::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<u
 	//--END CUSTOM CODE--//
 
 	NiAVObject::FixLinks( objects, link_stack, missing_link_stack, info );
-	data = FixLink<NiGeometryData>( objects, link_stack, missing_link_stack, info );
+	if ( (!IsDerivedType(NiParticleSystem::TYPE)) ) {
+		data = FixLink<NiGeometryData>( objects, link_stack, missing_link_stack, info );
+	};
 	if ( info.version >= 0x0303000D ) {
-		skinInstance = FixLink<NiSkinInstance>( objects, link_stack, missing_link_stack, info );
+		if ( (!IsDerivedType(NiParticleSystem::TYPE)) ) {
+			skinInstance = FixLink<NiSkinInstance>( objects, link_stack, missing_link_stack, info );
+		};
 	};
 	if ( ( info.version >= 0x14020007 ) && ( info.userVersion == 12 ) ) {
 		for (unsigned int i2 = 0; i2 < 2; i2++) {
@@ -266,6 +312,15 @@ void NiGeometry::FixLinks( const map<unsigned int,NiObjectRef> & objects, list<u
 	};
 
 	//--BEGIN POST-FIXLINKS CUSTOM CODE--//
+	
+	// add propertylink1 and propertylink2 to properties so GetProperties continues to function
+	if ( ( info.version >= 0x14020007 ) && ( info.userVersion == 12 ) ) {
+		
+		if (bsProperties[0] != NULL)
+			properties.push_back(bsProperties[0]);
+		if (bsProperties[1] != NULL)
+			properties.push_back(bsProperties[1]);
+	}
 	//--END CUSTOM CODE--//
 }
 
@@ -291,6 +346,90 @@ std::list<NiObject *> NiGeometry::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Ref<NiGeometryData > NiGeometry::GetData() const {
+	return data;
+}
+
+void NiGeometry::SetData( Ref<NiGeometryData > value ) {
+	data = value;
+}
+
+Ref<NiSkinInstance > NiGeometry::GetSkinInstance() const {
+	return skinInstance;
+}
+
+void NiGeometry::SetSkinInstance( Ref<NiSkinInstance > value ) {
+	skinInstance = value;
+}
+
+array<2,unsigned int >  NiGeometry::GetEmptyRefs() const {
+	return emptyRefs;
+}
+
+void NiGeometry::SetEmptyRefs( const array<2,unsigned int >&  value ) {
+	emptyRefs = value;
+}
+
+vector<IndexString > NiGeometry::GetMaterialName() const {
+	return materialName;
+}
+
+void NiGeometry::SetMaterialName( const vector<IndexString >& value ) {
+	materialName = value;
+}
+
+vector<int > NiGeometry::GetMaterialExtraData() const {
+	return materialExtraData;
+}
+
+void NiGeometry::SetMaterialExtraData( const vector<int >& value ) {
+	materialExtraData = value;
+}
+
+int NiGeometry::GetActiveMaterial() const {
+	return activeMaterial;
+}
+
+void NiGeometry::SetActiveMaterial( int value ) {
+	activeMaterial = value;
+}
+
+bool NiGeometry::GetHasShader() const {
+	return hasShader;
+}
+
+void NiGeometry::SetHasShader( bool value ) {
+	hasShader = value;
+}
+
+IndexString NiGeometry::GetShaderName() const {
+	return shaderName;
+}
+
+void NiGeometry::SetShaderName( const IndexString & value ) {
+	shaderName = value;
+}
+
+bool NiGeometry::GetDirtyFlag() const {
+	return dirtyFlag;
+}
+
+void NiGeometry::SetDirtyFlag( bool value ) {
+	dirtyFlag = value;
+}
+
+array<2,Ref<NiProperty > >  NiGeometry::GetBsProperties() const {
+	return bsProperties;
+}
+
+void NiGeometry::SetBsProperties( const array<2,Ref<NiProperty > >&  value ) {
+	bsProperties = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 Ref<NiGeometryData> NiGeometry::GetData() const {
@@ -315,12 +454,13 @@ void NiGeometry::SetShader( const string & n ) {
 	}
 }
 
-Ref<NiSkinInstance> NiGeometry::GetSkinInstance() const {
-	return skinInstance;
+bool NiGeometry::SupportsSkinBinding() const {
+	return true;
 }
 
-void NiGeometry::SetSkinInstance(Ref<NiSkinInstance> skin) {
-	skinInstance = skin;
+
+Ref<NiSkinInstance> NiGeometry::GetSkinInstance() const {
+	return skinInstance;
 }
 
 void NiGeometry::BindSkin( vector< Ref<NiNode> >& bone_nodes ) {
@@ -637,24 +777,112 @@ bool NiGeometry::HasShader() const {
    return hasShader;
 }
 
-Ref<NiProperty> NiGeometry::GetBSProperty(short index) {
-	if ((index < 0) || (index > 1))   return NULL;
-	return bsProperties[index];
-}
+#pragma region Property Management
+// Synchronize PropertyLink 1 and Property Link 2 with Property List
 
-void NiGeometry::SetBSProperty(short index, Niflib::Ref<NiProperty> value) {
-	if ((index >= 0) && (index <= 1))
+void NiGeometry::AddProperty( NiProperty * obj ) {
+	if (obj == NULL)
+		return;
+
+	properties.push_back( obj );
+	if (bsProperties[0] == NULL)
 	{
-		bsProperties[index] = value;
+		bsProperties[0] = obj;
+		return;
+	}
+	if (bsProperties[1] == NULL)
+	{
+		bsProperties[1] = obj;
+		return;
 	}
 }
 
-array<2,Ref<NiProperty > > Niflib::NiGeometry::GetBSProperties() {
-	return this->bsProperties;
+void NiGeometry::RemoveProperty( NiProperty * obj ) {
+	//Search property list for the one to remove
+	for ( vector< NiPropertyRef >::iterator it = properties.begin(); it != properties.end(); ) {
+		if ( *it == obj ) {
+			it = properties.erase( it );
+		} else {
+			++it;
+		}
+	}
+	if (bsProperties[0] == obj)
+		bsProperties[0] = NULL;
+	if (bsProperties[1] == obj)
+		bsProperties[1] = NULL;
+	if (bsProperties[0] == NULL && bsProperties[1] != NULL)
+	{
+		bsProperties[0] = bsProperties[1];
+		bsProperties[1] = NULL;
+	}
 }
 
-void Niflib::NiGeometry::SetBSProperties( array<2, Ref<NiProperty> > value ) {
-	this->bsProperties = value;
+void NiGeometry::ClearProperties() {
+	properties.clear();
+	bsProperties[0] = NULL;
+	bsProperties[1] = NULL;
 }
 
+
+NiPropertyRef NiGeometry::GetBSProperty(int index) const {
+	return bsProperties[index];
+}
+
+void NiGeometry::SetBSProperty(int index, const NiPropertyRef&  value) {
+	bsProperties[index] = value;
+}
+
+#pragma endregion
+
+
+void NiGeometry::SetSkinInstance(NiSkinInstance* value) {
+	skinInstance = value;
+}
+
+vector<int > NiGeometry::GetMaterialExtraData() const {
+	return materialExtraData;
+}
+
+void NiGeometry::SetMaterialExtraData(const vector<int >& value) {
+	materialExtraData = value;
+}
+
+bool NiGeometry::GetHasShader() const {
+	return hasShader;
+}
+
+void NiGeometry::SetHasShader(bool value) {
+	hasShader = value;
+}
+
+const NiProperty * NiGeometry::GetBSPropertyOfType(const Niflib::Type& type) const {
+	if (this == nullptr) return nullptr;
+
+	const NiPropertyRef& object = bsProperties[0];
+	if (object && object->IsDerivedType(type)) {
+		return (const NiProperty*)object;
+	}
+	else {
+		const NiPropertyRef& object = bsProperties[1];
+		if (object && object->IsDerivedType(type)) {
+			return (const NiProperty*)object;
+		}
+	}
+	return nullptr;
+}
+NiProperty * NiGeometry::GetBSPropertyOfType(const Niflib::Type& type) {
+	if (this == nullptr) return nullptr;
+
+	NiPropertyRef& object = bsProperties[0];
+	if (object && object->IsDerivedType(type)) {
+		return (NiProperty*)object;
+	}
+	else {
+		NiPropertyRef& object = bsProperties[1];
+		if (object && object->IsDerivedType(type)) {
+			return (NiProperty*)object;
+		}
+	}
+	return nullptr;
+}
 //--END CUSTOM CODE--//

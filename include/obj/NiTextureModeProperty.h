@@ -52,6 +52,26 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// 0?
+	// \return The current value.
+	short GetPs2L() const;
+
+	// 0?
+	// \param[in] value The new value.
+	void SetPs2L( short value );
+
+	// -75?
+	// \return The current value.
+	short GetPs2K() const;
+
+	// -75?
+	// \param[in] value The new value.
+	void SetPs2K( short value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 protected:

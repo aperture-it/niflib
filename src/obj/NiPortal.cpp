@@ -158,6 +158,26 @@ std::list<NiObject *> NiPortal::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Vector3 > NiPortal::GetVertices() const {
+	return vertices;
+}
+
+void NiPortal::SetVertices( const vector<Vector3 >& value ) {
+	vertices = value;
+}
+
+NiNode * NiPortal::GetTarget() const {
+	return target;
+}
+
+void NiPortal::SetTarget( NiNode * value ) {
+	target = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

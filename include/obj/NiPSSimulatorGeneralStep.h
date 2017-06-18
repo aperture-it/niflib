@@ -11,9 +11,8 @@ All rights reserved.  Please see niflib.h for license. */
 #define _NIPSSIMULATORGENERALSTEP_H_
 
 //--BEGIN FILE HEAD CUSTOM CODE--//
-
-#include "../gen/ByteColor4.h"
-
+#include "../../include/gen/ByteColor3.h"
+#include "../../include/gen/ByteColor4.h"
 //--END CUSTOM CODE--//
 
 #include "NiPSSimulatorStep.h"
@@ -57,6 +56,100 @@ public:
 	 * \return The type constant for the actual type of the object.
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
+
+	/***Begin Example Naive Implementation****
+
+	// The particle size keys.
+	// \return The current value.
+	vector<Key<float > > GetSizeKeys() const;
+
+	// The particle size keys.
+	// \param[in] value The new value.
+	void SetSizeKeys( const vector<Key<float > >& value );
+
+	// The loop behavior for the size keys.
+	// \return The current value.
+	PSLoopBehavior GetSizeLoopBehavior() const;
+
+	// The loop behavior for the size keys.
+	// \param[in] value The new value.
+	void SetSizeLoopBehavior( const PSLoopBehavior & value );
+
+	// The particle color keys.
+	// \return The current value.
+	vector<Key<ByteColor4 > > GetColorKeys() const;
+
+	// The particle color keys.
+	// \param[in] value The new value.
+	void SetColorKeys( const vector<Key<ByteColor4 > >& value );
+
+	// The loop behavior for the color keys.
+	// \return The current value.
+	PSLoopBehavior GetColorLoopBehavior() const;
+
+	// The loop behavior for the color keys.
+	// \param[in] value The new value.
+	void SetColorLoopBehavior( const PSLoopBehavior & value );
+
+	// The particle rotation keys.
+	// \return The current value.
+	vector<Key<Quaternion > > GetRotationKeys() const;
+
+	// The particle rotation keys.
+	// \param[in] value The new value.
+	void SetRotationKeys( const vector<Key<Quaternion > >& value );
+
+	// The loop behavior for the rotation keys.
+	// \return The current value.
+	PSLoopBehavior GetRotationLoopBehavior() const;
+
+	// The loop behavior for the rotation keys.
+	// \param[in] value The new value.
+	void SetRotationLoopBehavior( const PSLoopBehavior & value );
+
+	// The the amount of time over which a particle's size is ramped from 0.0 to 1.0 in
+	// seconds
+	// \return The current value.
+	float GetGrowTime() const;
+
+	// The the amount of time over which a particle's size is ramped from 0.0 to 1.0 in
+	// seconds
+	// \param[in] value The new value.
+	void SetGrowTime( float value );
+
+	// The the amount of time over which a particle's size is ramped from 1.0 to 0.0 in
+	// seconds
+	// \return The current value.
+	float GetShrinkTime() const;
+
+	// The the amount of time over which a particle's size is ramped from 1.0 to 0.0 in
+	// seconds
+	// \param[in] value The new value.
+	void SetShrinkTime( float value );
+
+	// Specifies the particle generation to which the grow effect should be applied.
+	// This is usually generation 0, so that newly created particles will grow.
+	// \return The current value.
+	unsigned short GetGrowGeneration() const;
+
+	// Specifies the particle generation to which the grow effect should be applied.
+	// This is usually generation 0, so that newly created particles will grow.
+	// \param[in] value The new value.
+	void SetGrowGeneration( unsigned short value );
+
+	// Specifies the particle generation to which the shrink effect should be applied.
+	// This is usually the highest supported generation for the particle system, so
+	// that particles will shrink immediately before getting killed.
+	// \return The current value.
+	unsigned short GetShrinkGeneration() const;
+
+	// Specifies the particle generation to which the shrink effect should be applied.
+	// This is usually the highest supported generation for the particle system, so
+	// that particles will shrink immediately before getting killed.
+	// \param[in] value The new value.
+	void SetShrinkGeneration( unsigned short value );
+
+	****End Example Naive Implementation***/
 
 	//--BEGIN MISC CUSTOM CODE--//
 

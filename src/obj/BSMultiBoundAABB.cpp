@@ -108,6 +108,26 @@ std::list<NiObject *> BSMultiBoundAABB::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Vector3 BSMultiBoundAABB::GetPosition() const {
+	return position;
+}
+
+void BSMultiBoundAABB::SetPosition( const Vector3 & value ) {
+	position = value;
+}
+
+Vector3 BSMultiBoundAABB::GetExtent() const {
+	return extent;
+}
+
+void BSMultiBoundAABB::SetExtent( const Vector3 & value ) {
+	extent = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

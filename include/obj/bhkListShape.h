@@ -65,19 +65,53 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// List of shapes.
+	// \return The current value.
+	vector<Ref<bhkShape > > GetSubShapes() const;
+
+	// List of shapes.
+	// \param[in] value The new value.
+	void SetSubShapes( const vector<Ref<bhkShape > >& value );
+
+	// The shape's material.
+	// \return The current value.
+	HavokMaterial GetMaterial() const;
+
+	// The shape's material.
+	// \param[in] value The new value.
+	void SetMaterial( const HavokMaterial & value );
+
+	// The shape's material.
+	// \return The current value.
+	SkyrimHavokMaterial GetSkyrimMaterial() const;
+
+	// The shape's material.
+	// \param[in] value The new value.
+	void SetSkyrimMaterial( const SkyrimHavokMaterial & value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	/*!
 	 * Retrieves the child shape objects that this body is using.
 	 * \return The shape objects being used by this body.
 	 */
-	NIFLIB_API vector<Ref<bhkShape > > GetSubShapes() const;
+	NIFLIB_API const vector<Ref<bhkShape > >& GetSubShapes() const;
 
 	/*!
 	* Sets the child shape objects that this body is using.
 	* \param[in] shapes The shape objects being used by this body.
 	*/
 	NIFLIB_API void SetSubShapes(const vector<Ref<bhkShape > >& shapes);
+
+	/*!
+	* Retrieves the child shape objects that this body is using.
+	* \return The shape objects being used by this body.
+	*/
+	NIFLIB_API void AppendSubShape(const Ref<bhkShape>& shape);
 
 	/*!
 	 * Get the shape's material.  This determines the type of noises the object makes as it collides in Oblivion.
@@ -90,6 +124,14 @@ public:
 	 * \param[in] value The new material for this shape to use.
 	 */
 	NIFLIB_API void SetMaterial( HavokMaterial value );
+
+	// The shape's material.
+	// \return The current value.
+	NIFLIB_API SkyrimHavokMaterial GetSkyrimMaterial() const;
+
+	// The shape's material.
+	// \param[in] value The new value.
+	NIFLIB_API void SetSkyrimMaterial(SkyrimHavokMaterial value);
 
 	/*! Helper routine for calculating mass properties.
 	 *  \param[in]  density Uniform density of object

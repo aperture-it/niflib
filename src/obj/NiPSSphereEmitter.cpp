@@ -168,6 +168,18 @@ std::list<NiObject *> NiPSSphereEmitter::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+IndexString NiPSSphereEmitter::GetName() const {
+	return name;
+}
+
+void NiPSSphereEmitter::SetName( const IndexString & value ) {
+	name = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

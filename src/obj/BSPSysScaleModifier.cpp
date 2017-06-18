@@ -127,6 +127,18 @@ std::list<NiObject *> BSPSysScaleModifier::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<float > BSPSysScaleModifier::GetFloats() const {
+	return floats;
+}
+
+void BSPSysScaleModifier::SetFloats( const vector<float >& value ) {
+	floats = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

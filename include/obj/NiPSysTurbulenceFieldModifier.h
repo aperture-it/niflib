@@ -56,6 +56,18 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Frequency of the update.
+	// \return The current value.
+	float GetFrequency() const;
+
+	// Frequency of the update.
+	// \param[in] value The new value.
+	void SetFrequency( float value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

@@ -28,5 +28,4 @@ SkinTransform & SkinTransform::operator=( const SkinTransform & src ) {
 SkinTransform::~SkinTransform() {};
 
 //--BEGIN MISC CUSTOM CODE--//
-
 //--END CUSTOM CODE--//

@@ -211,6 +211,26 @@ std::list<NiObject *> NiFurSpringController::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<NiNode * > NiFurSpringController::GetBones() const {
+	return bones;
+}
+
+void NiFurSpringController::SetBones( const vector<NiNode * >& value ) {
+	bones = value;
+}
+
+vector<NiNode * > NiFurSpringController::GetBones2() const {
+	return bones2;
+}
+
+void NiFurSpringController::SetBones2( const vector<NiNode * >& value ) {
+	bones2 = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

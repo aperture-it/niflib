@@ -461,6 +461,58 @@ std::list<NiObject *> NiMesh::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+MeshPrimitiveType NiMesh::GetPrimitiveType() const {
+	return primitiveType;
+}
+
+void NiMesh::SetPrimitiveType( const MeshPrimitiveType & value ) {
+	primitiveType = value;
+}
+
+unsigned short NiMesh::GetNumSubmeshes() const {
+	return numSubmeshes;
+}
+
+void NiMesh::SetNumSubmeshes( unsigned short value ) {
+	numSubmeshes = value;
+}
+
+bool NiMesh::GetInstancingEnabled() const {
+	return instancingEnabled;
+}
+
+void NiMesh::SetInstancingEnabled( bool value ) {
+	instancingEnabled = value;
+}
+
+SphereBV NiMesh::GetBound() const {
+	return bound;
+}
+
+void NiMesh::SetBound( const SphereBV & value ) {
+	bound = value;
+}
+
+vector<MeshData > NiMesh::GetDatas() const {
+	return datas;
+}
+
+void NiMesh::SetDatas( const vector<MeshData >& value ) {
+	datas = value;
+}
+
+vector<Ref<NiMeshModifier > > NiMesh::GetModifiers() const {
+	return modifiers;
+}
+
+void NiMesh::SetModifiers( const vector<Ref<NiMeshModifier > >& value ) {
+	modifiers = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

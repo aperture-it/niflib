@@ -9,7 +9,7 @@ All rights reserved.  Please see niflib.h for license. */
 using namespace Niflib;
 
 //Constructor
-HalfSpaceBV::HalfSpaceBV() {};
+HalfSpaceBV::HalfSpaceBV() : unknownFloat1(0.0f) {};
 
 //Copy Constructor
 HalfSpaceBV::HalfSpaceBV( const HalfSpaceBV & src ) {
@@ -20,6 +20,7 @@ HalfSpaceBV::HalfSpaceBV( const HalfSpaceBV & src ) {
 HalfSpaceBV & HalfSpaceBV::operator=( const HalfSpaceBV & src ) {
 	this->normal = src.normal;
 	this->center = src.center;
+	this->unknownFloat1 = src.unknownFloat1;
 	return *this;
 };
 

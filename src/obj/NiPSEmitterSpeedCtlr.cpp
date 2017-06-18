@@ -130,6 +130,18 @@ std::list<NiObject *> NiPSEmitterSpeedCtlr::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Ref<NiObject > NiPSEmitterSpeedCtlr::GetInterpolator() const {
+	return interpolator;
+}
+
+void NiPSEmitterSpeedCtlr::SetInterpolator( Ref<NiObject > value ) {
+	interpolator = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

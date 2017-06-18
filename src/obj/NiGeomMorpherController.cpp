@@ -294,6 +294,50 @@ std::list<NiObject *> NiGeomMorpherController::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned short NiGeomMorpherController::GetExtraFlags() const {
+	return extraFlags;
+}
+
+void NiGeomMorpherController::SetExtraFlags( unsigned short value ) {
+	extraFlags = value;
+}
+
+Ref<NiMorphData > NiGeomMorpherController::GetData() const {
+	return data;
+}
+
+void NiGeomMorpherController::SetData( Ref<NiMorphData > value ) {
+	data = value;
+}
+
+byte NiGeomMorpherController::GetAlwaysUpdate() const {
+	return alwaysUpdate;
+}
+
+void NiGeomMorpherController::SetAlwaysUpdate( byte value ) {
+	alwaysUpdate = value;
+}
+
+vector<Ref<NiInterpolator > > NiGeomMorpherController::GetInterpolators() const {
+	return interpolators;
+}
+
+void NiGeomMorpherController::SetInterpolators( const vector<Ref<NiInterpolator > >& value ) {
+	interpolators = value;
+}
+
+vector<MorphWeight > NiGeomMorpherController::GetInterpolatorWeights() const {
+	return interpolatorWeights;
+}
+
+void NiGeomMorpherController::SetInterpolatorWeights( const vector<MorphWeight >& value ) {
+	interpolatorWeights = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 void NiGeomMorpherController::NormalizeKeys() {

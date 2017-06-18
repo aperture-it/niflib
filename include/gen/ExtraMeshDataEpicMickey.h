@@ -36,7 +36,6 @@ struct ExtraMeshDataEpicMickey {
 	/*! Unknown. */
 	float unknownInt6;
 	//--BEGIN MISC CUSTOM CODE--//
-
 	//--END CUSTOM CODE--//
 };
 

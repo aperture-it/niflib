@@ -140,35 +140,31 @@ std::list<NiObject *> NiBSplineData::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<float > NiBSplineData::GetFloatControlPoints() const {
+	return floatControlPoints;
+}
+
+void NiBSplineData::SetFloatControlPoints( const vector<float >& value ) {
+	floatControlPoints = value;
+}
+
+vector<short > NiBSplineData::GetShortControlPoints() const {
+	return shortControlPoints;
+}
+
+void NiBSplineData::SetShortControlPoints( const vector<short >& value ) {
+	shortControlPoints = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 vector<float> NiBSplineData::GetFloatControlPoints() const 
 {
 	return floatControlPoints;
-}
-
-void NiBSplineData::SetFloatControlPoints( vector<float> value ) 
-{
-	this->floatControlPoints.clear();
-	this->numFloatControlPoints = value.size();
-
-	for(unsigned int i = 0; i < value.size(); i++) {
-		this->floatControlPoints.push_back(value[i]);
-	}
-}
-
-void NiBSplineData::AppendFloatControlPoints( vector<float> value )
-{
-	this->numFloatControlPoints += value.size();
-
-	for(unsigned int i = 0; i < value.size(); i++) {
-		this->floatControlPoints.push_back(value[i]);
-	}
-}
-
-int NiBSplineData::GetNumFloatControlPoints()
-{
-	return this->numFloatControlPoints;
 }
 
 vector<float> NiBSplineData::GetFloatControlPointRange(int offset, int count) const
@@ -186,32 +182,6 @@ vector<short > NiBSplineData::GetShortControlPoints() const
 {
 	return shortControlPoints;
 }
-
-void NiBSplineData::SetShortControlPoints( vector<short> value )
-{
-	this->shortControlPoints.clear();
-	this->numShortControlPoints = value.size();
-
-	for(unsigned int i = 0; i < value.size(); i++) {
-		this->shortControlPoints.push_back(value[i]);
-	}
-}
-
-void NiBSplineData::AppendShortControlPoints( vector<short> value )
-{
-	this->numShortControlPoints += value.size();
-
-	for(unsigned int i = 0; i < value.size(); i++) {
-		this->shortControlPoints.push_back(value[i]);
-	}
-}
-
-
-int NiBSplineData::GetNumShortControlPoints()
-{
-	return this->numShortControlPoints;
-}
-
 
 vector<short > NiBSplineData::GetShortControlPointRange(int offset, int count) const
 {

@@ -133,6 +133,18 @@ std::list<NiObject *> BSRefractionFirePeriodController::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Ref<NiInterpolator > BSRefractionFirePeriodController::GetInterpolator() const {
+	return interpolator;
+}
+
+void BSRefractionFirePeriodController::SetInterpolator( Ref<NiInterpolator > value ) {
+	interpolator = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

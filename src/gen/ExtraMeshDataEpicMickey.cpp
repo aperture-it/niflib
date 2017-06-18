@@ -31,5 +31,4 @@ ExtraMeshDataEpicMickey & ExtraMeshDataEpicMickey::operator=( const ExtraMeshDat
 ExtraMeshDataEpicMickey::~ExtraMeshDataEpicMickey() {};
 
 //--BEGIN MISC CUSTOM CODE--//
-
 //--END CUSTOM CODE--//

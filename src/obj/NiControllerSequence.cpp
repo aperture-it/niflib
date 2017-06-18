@@ -275,6 +275,90 @@ std::list<NiObject *> NiControllerSequence::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+float NiControllerSequence::GetWeight() const {
+	return weight;
+}
+
+void NiControllerSequence::SetWeight( float value ) {
+	weight = value;
+}
+
+Ref<NiTextKeyExtraData > NiControllerSequence::GetTextKeys() const {
+	return textKeys;
+}
+
+void NiControllerSequence::SetTextKeys( Ref<NiTextKeyExtraData > value ) {
+	textKeys = value;
+}
+
+CycleType NiControllerSequence::GetCycleType() const {
+	return cycleType;
+}
+
+void NiControllerSequence::SetCycleType( const CycleType & value ) {
+	cycleType = value;
+}
+
+float NiControllerSequence::GetFrequency() const {
+	return frequency;
+}
+
+void NiControllerSequence::SetFrequency( float value ) {
+	frequency = value;
+}
+
+float NiControllerSequence::GetStartTime() const {
+	return startTime;
+}
+
+void NiControllerSequence::SetStartTime( float value ) {
+	startTime = value;
+}
+
+float NiControllerSequence::GetStopTime() const {
+	return stopTime;
+}
+
+void NiControllerSequence::SetStopTime( float value ) {
+	stopTime = value;
+}
+
+NiControllerManager * NiControllerSequence::GetManager() const {
+	return manager;
+}
+
+void NiControllerSequence::SetManager( NiControllerManager * value ) {
+	manager = value;
+}
+
+IndexString NiControllerSequence::GetTargetName() const {
+	return targetName;
+}
+
+void NiControllerSequence::SetTargetName( const IndexString & value ) {
+	targetName = value;
+}
+
+Ref<NiStringPalette > NiControllerSequence::GetStringPalette() const {
+	return stringPalette;
+}
+
+void NiControllerSequence::SetStringPalette( Ref<NiStringPalette > value ) {
+	stringPalette = value;
+}
+
+Ref<BSAnimNotes > NiControllerSequence::GetAnimNotes() const {
+	return animNotes;
+}
+
+void NiControllerSequence::SetAnimNotes( Ref<BSAnimNotes > value ) {
+	animNotes = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 NiControllerManager * NiControllerSequence::GetParent() const { 
@@ -364,122 +448,20 @@ void NiControllerSequence::AddInterpolator( NiSingleInterpController * obj, byte
 	cl.priority = priority;
 	cl.stringPalette = stringPalette;
 	cl.nodeName = target->GetName();
-	cl.nodeNameOffset = stringPalette->AddSubStr( target->GetName() );
+	cl.nodeNameOffset = stringPalette->AddSubStr(cl.nodeName);
 
 	NiPropertyRef prop = DynamicCast<NiProperty>(target);
 	if ( prop != NULL ) {
-		cl.propertyTypeOffset = stringPalette->AddSubStr( prop->GetType().GetTypeName() );
+		cl.propertyType = prop->GetType().GetTypeName();
+		cl.propertyTypeOffset = stringPalette->AddSubStr(cl.propertyType);
 	}
 
-	cl.controllerTypeOffset = stringPalette->AddSubStr( obj->GetType().GetTypeName() );
+	cl.controllerType = obj->GetType().GetTypeName();
+	cl.controllerTypeOffset = stringPalette->AddSubStr(cl.controllerType);
 
 	//Add finished ControllerLink to list
 	controlledBlocks.push_back( cl );
 }
-
-
-void NiControllerSequence::AddInterpolator( NiSingleInterpController * obj, byte priority , bool include_string_pallete ) {
-	//Make sure the link isn't null
-	if ( obj == NULL ) {
-		throw runtime_error("Attempted to add a null controller to NiControllerSequence block.");
-	}
-
-	NiInterpolatorRef interp = obj->GetInterpolator();
-	if ( interp == NULL ) {
-		throw runtime_error("Controller must have an interpolator attached to be added to a NiControllerSequence with the AddInterpolator function.");
-	}
-
-	NiObjectNETRef target = obj->GetTarget();
-	if ( target == NULL ) {
-		throw runtime_error("Controller must have a target to be added to a NiControllerSequence.");
-	}
-
-
-
-	//Make a new ControllerLink and fill out necessary data
-	ControllerLink cl;
-
-	NiPropertyRef prop = DynamicCast<NiProperty>(target);
-
-	cl.interpolator = interp;
-	cl.priority = priority;
-	if(include_string_pallete == true) {
-		//If there are existing ControllerLinks, use the same StringPalette they're using
-		if ( stringPalette == NULL ) {
-			stringPalette = new NiStringPalette;
-		}
-
-		cl.stringPalette = stringPalette;
-		cl.nodeNameOffset = stringPalette->AddSubStr( target->GetName() );
-		
-		if ( prop != NULL ) {
-			cl.propertyTypeOffset = stringPalette->AddSubStr( prop->GetType().GetTypeName() );
-		}
-
-		cl.controllerTypeOffset = stringPalette->AddSubStr( obj->GetType().GetTypeName() );
-
-	} else {
-		cl.stringPalette = NULL;
-		cl.nodeName = target->GetName();
-		if(prop != NULL) {
-			cl.propertyType = prop->GetType().GetTypeName();
-		}
-		cl.controllerType = obj->GetType().GetTypeName();
-	}
-
-
-	//Add finished ControllerLink to list
-	controlledBlocks.push_back( cl );
-}
-
-
-void NiControllerSequence::AddGenericInterpolator( NiInterpolator * interpolator, NiObjectNET* target, string controller_type_name, byte priority /*= 0*/, bool include_string_pallete /*= true*/ ) {
-	//Make sure the parameters aren't null
-
-	if(interpolator == NULL) {
-		throw runtime_error("Attempted to add a null interpolator to the controller sequence");
-	}
-
-	if(target == NULL) {
-		throw runtime_error("Attempted to add a null target to the controller sequence");
-	}
-
-	//Make a new ControllerLink and fill out necessary data
-	ControllerLink cl;
-
-	NiPropertyRef prop = DynamicCast<NiProperty>(target);
-
-	cl.interpolator = interpolator;
-	cl.priority = priority;
-	if(include_string_pallete == true) {
-		//If there are existing ControllerLinks, use the same StringPalette they're using
-		if ( stringPalette == NULL ) {
-			stringPalette = new NiStringPalette;
-		}
-
-		cl.stringPalette = stringPalette;
-		cl.nodeNameOffset = stringPalette->AddSubStr( target->GetName() );
-
-		if ( prop != NULL ) {
-			cl.propertyTypeOffset = stringPalette->AddSubStr( prop->GetType().GetTypeName() );
-		}
-
-		cl.controllerTypeOffset = stringPalette->AddSubStr( controller_type_name );
-
-	} else {
-		cl.stringPalette = NULL;
-		cl.nodeName = target->GetName();
-		if(prop != NULL) {
-			cl.propertyType = prop->GetType().GetTypeName();
-		}
-		cl.controllerType = controller_type_name;
-	}
-
-	//Add finished ControllerLink to list
-	controlledBlocks.push_back( cl );
-}
-
-
 
 void NiControllerSequence::ClearControllerData() {
 	

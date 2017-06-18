@@ -217,6 +217,90 @@ std::list<NiObject *> NiPSSimulatorGeneralStep::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Key<float > > NiPSSimulatorGeneralStep::GetSizeKeys() const {
+	return sizeKeys;
+}
+
+void NiPSSimulatorGeneralStep::SetSizeKeys( const vector<Key<float > >& value ) {
+	sizeKeys = value;
+}
+
+PSLoopBehavior NiPSSimulatorGeneralStep::GetSizeLoopBehavior() const {
+	return sizeLoopBehavior;
+}
+
+void NiPSSimulatorGeneralStep::SetSizeLoopBehavior( const PSLoopBehavior & value ) {
+	sizeLoopBehavior = value;
+}
+
+vector<Key<ByteColor4 > > NiPSSimulatorGeneralStep::GetColorKeys() const {
+	return colorKeys;
+}
+
+void NiPSSimulatorGeneralStep::SetColorKeys( const vector<Key<ByteColor4 > >& value ) {
+	colorKeys = value;
+}
+
+PSLoopBehavior NiPSSimulatorGeneralStep::GetColorLoopBehavior() const {
+	return colorLoopBehavior;
+}
+
+void NiPSSimulatorGeneralStep::SetColorLoopBehavior( const PSLoopBehavior & value ) {
+	colorLoopBehavior = value;
+}
+
+vector<Key<Quaternion > > NiPSSimulatorGeneralStep::GetRotationKeys() const {
+	return rotationKeys;
+}
+
+void NiPSSimulatorGeneralStep::SetRotationKeys( const vector<Key<Quaternion > >& value ) {
+	rotationKeys = value;
+}
+
+PSLoopBehavior NiPSSimulatorGeneralStep::GetRotationLoopBehavior() const {
+	return rotationLoopBehavior;
+}
+
+void NiPSSimulatorGeneralStep::SetRotationLoopBehavior( const PSLoopBehavior & value ) {
+	rotationLoopBehavior = value;
+}
+
+float NiPSSimulatorGeneralStep::GetGrowTime() const {
+	return growTime;
+}
+
+void NiPSSimulatorGeneralStep::SetGrowTime( float value ) {
+	growTime = value;
+}
+
+float NiPSSimulatorGeneralStep::GetShrinkTime() const {
+	return shrinkTime;
+}
+
+void NiPSSimulatorGeneralStep::SetShrinkTime( float value ) {
+	shrinkTime = value;
+}
+
+unsigned short NiPSSimulatorGeneralStep::GetGrowGeneration() const {
+	return growGeneration;
+}
+
+void NiPSSimulatorGeneralStep::SetGrowGeneration( unsigned short value ) {
+	growGeneration = value;
+}
+
+unsigned short NiPSSimulatorGeneralStep::GetShrinkGeneration() const {
+	return shrinkGeneration;
+}
+
+void NiPSSimulatorGeneralStep::SetShrinkGeneration( unsigned short value ) {
+	shrinkGeneration = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

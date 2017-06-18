@@ -161,6 +161,18 @@ std::list<NiObject *> NiPSPlanarCollider::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+IndexString NiPSPlanarCollider::GetName() const {
+	return name;
+}
+
+void NiPSPlanarCollider::SetName( const IndexString & value ) {
+	name = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

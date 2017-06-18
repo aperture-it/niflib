@@ -55,6 +55,34 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// The shape's material.
+	// \return The current value.
+	HavokMaterial GetMaterial() const;
+
+	// The shape's material.
+	// \param[in] value The new value.
+	void SetMaterial( const HavokMaterial & value );
+
+	// The shape's material.
+	// \return The current value.
+	SkyrimHavokMaterial GetSkyrimMaterial() const;
+
+	// The shape's material.
+	// \param[in] value The new value.
+	void SetSkyrimMaterial( const SkyrimHavokMaterial & value );
+
+	// The radius of the sphere that encloses the shape.
+	// \return The current value.
+	float GetRadius() const;
+
+	// The radius of the sphere that encloses the shape.
+	// \param[in] value The new value.
+	void SetRadius( float value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	/*!
@@ -69,17 +97,13 @@ public:
 	 */
 	NIFLIB_API void SetMaterial( HavokMaterial value );
 
-	/*!
-	 * Get the shape's material (Skyrim version).  This determines the type of noises the object makes as it collides in Oblivion.
-	 * \return The Oblivion material used by this collision shape.
-	 */
+	// The shape's material.
+	// \return The current value.
 	NIFLIB_API SkyrimHavokMaterial GetSkyrimMaterial() const;
 
-	/*!
-	 * Sets the shape's material (Skyrim version).  This determines the type of noises the object makes as it collides in Oblivion.
-	 * \param[in] value The new material for this shape to use.
-	 */
-	NIFLIB_API void SetSkyrimMaterial( SkyrimHavokMaterial value );
+	// The shape's material.
+	// \param[in] value The new value.
+	NIFLIB_API void SetSkyrimMaterial(SkyrimHavokMaterial value);
 
 	/*!
 	* Gets the capsule's radius.

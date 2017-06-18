@@ -56,6 +56,26 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// The particle rotation keys.
+	// \return The current value.
+	vector<Key<Quaternion > > GetRotationKeys() const;
+
+	// The particle rotation keys.
+	// \param[in] value The new value.
+	void SetRotationKeys( const vector<Key<Quaternion > >& value );
+
+	// The loop behavior for the rotation keys.
+	// \return The current value.
+	PSLoopBehavior GetRotationLoopBehavior() const;
+
+	// The loop behavior for the rotation keys.
+	// \param[in] value The new value.
+	void SetRotationLoopBehavior( const PSLoopBehavior & value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

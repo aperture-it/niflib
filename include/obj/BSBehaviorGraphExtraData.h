@@ -53,6 +53,26 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Name of the hkx file.
+	// \return The current value.
+	IndexString GetBehaviourGraphFile() const;
+
+	// Name of the hkx file.
+	// \param[in] value The new value.
+	void SetBehaviourGraphFile( const IndexString & value );
+
+	// Unknown, has to do with blending appended bones onto an actor.
+	// \return The current value.
+	byte GetControlsBaseSkeleton() const;
+
+	// Unknown, has to do with blending appended bones onto an actor.
+	// \param[in] value The new value.
+	void SetControlsBaseSkeleton( byte value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

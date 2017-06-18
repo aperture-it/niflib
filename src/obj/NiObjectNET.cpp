@@ -256,6 +256,82 @@ std::list<NiObject *> NiObjectNET::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+BSLightingShaderPropertyShaderType NiObjectNET::GetSkyrimShaderType() const {
+	return skyrimShaderType;
+}
+
+void NiObjectNET::SetSkyrimShaderType( const BSLightingShaderPropertyShaderType & value ) {
+	skyrimShaderType = value;
+}
+
+IndexString NiObjectNET::GetName() const {
+	return name;
+}
+
+void NiObjectNET::SetName( const IndexString & value ) {
+	name = value;
+}
+
+bool NiObjectNET::GetHasOldExtraData() const {
+	return hasOldExtraData;
+}
+
+void NiObjectNET::SetHasOldExtraData( bool value ) {
+	hasOldExtraData = value;
+}
+
+IndexString NiObjectNET::GetOldExtraPropName() const {
+	return oldExtraPropName;
+}
+
+void NiObjectNET::SetOldExtraPropName( const IndexString & value ) {
+	oldExtraPropName = value;
+}
+
+unsigned int NiObjectNET::GetOldExtraInternalId() const {
+	return oldExtraInternalId;
+}
+
+void NiObjectNET::SetOldExtraInternalId( unsigned int value ) {
+	oldExtraInternalId = value;
+}
+
+IndexString NiObjectNET::GetOldExtraString() const {
+	return oldExtraString;
+}
+
+void NiObjectNET::SetOldExtraString( const IndexString & value ) {
+	oldExtraString = value;
+}
+
+Ref<NiExtraData > NiObjectNET::GetExtraData() const {
+	return extraData;
+}
+
+void NiObjectNET::SetExtraData( Ref<NiExtraData > value ) {
+	extraData = value;
+}
+
+vector<Ref<NiExtraData > > NiObjectNET::GetExtraDataList() const {
+	return extraDataList;
+}
+
+void NiObjectNET::SetExtraDataList( const vector<Ref<NiExtraData > >& value ) {
+	extraDataList = value;
+}
+
+Ref<NiTimeController > NiObjectNET::GetController() const {
+	return controller;
+}
+
+void NiObjectNET::SetController( Ref<NiTimeController > value ) {
+	controller = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 string NiObjectNET::GetName() {
@@ -403,14 +479,6 @@ list< Ref<NiTimeController> > NiObjectNET::GetControllers() const {
 	}
 
 	return conts;
-}
-
-BSLightingShaderPropertyShaderType NiObjectNET::GetSkyrimShaderType() const {
-	return skyrimShaderType;
-}
-
-void NiObjectNET::SetSkyrimShaderType( BSLightingShaderPropertyShaderType value ) {
-	skyrimShaderType = value;
 }
 
 //--END CUSTOM CODE--//

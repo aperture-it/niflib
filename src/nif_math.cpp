@@ -3,6 +3,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 #include "../include/nif_math.h"
 #include <iomanip>
+#include "half.h"
 using namespace Niflib;
 
 //Constants
@@ -23,6 +24,25 @@ const InertiaMatrix InertiaMatrix::IDENTITY(
 								  1.0f, 0.0f, 0.0f, 0.0f,
 								  0.0f, 1.0f, 0.0f, 0.0f,
 								  0.0f, 0.0f, 1.0f, 0.0f );
+
+
+float Niflib::ConvertHFloatToFloat(hfloat h) {
+	uint32_t tmp = half_to_float(h);
+	return *static_cast<float*>(static_cast<void*>(&tmp));
+}
+
+hfloat Niflib::ConvertFloatToHFloat(float f) {
+	return half_from_float(*static_cast<uint32_t*>(static_cast<void*>(&f)));
+}
+
+
+float Niflib::ConvertByteToFloat(byte value) {
+	return (float(value) - 127.5f)  / 127.5f;
+}
+
+byte Niflib::ConvertFloatToByte(float value) {
+	return byte(round(value * 127.5f + 127.5f)) ;
+}
 
 /* TexCoord Methods
  *
@@ -693,6 +713,22 @@ Matrix33 Quaternion::AsMatrix() {
 
 Quaternion Quaternion::Inverse() const {
 	return Quaternion(w, -x, -y, -z);
+}
+
+
+float Quaternion::Magnitude() const {
+	return sqrt( x * x + y * y + z * z + w * w );
+}
+
+Quaternion Quaternion::Normalized() const {
+	Quaternion v(*this);
+	float m = Magnitude();
+	return Quaternion(
+		w / m, //w
+		x / m, //x
+		y / m, //y
+		z / m  //z
+		);
 }
 
 

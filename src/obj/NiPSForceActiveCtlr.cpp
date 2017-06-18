@@ -130,6 +130,18 @@ std::list<NiObject *> NiPSForceActiveCtlr::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Ref<NiObject > NiPSForceActiveCtlr::GetInterpolator() const {
+	return interpolator;
+}
+
+void NiPSForceActiveCtlr::SetInterpolator( Ref<NiObject > value ) {
+	interpolator = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

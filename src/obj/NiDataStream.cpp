@@ -187,6 +187,66 @@ std::list<NiObject *> NiDataStream::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+DataStreamUsage NiDataStream::GetUsage() const {
+	return usage;
+}
+
+void NiDataStream::SetUsage( const DataStreamUsage & value ) {
+	usage = value;
+}
+
+DataStreamAccess NiDataStream::GetAccess() const {
+	return access;
+}
+
+void NiDataStream::SetAccess( const DataStreamAccess & value ) {
+	access = value;
+}
+
+CloningBehavior NiDataStream::GetCloningBehavior() const {
+	return cloningBehavior;
+}
+
+void NiDataStream::SetCloningBehavior( const CloningBehavior & value ) {
+	cloningBehavior = value;
+}
+
+vector<Region > NiDataStream::GetRegions() const {
+	return regions;
+}
+
+void NiDataStream::SetRegions( const vector<Region >& value ) {
+	regions = value;
+}
+
+vector<ComponentFormat > NiDataStream::GetComponentFormats() const {
+	return componentFormats;
+}
+
+void NiDataStream::SetComponentFormats( const vector<ComponentFormat >& value ) {
+	componentFormats = value;
+}
+
+vector<byte > NiDataStream::GetData() const {
+	return data;
+}
+
+void NiDataStream::SetData( const vector<byte >& value ) {
+	data = value;
+}
+
+bool NiDataStream::GetStreamable() const {
+	return streamable;
+}
+
+void NiDataStream::SetStreamable( bool value ) {
+	streamable = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

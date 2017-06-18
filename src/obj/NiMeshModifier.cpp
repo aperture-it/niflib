@@ -151,6 +151,26 @@ std::list<NiObject *> NiMeshModifier::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<SyncPoint > NiMeshModifier::GetSubmitPoints() const {
+	return submitPoints;
+}
+
+void NiMeshModifier::SetSubmitPoints( const vector<SyncPoint >& value ) {
+	submitPoints = value;
+}
+
+vector<SyncPoint > NiMeshModifier::GetCompletePoints() const {
+	return completePoints;
+}
+
+void NiMeshModifier::SetCompletePoints( const vector<SyncPoint >& value ) {
+	completePoints = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

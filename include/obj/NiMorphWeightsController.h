@@ -58,6 +58,26 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Unknown.
+	// \return The current value.
+	vector<Ref<NiObject > > GetInterpolators() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetInterpolators( const vector<Ref<NiObject > >& value );
+
+	// Name of each morph target.
+	// \return The current value.
+	vector<IndexString > GetTargetNames() const;
+
+	// Name of each morph target.
+	// \param[in] value The new value.
+	void SetTargetNames( const vector<IndexString >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

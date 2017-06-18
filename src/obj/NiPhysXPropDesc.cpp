@@ -282,6 +282,34 @@ std::list<NiObject *> NiPhysXPropDesc::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Ref<NiPhysXActorDesc > > NiPhysXPropDesc::GetActorDescs() const {
+	return actorDescs;
+}
+
+void NiPhysXPropDesc::SetActorDescs( const vector<Ref<NiPhysXActorDesc > >& value ) {
+	actorDescs = value;
+}
+
+vector<Ref<NiPhysXD6JointDesc > > NiPhysXPropDesc::GetJointDescs() const {
+	return jointDescs;
+}
+
+void NiPhysXPropDesc::SetJointDescs( const vector<Ref<NiPhysXD6JointDesc > >& value ) {
+	jointDescs = value;
+}
+
+vector<physXMaterialRef > NiPhysXPropDesc::GetMaterialDescs() const {
+	return materialDescs;
+}
+
+void NiPhysXPropDesc::SetMaterialDescs( const vector<physXMaterialRef >& value ) {
+	materialDescs = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

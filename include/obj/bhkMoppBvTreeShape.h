@@ -57,6 +57,84 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// The shape.
+	// \return The current value.
+	Ref<bhkShape > GetShape() const;
+
+	// The shape.
+	// \param[in] value The new value.
+	void SetShape( Ref<bhkShape > value );
+
+	// The shape's material.
+	// \return The current value.
+	HavokMaterial GetMaterial() const;
+
+	// The shape's material.
+	// \param[in] value The new value.
+	void SetMaterial( const HavokMaterial & value );
+
+	// The shape's material.
+	// \return The current value.
+	SkyrimHavokMaterial GetSkyrimMaterial() const;
+
+	// The shape's material.
+	// \param[in] value The new value.
+	void SetSkyrimMaterial( const SkyrimHavokMaterial & value );
+
+	// Origin of the object in mopp coordinates. This is the minimum of all vertices in
+	// the packed shape along each axis, minus 0.1.
+	// \return The current value.
+	Vector3 GetOrigin() const;
+
+	// Origin of the object in mopp coordinates. This is the minimum of all vertices in
+	// the packed shape along each axis, minus 0.1.
+	// \param[in] value The new value.
+	void SetOrigin( const Vector3 & value );
+
+	// The scaling factor to quantize the MOPP: the quantization factor is equal to
+	// 256*256 divided by this number. In Oblivion files, scale is taken equal to
+	// 256*256*254 / (size + 0.2) where size is the largest dimension of the bounding
+	// box of the packed shape.
+	// \return The current value.
+	float GetScale() const;
+
+	// The scaling factor to quantize the MOPP: the quantization factor is equal to
+	// 256*256 divided by this number. In Oblivion files, scale is taken equal to
+	// 256*256*254 / (size + 0.2) where size is the largest dimension of the bounding
+	// box of the packed shape.
+	// \param[in] value The new value.
+	void SetScale( float value );
+
+	// The tree of bounding volume data (old style, contains more than just the mopp
+	// script).
+	// \return The current value.
+	vector<byte > GetOldMoppData() const;
+
+	// The tree of bounding volume data (old style, contains more than just the mopp
+	// script).
+	// \param[in] value The new value.
+	void SetOldMoppData( const vector<byte >& value );
+
+	// Tells if MOPP Data was organized into smaller chunks (PS3) or not (PC)
+	// \return The current value.
+	MoppDataBuildType GetBuildType() const;
+
+	// Tells if MOPP Data was organized into smaller chunks (PS3) or not (PC)
+	// \param[in] value The new value.
+	void SetBuildType( const MoppDataBuildType & value );
+
+	// The tree of bounding volume data.
+	// \return The current value.
+	vector<byte > GetMoppData() const;
+
+	// The tree of bounding volume data.
+	// \param[in] value The new value.
+	void SetMoppData( const vector<byte >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	/*!
@@ -82,6 +160,14 @@ public:
 	 * \param[in] value The new material for this shape to use.
 	 */
 	NIFLIB_API void SetMaterial( HavokMaterial value );
+
+	// The shape's material.
+	// \return The current value.
+	NIFLIB_API SkyrimHavokMaterial GetSkyrimMaterial() const;
+
+	// The shape's material.
+	// \param[in] value The new value.
+	NIFLIB_API void SetSkyrimMaterial(SkyrimHavokMaterial value);
 
 	/*!
 	* Get the shape's bounding volume code.  The code is specific to the Havok Physics engine.
@@ -140,15 +226,8 @@ public:
 	 */
 	NIFLIB_API virtual void CalcMassProperties(float density, bool solid, float &mass, float &volume, Vector3 &center, InertiaMatrix& inertia);
 
-	NIFLIB_API MoppDataBuildType GetBuildType() const;
-
-	NIFLIB_API void SetBuildType(MoppDataBuildType value);
-
-
-private:
-	unsigned int moppDataSizeCalc(const NifInfo & info) const {
-		return (unsigned int)((info.version <= 0x0A000100) ? (oldMoppData.size() + 1) : moppData.size());
-	};
+	// size calculation helper
+	NIFLIB_HIDDEN unsigned int moppDataSizeCalc(const NifInfo& info) const;
 
 	//--END CUSTOM CODE--//
 protected:
@@ -181,11 +260,10 @@ protected:
 	 * script).
 	 */
 	vector<byte > oldMoppData;
-	/*! Defines wether moppData is organized into chunks (PS3) or not (PC) */
-	MoppDataBuildType	buildType;
+	/*! Tells if MOPP Data was organized into smaller chunks (PS3) or not (PC) */
+	MoppDataBuildType buildType;
 	/*! The tree of bounding volume data. */
 	vector<byte > moppData;
-
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
 	NIFLIB_HIDDEN virtual void Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info );

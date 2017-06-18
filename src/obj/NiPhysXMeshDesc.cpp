@@ -262,6 +262,18 @@ std::list<NiObject *> NiPhysXMeshDesc::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Vector3 > NiPhysXMeshDesc::GetVertices() const {
+	return vertices;
+}
+
+void NiPhysXMeshDesc::SetVertices( const vector<Vector3 >& value ) {
+	vertices = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

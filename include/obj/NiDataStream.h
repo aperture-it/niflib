@@ -56,6 +56,68 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Unknown.
+	// \return The current value.
+	DataStreamUsage GetUsage() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetUsage( const DataStreamUsage & value );
+
+	// Unknown.
+	// \return The current value.
+	DataStreamAccess GetAccess() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetAccess( const DataStreamAccess & value );
+
+	// Unknown.
+	// \return The current value.
+	CloningBehavior GetCloningBehavior() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetCloningBehavior( const CloningBehavior & value );
+
+	// The regions in the mesh. Regions can be used to mark off submeshes which are
+	// independent draw calls.
+	// \return The current value.
+	vector<Region > GetRegions() const;
+
+	// The regions in the mesh. Regions can be used to mark off submeshes which are
+	// independent draw calls.
+	// \param[in] value The new value.
+	void SetRegions( const vector<Region >& value );
+
+	// The format of each component in this data stream.
+	// \return The current value.
+	vector<ComponentFormat > GetComponentFormats() const;
+
+	// The format of each component in this data stream.
+	// \param[in] value The new value.
+	void SetComponentFormats( const vector<ComponentFormat >& value );
+
+	// Unknown.
+	// \return The current value.
+	vector<byte > GetData() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetData( const vector<byte >& value );
+
+	// Unknown.
+	// \return The current value.
+	bool GetStreamable() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetStreamable( bool value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

@@ -53,6 +53,26 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// The submit points used by this mesh modifier
+	// \return The current value.
+	vector<SyncPoint > GetSubmitPoints() const;
+
+	// The submit points used by this mesh modifier
+	// \param[in] value The new value.
+	void SetSubmitPoints( const vector<SyncPoint >& value );
+
+	// The complete points used by this mesh modifier
+	// \return The current value.
+	vector<SyncPoint > GetCompletePoints() const;
+
+	// The complete points used by this mesh modifier
+	// \param[in] value The new value.
+	void SetCompletePoints( const vector<SyncPoint >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

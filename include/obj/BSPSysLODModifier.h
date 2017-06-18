@@ -53,6 +53,42 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Unknown
+	// \return The current value.
+	float GetUknownFloat1() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetUknownFloat1( float value );
+
+	// Unknown
+	// \return The current value.
+	float GetUknownFloat2() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetUknownFloat2( float value );
+
+	// Unknown
+	// \return The current value.
+	float GetUknownFloat3() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetUknownFloat3( float value );
+
+	// Unknown
+	// \return The current value.
+	float GetUknownFloat4() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetUknownFloat4( float value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

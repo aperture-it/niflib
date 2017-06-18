@@ -60,6 +60,34 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Unknown
+	// \return The current value.
+	vector<Ref<NiPhysXActorDesc > > GetActorDescs() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetActorDescs( const vector<Ref<NiPhysXActorDesc > >& value );
+
+	// PhysX Joint Descriptions
+	// \return The current value.
+	vector<Ref<NiPhysXD6JointDesc > > GetJointDescs() const;
+
+	// PhysX Joint Descriptions
+	// \param[in] value The new value.
+	void SetJointDescs( const vector<Ref<NiPhysXD6JointDesc > >& value );
+
+	// PhysX Material Descriptions
+	// \return The current value.
+	vector<physXMaterialRef > GetMaterialDescs() const;
+
+	// PhysX Material Descriptions
+	// \param[in] value The new value.
+	void SetMaterialDescs( const vector<physXMaterialRef >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

@@ -63,6 +63,92 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Weight/priority of animation?
+	// \return The current value.
+	float GetWeight() const;
+
+	// Weight/priority of animation?
+	// \param[in] value The new value.
+	void SetWeight( float value );
+
+	// Link to NiTextKeyExtraData. Replaces the other Text Keys field in versions
+	// 10.1.0.106 and up.
+	// \return The current value.
+	Ref<NiTextKeyExtraData > GetTextKeys() const;
+
+	// Link to NiTextKeyExtraData. Replaces the other Text Keys field in versions
+	// 10.1.0.106 and up.
+	// \param[in] value The new value.
+	void SetTextKeys( Ref<NiTextKeyExtraData > value );
+
+	// Anim cycle type? Is part of "Flags" in other objects?
+	// \return The current value.
+	CycleType GetCycleType() const;
+
+	// Anim cycle type? Is part of "Flags" in other objects?
+	// \param[in] value The new value.
+	void SetCycleType( const CycleType & value );
+
+	// The animation frequency.
+	// \return The current value.
+	float GetFrequency() const;
+
+	// The animation frequency.
+	// \param[in] value The new value.
+	void SetFrequency( float value );
+
+	// The controller sequence start time?
+	// \return The current value.
+	float GetStartTime() const;
+
+	// The controller sequence start time?
+	// \param[in] value The new value.
+	void SetStartTime( float value );
+
+	// The controller sequence stop time?
+	// \return The current value.
+	float GetStopTime() const;
+
+	// The controller sequence stop time?
+	// \param[in] value The new value.
+	void SetStopTime( float value );
+
+	// Refers to NiControllerManager which references this object, if any.
+	// \return The current value.
+	NiControllerManager * GetManager() const;
+
+	// Refers to NiControllerManager which references this object, if any.
+	// \param[in] value The new value.
+	void SetManager( NiControllerManager * value );
+
+	// Name of target node Controller acts on.
+	// \return The current value.
+	IndexString GetTargetName() const;
+
+	// Name of target node Controller acts on.
+	// \param[in] value The new value.
+	void SetTargetName( const IndexString & value );
+
+	// Refers to NiStringPalette.
+	// \return The current value.
+	Ref<NiStringPalette > GetStringPalette() const;
+
+	// Refers to NiStringPalette.
+	// \param[in] value The new value.
+	void SetStringPalette( Ref<NiStringPalette > value );
+
+	// Unknown
+	// \return The current value.
+	Ref<BSAnimNotes > GetAnimNotes() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetAnimNotes( Ref<BSAnimNotes > value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	/*!
@@ -107,32 +193,12 @@ public:
 	NIFLIB_API void AddController( string const & targetName, NiTimeController * obj );
 
 	/*!
-	 * Attaches an interpolator to this KF file for a KF file of version greater than 10.2.0.0.  Versions below this use controllers.
+	 * Attatches an interpolator to this KF file for a KF file of version greater than 10.2.0.0.  Versions below this use controllers.
 	 * \param[in] obj A reference to the new controller which has an interpolator to attach.
 	 * \param[in] priority Used only in Oblivion to set the priority of one controller over another when the two are merged.
 	 * \sa NiControllerSequence::ClearChildren, NiControllerSequence::AddController
 	 */
 	NIFLIB_API void AddInterpolator( NiSingleInterpController * obj, byte priority = 0 );
-
-	/*!
-	 * Attaches an interpolator to this KF file for a KF file of version greater than 10.2.0.0.  Versions below this use controllers.
-	 * \param[in] obj A reference to the new controller which has an interpolator to attach.
-	 * \param[in] priority Used only in Oblivion to set the priority of one controller over another when the two are merged.
-	 * \param[in] include_string_pallete Indicates if the resulting ControllerLinks will hold reference to the NiStringPallete in the NiControllerSequence
-	 * \sa NiControllerSequence::ClearChildren, NiControllerSequence::AddController
-	 */
-	NIFLIB_API void AddInterpolator( NiSingleInterpController * obj, byte priority , bool include_string_pallete );
-
-	/*!
-	 * Attaches a generic interpolator to this KF file for a KF file of version greater than 10.2.0.0.  Versions below this use controllers.
-	 * \param[in] interpolator A reference to the new interpolator to insert into the controllersequence
-	 * \param[in] target The target object that the controller which held the interpolator would act on
-	 * \param[in] controller_type_name The name of the type of the controller that held the interpolator
-	 * \param[in] priority Used only in Oblivion to set the priority of one controller over another when the two are merged.
-	 * \param[in] include_string_pallete Indicates if the resulting ControllerLinks will hold reference to the NiStringPallete in the NiControllerSequence
-	 * \sa NiControllerSequence::ClearChildren, NiControllerSequence::AddController
-	 */
-	NIFLIB_API void AddGenericInterpolator( NiInterpolator * interpolator, NiObjectNET* target, string controller_type_name, byte priority = 0, bool include_string_pallete  = true);
 
 	/*! 
 	 * Removes all controllers and interpolators from this Kf file root object.

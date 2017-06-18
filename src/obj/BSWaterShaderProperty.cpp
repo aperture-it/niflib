@@ -123,6 +123,58 @@ std::list<NiObject *> BSWaterShaderProperty::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+SkyrimShaderPropertyFlags1 BSWaterShaderProperty::GetShaderFlags1() const {
+	return shaderFlags1;
+}
+
+void BSWaterShaderProperty::SetShaderFlags1( const SkyrimShaderPropertyFlags1 & value ) {
+	shaderFlags1 = value;
+}
+
+SkyrimShaderPropertyFlags2 BSWaterShaderProperty::GetShaderFlags2() const {
+	return shaderFlags2;
+}
+
+void BSWaterShaderProperty::SetShaderFlags2( const SkyrimShaderPropertyFlags2 & value ) {
+	shaderFlags2 = value;
+}
+
+TexCoord BSWaterShaderProperty::GetUvOffset() const {
+	return uvOffset;
+}
+
+void BSWaterShaderProperty::SetUvOffset( const TexCoord & value ) {
+	uvOffset = value;
+}
+
+TexCoord BSWaterShaderProperty::GetUvScale() const {
+	return uvScale;
+}
+
+void BSWaterShaderProperty::SetUvScale( const TexCoord & value ) {
+	uvScale = value;
+}
+
+SkyrimWaterShaderFlags BSWaterShaderProperty::GetWaterShaderFlags() const {
+	return waterShaderFlags;
+}
+
+void BSWaterShaderProperty::SetWaterShaderFlags( const SkyrimWaterShaderFlags & value ) {
+	waterShaderFlags = value;
+}
+
+byte BSWaterShaderProperty::GetWaterDirection() const {
+	return waterDirection;
+}
+
+void BSWaterShaderProperty::SetWaterDirection( byte value ) {
+	waterDirection = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

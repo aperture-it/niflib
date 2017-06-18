@@ -480,6 +480,58 @@ std::list<NiObject *> NiBoneLODController::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned int NiBoneLODController::GetNumNodeGroups2() const {
+	return numNodeGroups2;
+}
+
+void NiBoneLODController::SetNumNodeGroups2( unsigned int value ) {
+	numNodeGroups2 = value;
+}
+
+vector<NodeGroup > NiBoneLODController::GetNodeGroups() const {
+	return nodeGroups;
+}
+
+void NiBoneLODController::SetNodeGroups( const vector<NodeGroup >& value ) {
+	nodeGroups = value;
+}
+
+vector<SkinShapeGroup > NiBoneLODController::GetShapeGroups1() const {
+	return shapeGroups1;
+}
+
+void NiBoneLODController::SetShapeGroups1( const vector<SkinShapeGroup >& value ) {
+	shapeGroups1 = value;
+}
+
+vector<SkinShapeGroup > NiBoneLODController::GetShapeGroups1() const {
+	return shapeGroups1;
+}
+
+void NiBoneLODController::SetShapeGroups1( const vector<SkinShapeGroup >& value ) {
+	shapeGroups1 = value;
+}
+
+vector<Ref<NiTriBasedGeom > > NiBoneLODController::GetShapeGroups2() const {
+	return shapeGroups2;
+}
+
+void NiBoneLODController::SetShapeGroups2( const vector<Ref<NiTriBasedGeom > >& value ) {
+	shapeGroups2 = value;
+}
+
+vector<Ref<NiTriBasedGeom > > NiBoneLODController::GetShapeGroups2() const {
+	return shapeGroups2;
+}
+
+void NiBoneLODController::SetShapeGroups2( const vector<Ref<NiTriBasedGeom > >& value ) {
+	shapeGroups2 = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 /*!
@@ -542,44 +594,6 @@ void NiBoneLODController::RemoveNodeGroup( int index ) {
 void NiBoneLODController::ClearNodeGroups() {
    nodeGroups.clear();
    numNodeGroups2 = int(nodeGroups.size());
-}
-
-bool NiBoneLODController::AddShapeToGroup( Ref<NiTriBasedGeom > shape ) {
-    vector<Ref<NiTriBasedGeom > >& shapes = shapeGroups2;
-    vector<Ref<NiTriBasedGeom > >::iterator itr = std::find(shapes.begin(), shapes.end(), shape);
-    if (itr == shapes.end()) {
-	shapes.push_back(shape);
-	numShapeGroups2++;
-
-	return true;
-    }
-
-    return false;
-}
-
-bool NiBoneLODController::RemoveShapeFromGroup( Ref<NiTriBasedGeom > shape ) {
-    vector<Ref<NiTriBasedGeom > >& shapes = shapeGroups2;
-    vector<Ref<NiTriBasedGeom > >::iterator itr = std::find(shapes.begin(), shapes.end(), shape);
-    if (itr != shapes.end()) {
-	shapes.erase(itr);
-	numShapeGroups2--;
-
-	return true;
-    }
-
-    return false;
-}
-
-bool NiBoneLODController::ReplaceShapeInGroup( Ref<NiTriBasedGeom > newshape, Ref<NiTriBasedGeom > oldshape ) {
-    vector<Ref<NiTriBasedGeom > >& shapes = shapeGroups2;
-    vector<Ref<NiTriBasedGeom > >::iterator itr = std::find(shapes.begin(), shapes.end(), oldshape);
-    if (itr != shapes.end()) {
-	*itr = newshape;
-
-	return true;
-    }
-
-    return false;
 }
 
 

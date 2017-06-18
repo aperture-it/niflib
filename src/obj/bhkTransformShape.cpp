@@ -155,6 +155,42 @@ std::list<NiObject *> bhkTransformShape::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Ref<bhkShape > bhkTransformShape::GetShape() const {
+	return shape;
+}
+
+void bhkTransformShape::SetShape( Ref<bhkShape > value ) {
+	shape = value;
+}
+
+HavokMaterial bhkTransformShape::GetMaterial() const {
+	return material;
+}
+
+void bhkTransformShape::SetMaterial( const HavokMaterial & value ) {
+	material = value;
+}
+
+SkyrimHavokMaterial bhkTransformShape::GetSkyrimMaterial() const {
+	return skyrimMaterial;
+}
+
+void bhkTransformShape::SetSkyrimMaterial( const SkyrimHavokMaterial & value ) {
+	skyrimMaterial = value;
+}
+
+Matrix44 bhkTransformShape::GetTransform() const {
+	return transform;
+}
+
+void bhkTransformShape::SetTransform( const Matrix44 & value ) {
+	transform = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 Ref<bhkShape > bhkTransformShape::GetShape() const {
@@ -171,6 +207,14 @@ HavokMaterial bhkTransformShape::GetMaterial() const {
 
 void bhkTransformShape::SetMaterial( HavokMaterial value ) {
 	material = value;
+}
+
+SkyrimHavokMaterial bhkTransformShape::GetSkyrimMaterial() const {
+	return skyrimMaterial;
+}
+
+void bhkTransformShape::SetSkyrimMaterial(SkyrimHavokMaterial value) {
+	skyrimMaterial = value;
 }
 
 Matrix44 bhkTransformShape::GetTransform() const {

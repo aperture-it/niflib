@@ -64,135 +64,252 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Data index (NiTriShapeData/NiTriStripData).
+	// \return The current value.
+	Ref<NiGeometryData > GetData() const;
+
+	// Data index (NiTriShapeData/NiTriStripData).
+	// \param[in] value The new value.
+	void SetData( Ref<NiGeometryData > value );
+
+	// Skin instance index.
+	// \return The current value.
+	Ref<NiSkinInstance > GetSkinInstance() const;
+
+	// Skin instance index.
+	// \param[in] value The new value.
+	void SetSkinInstance( Ref<NiSkinInstance > value );
+
+	// Placeholder for Skin and data for NiParticleSystem
+	// \return The current value.
+	array<2,unsigned int >  GetEmptyRefs() const;
+
+	// Placeholder for Skin and data for NiParticleSystem
+	// \param[in] value The new value.
+	void SetEmptyRefs( const array<2,unsigned int >&  value );
+
+	// Unknown string.  Shader?
+	// \return The current value.
+	vector<IndexString > GetMaterialName() const;
+
+	// Unknown string.  Shader?
+	// \param[in] value The new value.
+	void SetMaterialName( const vector<IndexString >& value );
+
+	// Unknown integer; often -1. (Is this a link, array index?)
+	// \return The current value.
+	vector<int > GetMaterialExtraData() const;
+
+	// Unknown integer; often -1. (Is this a link, array index?)
+	// \param[in] value The new value.
+	void SetMaterialExtraData( const vector<int >& value );
+
+	// Active Material; often -1. (Is this a link, array index?)
+	// \return The current value.
+	int GetActiveMaterial() const;
+
+	// Active Material; often -1. (Is this a link, array index?)
+	// \param[in] value The new value.
+	void SetActiveMaterial( int value );
+
+	// Shader.
+	// \return The current value.
+	bool GetHasShader() const;
+
+	// Shader.
+	// \param[in] value The new value.
+	void SetHasShader( bool value );
+
+	// The shader name.
+	// \return The current value.
+	IndexString GetShaderName() const;
+
+	// The shader name.
+	// \param[in] value The new value.
+	void SetShaderName( const IndexString & value );
+
+	// Dirty Flag?
+	// \return The current value.
+	bool GetDirtyFlag() const;
+
+	// Dirty Flag?
+	// \param[in] value The new value.
+	void SetDirtyFlag( bool value );
+
+	// Two property links, used by Bethesda.
+	// \return The current value.
+	array<2,Ref<NiProperty > >  GetBsProperties() const;
+
+	// Two property links, used by Bethesda.
+	// \param[in] value The new value.
+	void SetBsProperties( const array<2,Ref<NiProperty > >&  value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
+	/*!
+	 * Supports Skin / Bone Weight functionality should be interface hard to implement that way
+	 */
+	NIFLIB_API virtual bool SupportsSkinBinding() const override;
 
 	/*!
-	 * Binds this geometry to a list of bones.  Creates and attatches a
-	 * NiSkinInstance and NiSkinData class. The bones must have a common
-	 * ancestor in the scenegraph.  This becomes the skeleton root.
-	 */
-	NIFLIB_API void BindSkin( vector< Ref<NiNode> >& bone_nodes );
-
-   /*!
-    * Binds this geometry to a list of bones.  Creates and attatches a
-    * NiSkinInstance and NiSkinData class. The bones must have a common
-    * ancestor in the scenegraph.  This becomes the skeleton root.
-    */
-   NIFLIB_API void BindSkinWith( vector< Ref<NiNode> >& bone_nodes,  NiObject * (*SkinInstConstructor)() );
+		* Binds this geometry to a list of bones.  Creates and attatches a
+		* NiSkinInstance and NiSkinData class. The bones must have a common
+		* ancestor in the scenegraph.  This becomes the skeleton root.
+		*/
+	NIFLIB_API void BindSkin(vector< Ref<NiNode> >& bone_nodes) override;
 
 	/*!
-	 * Unbinds this geometry from the bones.  This removes the NiSkinInstance and NiSkinData objects and causes this geometry to stop behaving as a skin.
-	 */
-	NIFLIB_API void UnbindSkin();
+		* Binds this geometry to a list of bones.  Creates and attatches a
+		* NiSkinInstance and NiSkinData class. The bones must have a common
+		* ancestor in the scenegraph.  This becomes the skeleton root.
+		*/
+	NIFLIB_API void BindSkinWith(vector< Ref<NiNode> >& bone_nodes, NiObject * (*SkinInstConstructor)()) override;
 
 	/*!
-	 * Sets the skin weights in the attached NiSkinData object.
-	 * The version on this class calculates the center and radius of
-	 * each set of affected vertices automatically.
-	 */
-	NIFLIB_API void SetBoneWeights( unsigned int bone_index, const vector<SkinWeight> & n );
+		* Unbinds this geometry from the bones.  This removes the NiSkinInstance and NiSkinData objects and causes this geometry to stop behaving as a skin.
+		*/
+	NIFLIB_API void UnbindSkin() override;
 
 	/*!
-	 * Retrieves the NiSkinInstance object used by this geometry node, if any.
-	 * \return The NiSkinInstance object used by this geometry node, or NULL if none is used.
-	 */
+		* Sets the skin weights in the attached NiSkinData object.
+		* The version on this class calculates the center and radius of
+		* each set of affected vertices automatically.
+		*/
+	NIFLIB_API void SetBoneWeights(unsigned int bone_index, const vector<SkinWeight> & n) override;
+
+	/*!
+		* Retrieves the NiSkinInstance object used by this geometry node, if any.
+		* \return The NiSkinInstance object used by this geometry node, or NULL if none is used.
+		*/
 	NIFLIB_API Ref<NiSkinInstance> GetSkinInstance() const;
-	
-	/*!
-	 * Sets the NiSkinInstance object used by this geometry node.
-	 * \param[in] skin The NiSkinInstance object to be used by this geometry node, or NULL if none is to be used.
-	 */
-	NIFLIB_API void SetSkinInstance(Ref<NiSkinInstance> skin);
 
 	/*!
-	 * Retrieves the geometry data object used by this geometry node, if any.  This contains the vertices, normals, etc. and can be shared among several geometry nodes.
-	 * \return The geometry data object, or NULL if there is none.
-	 */
+		* Retrieves the geometry data object used by this geometry node, if any.  This contains the vertices, normals, etc. and can be shared among several geometry nodes.
+		* \return The geometry data object, or NULL if there is none.
+		*/
 	NIFLIB_API Ref<NiGeometryData> GetData() const;
 
 	/*!
-	 * Sets the geometry data object used by this geometry node.  This contains the vertices, normals, etc. and can be shared among several geometry nodes.
-	 * \param[in] n The new geometry data object, or NULL to clear the current one.
-	 */
-	NIFLIB_API void SetData( NiGeometryData * n );
+		* Sets the geometry data object used by this geometry node.  This contains the vertices, normals, etc. and can be shared among several geometry nodes.
+		* \param[in] n The new geometry data object, or NULL to clear the current one.
+		*/
+	NIFLIB_API void SetData(NiGeometryData * n);
 
 	/*!
-	 * Retrieves the name of the shader used by this geometry node.  The allowable values are game-dependent.
-	 * \return The shader name.
-	 */
+		* Retrieves the name of the shader used by this geometry node.  The allowable values are game-dependent.
+		* \return The shader name.
+		*/
 	NIFLIB_API string GetShader() const;
 
 	/*!
-	 * Sets the name of the shader used by this geometry node.  The allowable values are game-dependent.
-	 * \param[in] n The new shader name.
-	 */
-	NIFLIB_API void SetShader( const string & n );
+		* Sets the name of the shader used by this geometry node.  The allowable values are game-dependent.
+		* \param[in] n The new shader name.
+		*/
+	NIFLIB_API void SetShader(const string & n);
 
 	/*
-	 * Returns the position of the verticies and values of the normals after they
-	 * have been deformed by the positions of their skin influences.
-	 * \param[out] vertices A vector that will be filled with the skin deformed position of the verticies.
-	 * \param[out] normals A vector thta will be filled with the skin deformed normal values.
-	 */
-	NIFLIB_API void GetSkinDeformation( vector<Vector3> & vertices, vector<Vector3> & normals ) const;
+		* Returns the position of the verticies and values of the normals after they
+		* have been deformed by the positions of their skin influences.
+		* \param[out] vertices A vector that will be filled with the skin deformed position of the verticies.
+		* \param[out] normals A vector thta will be filled with the skin deformed normal values.
+		*/
+	NIFLIB_API void GetSkinDeformation(vector<Vector3> & vertices, vector<Vector3> & normals) const override;
 
 	/*
-	 * Applies the local transform values to the vertices of the geometry and
-	 * zeros them out to the identity.
-	 */
-	NIFLIB_API void ApplyTransforms();
+		* Applies the local transform values to the vertices of the geometry and
+		* zeros them out to the identity.
+		*/
+	NIFLIB_API void ApplyTransforms() override;
 
 	/*
-	 * Propogates the transforms between this skin and the skeleton root,
-	 * and then applies them to the verticies of this skin.  Sets the overall
-	 * skin data transform to the identity.
-	 */
-	NIFLIB_API void ApplySkinOffset();
+		* Propogates the transforms between this skin and the skeleton root,
+		* and then applies them to the verticies of this skin.  Sets the overall
+		* skin data transform to the identity.
+		*/
+	NIFLIB_API void ApplySkinOffset() override;
 
 	/*
-	 * This automatically normalizes all the skin weights for this geometry node if it is bound to bones as a skin.  In other words, it will guarantee that the weights for all bones on each vertex will add up to 1.0.  This can be used to correct bad input data.
-	 */
-	NIFLIB_API void NormalizeSkinWeights();
+		* This automatically normalizes all the skin weights for this geometry node if it is bound to bones as a skin.  In other words, it will guarantee that the weights for all bones on each vertex will add up to 1.0.  This can be used to correct bad input data.
+		*/
+	NIFLIB_API void NormalizeSkinWeights() override;
 
 	/*
-	 * Used to determine whether this mesh is influenced by bones as a skin.
-	 * \return True if this mesh is a skin, false otherwise.
-	 */
-	NIFLIB_API bool IsSkin();
+		* Used to determine whether this mesh is influenced by bones as a skin.
+		* \return True if this mesh is a skin, false otherwise.
+		*/
+	NIFLIB_API bool IsSkin() override;
 
-   // Active Material.
-   // \return The current value.
-   NIFLIB_API int GetActiveMaterial() const;
+	// Active Material.
+	// \return The current value.
+	NIFLIB_API int GetActiveMaterial() const;
 
-   // Active Material.
-   // \param[in] value The new value.
-   NIFLIB_API void SetActiveMaterial( int value );
+	// Active Material.
+	// \param[in] value The new value.
+	NIFLIB_API void SetActiveMaterial(int value);
 
-   // Shader.
-   // \return The current value.
-   NIFLIB_API bool HasShader() const;
+	// Shader.
+	// \return The current value.
+	NIFLIB_API bool HasShader() const;
 
-   // BSProperty
-   // \param[in] index Index of property to be retrieved.
-   // \return The propterty.
-   NIFLIB_API Ref<NiProperty> GetBSProperty(short index);
+	// Skin instance index.
+	// \param[in] value The new value.
+	NIFLIB_API void SetSkinInstance(NiSkinInstance * value);
 
-   // BSProperty
-   // \param[in] index Index of property to be set.
-   // \param[in] index Property to be set.
-   NIFLIB_API void SetBSProperty(short index, Ref<NiProperty> value);
+	// Unknown integer; often -1. (Is this a link, array index?)
+	// \return The current value.
+	NIFLIB_API vector<int > GetMaterialExtraData() const;
 
-   /*
-	 * Returns the array of the only 2 properties that are specific to Bethesda
-	 * \return Returns the array of the 2 properties
-	 */
-   NIFLIB_API array<2,Ref<NiProperty > > GetBSProperties();
+	// Unknown integer; often -1. (Is this a link, array index?)
+	// \param[in] value The new value.
+	NIFLIB_API void SetMaterialExtraData(const vector<int >& value);
 
-   /*
-	 * Sets the array of the only 2 properties that are specific to Bethesda
-	 * \param[in] The new array of properties
-	 */
-   NIFLIB_API void SetBSProperties( array<2, Ref<NiProperty> > value);
+	// Shader.
+	// \return The current value.
+	NIFLIB_API bool GetHasShader() const;
+
+	// Shader.
+	// \param[in] value The new value.
+	NIFLIB_API void SetHasShader(bool value);
+		
+	/*!
+		* Adds a property to this object.  Properties specify various characteristics of the object that affect rendering.  They may be shared among objects.
+		* \param[in] obj The new property that is to affect this object.
+		*/
+	NIFLIB_API virtual void AddProperty(NiProperty * obj) override;
+
+	/*!
+		* Removes a property from this object.  Properties specify various characteristics of the object that affect rendering.  They may be shared among objects.
+		* \param[in] obj The property that is no longer to affect this object.
+		*/
+	NIFLIB_API virtual void RemoveProperty(NiProperty * obj) override;
+
+	/*!
+		* Removes all properties from this object.  Properties specify various characteristics of the object that affect rendering.  They may be shared among objects.
+		*/
+	NIFLIB_API virtual void ClearProperties() override;
+
+	// Two property links, used by Bethesda.
+	// \return The current value.
+	NIFLIB_API Ref<NiProperty> GetBSProperty(int index) const;
+
+	// Two property links, used by Bethesda.
+	// \param[in] value The new value.
+	NIFLIB_API void SetBSProperty(int index, const Ref<NiProperty>&  value);
+
+	template <typename U>
+	inline Niflib::Ref<const U> GetBSPropertyOfType() const {
+		return StaticCast<const U>(GetBSPropertyOfType(U::TYPE));
+	}
+	template <typename U>
+	inline Niflib::Ref<U> GetBSPropertyOfType() {
+		return StaticCast<U>(GetBSPropertyOfType(U::TYPE));
+	}
+protected:
+	NIFLIB_API const NiProperty* GetBSPropertyOfType(const Niflib::Type& type) const;
+	NIFLIB_API NiProperty* GetBSPropertyOfType(const Niflib::Type& type);
 
 	//--END CUSTOM CODE--//
 protected:
@@ -200,6 +317,8 @@ protected:
 	Ref<NiGeometryData > data;
 	/*! Skin instance index. */
 	Ref<NiSkinInstance > skinInstance;
+	/*! Placeholder for Skin and data for NiParticleSystem */
+	array<2,unsigned int > emptyRefs;
 	/*! Num Materials */
 	mutable unsigned int numMaterials;
 	/*! Unknown string.  Shader? */
@@ -220,6 +339,8 @@ protected:
 	int unknownInteger2;
 	/*! Dirty Flag? */
 	bool dirtyFlag;
+	/*! Dirty Flag? */
+	int unknownInteger3;
 	/*! Two property links, used by Bethesda. */
 	array<2,Ref<NiProperty > > bsProperties;
 public:

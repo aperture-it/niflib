@@ -28,5 +28,4 @@ ElementReference & ElementReference::operator=( const ElementReference & src ) {
 ElementReference::~ElementReference() {};
 
 //--BEGIN MISC CUSTOM CODE--//
-
 //--END CUSTOM CODE--//

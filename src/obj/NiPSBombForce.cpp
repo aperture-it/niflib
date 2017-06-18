@@ -135,6 +135,18 @@ std::list<NiObject *> NiPSBombForce::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+IndexString NiPSBombForce::GetName() const {
+	return name;
+}
+
+void NiPSBombForce::SetName( const IndexString & value ) {
+	name = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

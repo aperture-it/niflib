@@ -166,5 +166,137 @@ std::list<NiObject *> bhkPrismaticConstraint::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Vector4 bhkPrismaticConstraint::GetPivotA() const {
+	return pivotA;
+}
+
+void bhkPrismaticConstraint::SetPivotA( const Vector4 & value ) {
+	pivotA = value;
+}
+
+array<4,Vector4 >  bhkPrismaticConstraint::GetRotationMatrixA() const {
+	return rotationMatrixA;
+}
+
+void bhkPrismaticConstraint::SetRotationMatrixA( const array<4,Vector4 >&  value ) {
+	rotationMatrixA = value;
+}
+
+Vector4 bhkPrismaticConstraint::GetPivotB() const {
+	return pivotB;
+}
+
+void bhkPrismaticConstraint::SetPivotB( const Vector4 & value ) {
+	pivotB = value;
+}
+
+Vector4 bhkPrismaticConstraint::GetSlidingB() const {
+	return slidingB;
+}
+
+void bhkPrismaticConstraint::SetSlidingB( const Vector4 & value ) {
+	slidingB = value;
+}
+
+Vector4 bhkPrismaticConstraint::GetPlaneB() const {
+	return planeB;
+}
+
+void bhkPrismaticConstraint::SetPlaneB( const Vector4 & value ) {
+	planeB = value;
+}
+
+Vector4 bhkPrismaticConstraint::GetSlidingA() const {
+	return slidingA;
+}
+
+void bhkPrismaticConstraint::SetSlidingA( const Vector4 & value ) {
+	slidingA = value;
+}
+
+Vector4 bhkPrismaticConstraint::GetRotationA() const {
+	return rotationA;
+}
+
+void bhkPrismaticConstraint::SetRotationA( const Vector4 & value ) {
+	rotationA = value;
+}
+
+Vector4 bhkPrismaticConstraint::GetPlaneA() const {
+	return planeA;
+}
+
+void bhkPrismaticConstraint::SetPlaneA( const Vector4 & value ) {
+	planeA = value;
+}
+
+Vector4 bhkPrismaticConstraint::GetPivotA() const {
+	return pivotA;
+}
+
+void bhkPrismaticConstraint::SetPivotA( const Vector4 & value ) {
+	pivotA = value;
+}
+
+Vector4 bhkPrismaticConstraint::GetSlidingB() const {
+	return slidingB;
+}
+
+void bhkPrismaticConstraint::SetSlidingB( const Vector4 & value ) {
+	slidingB = value;
+}
+
+Vector4 bhkPrismaticConstraint::GetRotationB() const {
+	return rotationB;
+}
+
+void bhkPrismaticConstraint::SetRotationB( const Vector4 & value ) {
+	rotationB = value;
+}
+
+Vector4 bhkPrismaticConstraint::GetPlaneB() const {
+	return planeB;
+}
+
+void bhkPrismaticConstraint::SetPlaneB( const Vector4 & value ) {
+	planeB = value;
+}
+
+Vector4 bhkPrismaticConstraint::GetPivotB() const {
+	return pivotB;
+}
+
+void bhkPrismaticConstraint::SetPivotB( const Vector4 & value ) {
+	pivotB = value;
+}
+
+float bhkPrismaticConstraint::GetMinDistance() const {
+	return minDistance;
+}
+
+void bhkPrismaticConstraint::SetMinDistance( float value ) {
+	minDistance = value;
+}
+
+float bhkPrismaticConstraint::GetMaxDistance() const {
+	return maxDistance;
+}
+
+void bhkPrismaticConstraint::SetMaxDistance( float value ) {
+	maxDistance = value;
+}
+
+float bhkPrismaticConstraint::GetFriction() const {
+	return friction;
+}
+
+void bhkPrismaticConstraint::SetFriction( float value ) {
+	friction = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

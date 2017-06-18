@@ -114,6 +114,42 @@ std::list<NiObject *> BSInvMarker::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned short BSInvMarker::GetRotationX() const {
+	return rotationX;
+}
+
+void BSInvMarker::SetRotationX( unsigned short value ) {
+	rotationX = value;
+}
+
+unsigned short BSInvMarker::GetRotationY() const {
+	return rotationY;
+}
+
+void BSInvMarker::SetRotationY( unsigned short value ) {
+	rotationY = value;
+}
+
+unsigned short BSInvMarker::GetRotationZ() const {
+	return rotationZ;
+}
+
+void BSInvMarker::SetRotationZ( unsigned short value ) {
+	rotationZ = value;
+}
+
+float BSInvMarker::GetZoom() const {
+	return zoom;
+}
+
+void BSInvMarker::SetZoom( float value ) {
+	zoom = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

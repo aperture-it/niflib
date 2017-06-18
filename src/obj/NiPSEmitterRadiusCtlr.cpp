@@ -130,6 +130,18 @@ std::list<NiObject *> NiPSEmitterRadiusCtlr::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Ref<NiObject > NiPSEmitterRadiusCtlr::GetInterpolator() const {
+	return interpolator;
+}
+
+void NiPSEmitterRadiusCtlr::SetInterpolator( Ref<NiObject > value ) {
+	interpolator = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

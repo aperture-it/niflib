@@ -58,6 +58,34 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Simulator?
+	// \return The current value.
+	Ref<NiObject > GetSimulator() const;
+
+	// Simulator?
+	// \param[in] value The new value.
+	void SetSimulator( Ref<NiObject > value );
+
+	// Generator?
+	// \return The current value.
+	Ref<NiObject > GetGenerator() const;
+
+	// Generator?
+	// \param[in] value The new value.
+	void SetGenerator( Ref<NiObject > value );
+
+	// Emitter?
+	// \return The current value.
+	Ref<NiObject > GetEmitter() const;
+
+	// Emitter?
+	// \param[in] value The new value.
+	void SetEmitter( Ref<NiObject > value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

@@ -111,6 +111,34 @@ std::list<NiObject *> BSMultiBoundOBB::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Vector3 BSMultiBoundOBB::GetCenter() const {
+	return center;
+}
+
+void BSMultiBoundOBB::SetCenter( const Vector3 & value ) {
+	center = value;
+}
+
+Vector3 BSMultiBoundOBB::GetSize() const {
+	return size;
+}
+
+void BSMultiBoundOBB::SetSize( const Vector3 & value ) {
+	size = value;
+}
+
+Matrix33 BSMultiBoundOBB::GetRotation() const {
+	return rotation;
+}
+
+void BSMultiBoundOBB::SetRotation( const Matrix33 & value ) {
+	rotation = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

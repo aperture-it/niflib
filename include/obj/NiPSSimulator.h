@@ -58,6 +58,18 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Links to the simulation steps.
+	// \return The current value.
+	vector<Ref<NiPSSimulatorStep > > GetSimulationSteps() const;
+
+	// Links to the simulation steps.
+	// \param[in] value The new value.
+	void SetSimulationSteps( const vector<Ref<NiPSSimulatorStep > >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

@@ -57,6 +57,34 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Unknown.
+	// \return The current value.
+	unsigned short GetNumVertices() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetNumVertices( unsigned short value );
+
+	// Number of additional data blocks
+	// \return The current value.
+	vector<AdditionalDataInfo > GetBlockInfos() const;
+
+	// Number of additional data blocks
+	// \param[in] value The new value.
+	void SetBlockInfos( const vector<AdditionalDataInfo >& value );
+
+	// Number of additional data blocks
+	// \return The current value.
+	vector<BSPackedAdditionalDataBlock > GetBlocks() const;
+
+	// Number of additional data blocks
+	// \param[in] value The new value.
+	void SetBlocks( const vector<BSPackedAdditionalDataBlock >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

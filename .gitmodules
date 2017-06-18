@@ -3,4 +3,4 @@
 	url = https://github.com/qhull/qhull.git
 [submodule "docsys"]
 	path = docsys
-	url = https://github.com/aperture-it/nifdocsys.git
+	url = git://github.com/figment/nifdocsys.git

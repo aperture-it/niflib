@@ -53,24 +53,52 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Textures.
+	//             0: Diffuse
+	//             1: Normal/Gloss
+	//             2: Glow(SLSF2_Glow_Map)/Skin/Hair/Rim light(SLSF2_Rim_Lighting)
+	//             3: Height/Parallax
+	//             4: Environment
+	//             5: Environment Mask
+	//             6: Subsurface for Multilayer Parallax
+	//             7: Back Lighting Map (SLSF2_Back_Lighting)
+	// \return The current value.
+	vector<string > GetTextures() const;
+
+	// Textures.
+	//             0: Diffuse
+	//             1: Normal/Gloss
+	//             2: Glow(SLSF2_Glow_Map)/Skin/Hair/Rim light(SLSF2_Rim_Lighting)
+	//             3: Height/Parallax
+	//             4: Environment
+	//             5: Environment Mask
+	//             6: Subsurface for Multilayer Parallax
+	//             7: Back Lighting Map (SLSF2_Back_Lighting)
+	// \param[in] value The new value.
+	void SetTextures( const vector<string >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	// Textures
 	// \return The current value.
-	NIFLIB_API vector<string > GetTextures() const;
+	vector<string > GetTextures() const;
 
 	// Textures
 	// \param[in] value The new value.
-	NIFLIB_API void SetTextures( const vector<string >& value );
+	void SetTextures( const vector<string >& value );
 
 	// Textures
 	// \return The current value.
-	NIFLIB_API string GetTexture( size_t i ) const;
+	string GetTexture( size_t i ) const;
 
 	// Textures
 	// \param[in] i Index of texture to set
 	// \param[in] value The new value.
-	NIFLIB_API void SetTexture( size_t i, const string& value);
+	void SetTexture( size_t i, const string& value);
 
 	//--END CUSTOM CODE--//
 protected:
@@ -80,10 +108,12 @@ protected:
 	 * Textures.
 	 *             0: Diffuse
 	 *             1: Normal/Gloss
-	 *             2: Glow/Skin/Hair
+	 *             2: Glow(SLSF2_Glow_Map)/Skin/Hair/Rim light(SLSF2_Rim_Lighting)
 	 *             3: Height/Parallax
 	 *             4: Environment
 	 *             5: Environment Mask
+	 *             6: Subsurface for Multilayer Parallax
+	 *             7: Back Lighting Map (SLSF2_Back_Lighting)
 	 */
 	vector<string > textures;
 public:

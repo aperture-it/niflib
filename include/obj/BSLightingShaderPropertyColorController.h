@@ -20,7 +20,7 @@ namespace Niflib {
 class BSLightingShaderPropertyColorController;
 typedef Ref<BSLightingShaderPropertyColorController> BSLightingShaderPropertyColorControllerRef;
 
-/*!  */
+/*! This controller is used to animate colors in BSLightingShaderProperty. */
 class BSLightingShaderPropertyColorController : public NiFloatInterpController {
 public:
 	/*! Constructor */
@@ -53,21 +53,24 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
-	//--BEGIN MISC CUSTOM CODE--//
-	/*!
-	 * Get which color in BSLightingShaderProperty to animate
-	 */
-	NIFLIB_API LightingShaderControlledColor GetTargetColor() const;
+	/***Begin Example Naive Implementation****
 
-	/*!
-	 * Set which color in BSLightingShaderProperty to animate
-	 */
-	NIFLIB_API void SetTargetColor(LightingShaderControlledColor value);
+// Which color in BSLightingShaderProperty to animate:
+	// \return The current value.
+	LightingShaderControlledColor GetTypeOfControlledColor() const;
+
+// Which color in BSLightingShaderProperty to animate:
+	// \param[in] value The new value.
+	void SetTypeOfControlledColor( const LightingShaderControlledColor & value );
+
+	****End Example Naive Implementation***/
+
+	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//
 protected:
-	/*! Which variable in the shader to animate. */
-	LightingShaderControlledColor targetColor;
+	/*! Which color in BSLightingShaderProperty to animate: */
+	LightingShaderControlledColor typeOfControlledColor;
 public:
 	/*! NIFLIB_HIDDEN function.  For internal use only. */
 	NIFLIB_HIDDEN virtual void Read( istream& in, list<unsigned int> & link_stack, const NifInfo & info );

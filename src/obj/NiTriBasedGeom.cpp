@@ -96,6 +96,8 @@ std::list<NiObject *> NiTriBasedGeom::GetPtrs() const {
 	return ptrs;
 }
 
+//--This object has no eligable attributes.  No example implementation generated--//
+
 //--BEGIN MISC CUSTOM CODE--//
 
 void NiTriBasedGeom::ClearHardareSkinInfo() {
@@ -168,7 +170,7 @@ void NiTriBasedGeom::UpdateTangentSpace(int method) {
 	}
 
 	vector<Vector3> tangents( verts.size() );
-	vector<Vector3> bitangents( verts.size() );
+	vector<Vector3> binormals( verts.size() );
 	if ( method == 0 ) // Nifskope algorithm
 	{
 		for( int t = 0; t < (int)tris.size(); t++ ) {
@@ -214,7 +216,7 @@ void NiTriBasedGeom::UpdateTangentSpace(int method) {
 			for ( int j = 0; j < 3; j++ ) {	
 				int i = tri[j];
 				tangents[i] += tdir;
-				bitangents[i] += sdir;
+				binormals[i] += sdir;
 			}
 		}
 
@@ -223,7 +225,7 @@ void NiTriBasedGeom::UpdateTangentSpace(int method) {
 			const Vector3 & n = norms[i];
 
 			Vector3 & t = tangents[i];
-			Vector3 & b = bitangents[i];
+			Vector3 & b = binormals[i];
 
 			if ( t == Vector3() || b == Vector3() ) {
 				t.x = n.y;
@@ -264,18 +266,18 @@ void NiTriBasedGeom::UpdateTangentSpace(int method) {
 			for ( int j = 0; j <= 2; j++ ) {	
 				int i = t[j];
 				tangents[i] += face_tangent;
-				bitangents[i] += face_bi_tangent;
+				binormals[i] += face_bi_tangent;
 			}
 		}
 
 		// for each.getPosition(), normalize the Tangent and Binormal
 		for ( unsigned int i = 0; i < verts.size(); i++ ) {	
-			bitangents[i] = bitangents[i].Normalized();
+			binormals[i] = binormals[i].Normalized();
 			tangents[i] = tangents[i].Normalized();
 		}
 	}
 
-   if ( (niTriGeomData->GetTspaceFlag() & 0xF0) == 0 )
+   if ( (niTriGeomData->GetTspaceFlag() & 0x01) == 0 )
    {
       // generate the byte data
       size_t vCount = verts.size();
@@ -289,9 +291,9 @@ void NiTriBasedGeom::UpdateTangentSpace(int method) {
          tan_xyz[1] = tangents[i].y;
          tan_xyz[2] = tangents[i].z;
 
-         bin_xyz[0] = bitangents[i].x;
-         bin_xyz[1] = bitangents[i].y;
-         bin_xyz[2] = bitangents[i].z;
+         bin_xyz[0] = binormals[i].x;
+         bin_xyz[1] = binormals[i].y;
+         bin_xyz[2] = binormals[i].z;
 
          char * tan_Bytes = (char*)tan_xyz;
          char * bin_Bytes = (char*)bin_xyz;
@@ -325,8 +327,8 @@ void NiTriBasedGeom::UpdateTangentSpace(int method) {
    }
    else
    {
-      // swap bitangents and tangents: [ niftools-Bugs-2466995 ]
-      niTriGeomData->SetTangents(bitangents);
+      // swap binormals and tangents: [ niftools-Bugs-2466995 ]
+      niTriGeomData->SetTangents(binormals);
       niTriGeomData->SetBitangents(tangents);
    }
 }

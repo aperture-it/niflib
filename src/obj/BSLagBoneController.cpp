@@ -111,6 +111,34 @@ std::list<NiObject *> BSLagBoneController::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+float BSLagBoneController::GetLinearVelocity() const {
+	return linearVelocity;
+}
+
+void BSLagBoneController::SetLinearVelocity( float value ) {
+	linearVelocity = value;
+}
+
+float BSLagBoneController::GetLinearRotation() const {
+	return linearRotation;
+}
+
+void BSLagBoneController::SetLinearRotation( float value ) {
+	linearRotation = value;
+}
+
+float BSLagBoneController::GetMaximumDistance() const {
+	return maximumDistance;
+}
+
+void BSLagBoneController::SetMaximumDistance( float value ) {
+	maximumDistance = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

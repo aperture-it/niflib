@@ -123,5 +123,17 @@ std::list<NiObject *> NiLookAtController::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+NiNode * NiLookAtController::GetLookAtNode() const {
+	return lookAtNode;
+}
+
+void NiLookAtController::SetLookAtNode( NiNode * value ) {
+	lookAtNode = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

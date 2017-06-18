@@ -55,6 +55,26 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// List of all armature bones.
+	// \return The current value.
+	vector<NiNode * > GetBones() const;
+
+	// List of all armature bones.
+	// \param[in] value The new value.
+	void SetBones( const vector<NiNode * >& value );
+
+	// List of all armature bones.
+	// \return The current value.
+	vector<NiNode * > GetBones2() const;
+
+	// List of all armature bones.
+	// \param[in] value The new value.
+	void SetBones2( const vector<NiNode * >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

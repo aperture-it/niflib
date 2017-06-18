@@ -20,7 +20,7 @@ using namespace Niflib;
 //Definition of TYPE constant
 const Type bhkMoppBvTreeShape::TYPE("bhkMoppBvTreeShape", &bhkBvTreeShape::TYPE );
 
-bhkMoppBvTreeShape::bhkMoppBvTreeShape() : shape(NULL), material((HavokMaterial)0), skyrimMaterial((SkyrimHavokMaterial)0), unknownFloat(1.0f), moppDataSize((unsigned int)0), scale(0.0f), buildType(BUILT_WITHOUT_CHUNK_SUBDIVISION) {
+bhkMoppBvTreeShape::bhkMoppBvTreeShape() : shape(NULL), material((HavokMaterial)0), skyrimMaterial((SkyrimHavokMaterial)0), unknownFloat(1.0f), moppDataSize((unsigned int)0), scale(0.0f), buildType((MoppDataBuildType)0) {
 	//--BEGIN CONSTRUCTOR CUSTOM CODE--//
 	//--END CUSTOM CODE--//
 }
@@ -215,6 +215,74 @@ std::list<NiObject *> bhkMoppBvTreeShape::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Ref<bhkShape > bhkMoppBvTreeShape::GetShape() const {
+	return shape;
+}
+
+void bhkMoppBvTreeShape::SetShape( Ref<bhkShape > value ) {
+	shape = value;
+}
+
+HavokMaterial bhkMoppBvTreeShape::GetMaterial() const {
+	return material;
+}
+
+void bhkMoppBvTreeShape::SetMaterial( const HavokMaterial & value ) {
+	material = value;
+}
+
+SkyrimHavokMaterial bhkMoppBvTreeShape::GetSkyrimMaterial() const {
+	return skyrimMaterial;
+}
+
+void bhkMoppBvTreeShape::SetSkyrimMaterial( const SkyrimHavokMaterial & value ) {
+	skyrimMaterial = value;
+}
+
+Vector3 bhkMoppBvTreeShape::GetOrigin() const {
+	return origin;
+}
+
+void bhkMoppBvTreeShape::SetOrigin( const Vector3 & value ) {
+	origin = value;
+}
+
+float bhkMoppBvTreeShape::GetScale() const {
+	return scale;
+}
+
+void bhkMoppBvTreeShape::SetScale( float value ) {
+	scale = value;
+}
+
+vector<byte > bhkMoppBvTreeShape::GetOldMoppData() const {
+	return oldMoppData;
+}
+
+void bhkMoppBvTreeShape::SetOldMoppData( const vector<byte >& value ) {
+	oldMoppData = value;
+}
+
+MoppDataBuildType bhkMoppBvTreeShape::GetBuildType() const {
+	return buildType;
+}
+
+void bhkMoppBvTreeShape::SetBuildType( const MoppDataBuildType & value ) {
+	buildType = value;
+}
+
+vector<byte > bhkMoppBvTreeShape::GetMoppData() const {
+	return moppData;
+}
+
+void bhkMoppBvTreeShape::SetMoppData( const vector<byte >& value ) {
+	moppData = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 Ref<bhkShape > bhkMoppBvTreeShape::GetShape() const {
@@ -231,6 +299,14 @@ HavokMaterial bhkMoppBvTreeShape::GetMaterial() const {
 
 void bhkMoppBvTreeShape::SetMaterial( HavokMaterial value ) {
 	material = value;
+}
+
+SkyrimHavokMaterial bhkMoppBvTreeShape::GetSkyrimMaterial() const {
+	return skyrimMaterial;
+}
+
+void bhkMoppBvTreeShape::SetSkyrimMaterial(SkyrimHavokMaterial value) {
+	skyrimMaterial = value;
 }
 
 vector<byte> bhkMoppBvTreeShape::GetMoppCode() const {
@@ -258,14 +334,6 @@ void bhkMoppBvTreeShape::SetMoppScale( float value ) {
 	scale = value;
 }
 
-MoppDataBuildType bhkMoppBvTreeShape::GetBuildType() const {
-	return buildType;
-}
-
-void bhkMoppBvTreeShape::SetBuildType(MoppDataBuildType value) {
-	buildType = value;
-}
-
 void bhkMoppBvTreeShape::CalcMassProperties( float density, bool solid, float &mass, float &volume, Vector3 &center, InertiaMatrix& inertia )
 {
 	center = Vector3(0,0,0);
@@ -274,6 +342,15 @@ void bhkMoppBvTreeShape::CalcMassProperties( float density, bool solid, float &m
 
 	if (shape != NULL)
 		shape->CalcMassProperties(density, solid, mass, volume, center, inertia);
+}
+
+// calculation helper
+unsigned int bhkMoppBvTreeShape::moppDataSizeCalc(const NifInfo& info) const
+{
+	unsigned int value = moppData.size();
+	if (info.version <= 0x0A000100)
+		value += 1;
+	return value;
 }
 
 //--END CUSTOM CODE--//

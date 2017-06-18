@@ -27,5 +27,4 @@ bhkCMSDData & bhkCMSDData::operator=( const bhkCMSDData & src ) {
 bhkCMSDData::~bhkCMSDData() {};
 
 //--BEGIN MISC CUSTOM CODE--//
-
 //--END CUSTOM CODE--//

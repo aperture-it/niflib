@@ -363,5 +363,129 @@ std::list<NiObject *> NiParticlesData::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned short NiParticlesData::GetNumParticles() const {
+	return numParticles;
+}
+
+void NiParticlesData::SetNumParticles( unsigned short value ) {
+	numParticles = value;
+}
+
+float NiParticlesData::GetParticleRadius() const {
+	return particleRadius;
+}
+
+void NiParticlesData::SetParticleRadius( float value ) {
+	particleRadius = value;
+}
+
+bool NiParticlesData::GetHasRadii() const {
+	return hasRadii;
+}
+
+void NiParticlesData::SetHasRadii( bool value ) {
+	hasRadii = value;
+}
+
+vector<float > NiParticlesData::GetRadii() const {
+	return radii;
+}
+
+void NiParticlesData::SetRadii( const vector<float >& value ) {
+	radii = value;
+}
+
+unsigned short NiParticlesData::GetNumActive() const {
+	return numActive;
+}
+
+void NiParticlesData::SetNumActive( unsigned short value ) {
+	numActive = value;
+}
+
+bool NiParticlesData::GetHasSizes() const {
+	return hasSizes;
+}
+
+void NiParticlesData::SetHasSizes( bool value ) {
+	hasSizes = value;
+}
+
+vector<float > NiParticlesData::GetSizes() const {
+	return sizes;
+}
+
+void NiParticlesData::SetSizes( const vector<float >& value ) {
+	sizes = value;
+}
+
+bool NiParticlesData::GetHasRotations() const {
+	return hasRotations;
+}
+
+void NiParticlesData::SetHasRotations( bool value ) {
+	hasRotations = value;
+}
+
+vector<Quaternion > NiParticlesData::GetRotations() const {
+	return rotations;
+}
+
+void NiParticlesData::SetRotations( const vector<Quaternion >& value ) {
+	rotations = value;
+}
+
+bool NiParticlesData::GetHasRotationAngles() const {
+	return hasRotationAngles;
+}
+
+void NiParticlesData::SetHasRotationAngles( bool value ) {
+	hasRotationAngles = value;
+}
+
+vector<float > NiParticlesData::GetRotationAngles() const {
+	return rotationAngles;
+}
+
+void NiParticlesData::SetRotationAngles( const vector<float >& value ) {
+	rotationAngles = value;
+}
+
+bool NiParticlesData::GetHasRotationAxes() const {
+	return hasRotationAxes;
+}
+
+void NiParticlesData::SetHasRotationAxes( bool value ) {
+	hasRotationAxes = value;
+}
+
+vector<Vector3 > NiParticlesData::GetRotationAxes() const {
+	return rotationAxes;
+}
+
+void NiParticlesData::SetRotationAxes( const vector<Vector3 >& value ) {
+	rotationAxes = value;
+}
+
+bool NiParticlesData::GetHasUvQuadrants() const {
+	return hasUvQuadrants;
+}
+
+void NiParticlesData::SetHasUvQuadrants( bool value ) {
+	hasUvQuadrants = value;
+}
+
+vector<Vector4 > NiParticlesData::GetUvQuadrants() const {
+	return uvQuadrants;
+}
+
+void NiParticlesData::SetUvQuadrants( const vector<Vector4 >& value ) {
+	uvQuadrants = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

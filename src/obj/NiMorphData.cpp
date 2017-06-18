@@ -186,6 +186,34 @@ std::list<NiObject *> NiMorphData::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned int NiMorphData::GetNumVertices() const {
+	return numVertices;
+}
+
+void NiMorphData::SetNumVertices( unsigned int value ) {
+	numVertices = value;
+}
+
+byte NiMorphData::GetRelativeTargets() const {
+	return relativeTargets;
+}
+
+void NiMorphData::SetRelativeTargets( byte value ) {
+	relativeTargets = value;
+}
+
+vector<Morph > NiMorphData::GetMorphs() const {
+	return morphs;
+}
+
+void NiMorphData::SetMorphs( const vector<Morph >& value ) {
+	morphs = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 void NiMorphData::NormalizeKeys( float phase, float frequency ) {

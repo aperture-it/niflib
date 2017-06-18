@@ -130,6 +130,26 @@ std::list<NiObject *> NiPSSimulatorMeshAlignStep::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Key<Quaternion > > NiPSSimulatorMeshAlignStep::GetRotationKeys() const {
+	return rotationKeys;
+}
+
+void NiPSSimulatorMeshAlignStep::SetRotationKeys( const vector<Key<Quaternion > >& value ) {
+	rotationKeys = value;
+}
+
+PSLoopBehavior NiPSSimulatorMeshAlignStep::GetRotationLoopBehavior() const {
+	return rotationLoopBehavior;
+}
+
+void NiPSSimulatorMeshAlignStep::SetRotationLoopBehavior( const PSLoopBehavior & value ) {
+	rotationLoopBehavior = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

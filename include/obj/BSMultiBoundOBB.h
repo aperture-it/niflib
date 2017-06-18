@@ -53,6 +53,34 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Center of the box.
+	// \return The current value.
+	Vector3 GetCenter() const;
+
+	// Center of the box.
+	// \param[in] value The new value.
+	void SetCenter( const Vector3 & value );
+
+	// Size of the box along each axis.
+	// \return The current value.
+	Vector3 GetSize() const;
+
+	// Size of the box along each axis.
+	// \param[in] value The new value.
+	void SetSize( const Vector3 & value );
+
+	// Rotation of the bounding box.
+	// \return The current value.
+	Matrix33 GetRotation() const;
+
+	// Rotation of the bounding box.
+	// \param[in] value The new value.
+	void SetRotation( const Matrix33 & value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

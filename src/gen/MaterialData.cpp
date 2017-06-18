@@ -27,5 +27,4 @@ MaterialData & MaterialData::operator=( const MaterialData & src ) {
 MaterialData::~MaterialData() {};
 
 //--BEGIN MISC CUSTOM CODE--//
-
 //--END CUSTOM CODE--//

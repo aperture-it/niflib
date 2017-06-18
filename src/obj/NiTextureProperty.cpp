@@ -168,6 +168,26 @@ std::list<NiObject *> NiTextureProperty::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned short NiTextureProperty::GetFlags() const {
+	return flags;
+}
+
+void NiTextureProperty::SetFlags( unsigned short value ) {
+	flags = value;
+}
+
+Ref<NiImage > NiTextureProperty::GetImage() const {
+	return image;
+}
+
+void NiTextureProperty::SetImage( Ref<NiImage > value ) {
+	image = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 Ref<NiImage> NiTextureProperty::GetImage() const {

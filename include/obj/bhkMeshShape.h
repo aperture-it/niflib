@@ -58,6 +58,18 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Refers to a bunch of NiTriStripsData objects that make up this shape.
+	// \return The current value.
+	vector<Ref<NiTriStripsData > > GetStripsData() const;
+
+	// Refers to a bunch of NiTriStripsData objects that make up this shape.
+	// \param[in] value The new value.
+	void SetStripsData( const vector<Ref<NiTriStripsData > >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

@@ -62,6 +62,42 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Offset of the skin from this bone in bind position.
+	// \return The current value.
+	SkinTransform GetSkinTransform() const;
+
+	// Offset of the skin from this bone in bind position.
+	// \param[in] value The new value.
+	void SetSkinTransform( const SkinTransform & value );
+
+	// This optionally links a NiSkinPartition for hardware-acceleration information.
+	// \return The current value.
+	Ref<NiSkinPartition > GetSkinPartition() const;
+
+	// This optionally links a NiSkinPartition for hardware-acceleration information.
+	// \param[in] value The new value.
+	void SetSkinPartition( Ref<NiSkinPartition > value );
+
+	// Enables Vertex Weights for this NiSkinData.
+	// \return The current value.
+	byte GetHasVertexWeights() const;
+
+	// Enables Vertex Weights for this NiSkinData.
+	// \param[in] value The new value.
+	void SetHasVertexWeights( byte value );
+
+	// Contains offset data for each node that this skin is influenced by.
+	// \return The current value.
+	vector<SkinData > GetBoneList() const;
+
+	// Contains offset data for each node that this skin is influenced by.
+	// \param[in] value The new value.
+	void SetBoneList( const vector<SkinData >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	/*!
@@ -106,12 +142,6 @@ public:
 	 */
 	NIFLIB_API void SetBoneWeights( unsigned int bone_index, const vector<SkinWeight> & weights, Vector3 center, float radius );
 	
-	/*!
-	 * Sets the skin weights for a particular bone, without changing center and radius
-	 * \sa NiSkinData::SetBoneWeights
-	 */
-	NIFLIB_API void SetBoneWeights( unsigned int bone_index, const vector<SkinWeight> & weights );
-
 	/*!
 	 * Returns a reference to the hardware skin partition data object, if any.
 	 * \return The hardware skin partition data, or NULL if none is used.

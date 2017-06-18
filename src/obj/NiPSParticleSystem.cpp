@@ -325,6 +325,34 @@ std::list<NiObject *> NiPSParticleSystem::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Ref<NiObject > NiPSParticleSystem::GetSimulator() const {
+	return simulator;
+}
+
+void NiPSParticleSystem::SetSimulator( Ref<NiObject > value ) {
+	simulator = value;
+}
+
+Ref<NiObject > NiPSParticleSystem::GetGenerator() const {
+	return generator;
+}
+
+void NiPSParticleSystem::SetGenerator( Ref<NiObject > value ) {
+	generator = value;
+}
+
+Ref<NiObject > NiPSParticleSystem::GetEmitter() const {
+	return emitter;
+}
+
+void NiPSParticleSystem::SetEmitter( Ref<NiObject > value ) {
+	emitter = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

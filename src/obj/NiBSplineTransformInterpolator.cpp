@@ -115,37 +115,22 @@ std::list<NiObject *> NiBSplineTransformInterpolator::GetPtrs() const {
 	return ptrs;
 }
 
-//--BEGIN MISC CUSTOM CODE--//
+/***Begin Example Naive Implementation****
+
 Vector3 NiBSplineTransformInterpolator::GetTranslation() const {
 	return translation;
 }
 
-void NiBSplineTransformInterpolator::SetTranslation( Vector3 value ) {
+void NiBSplineTransformInterpolator::SetTranslation( const Vector3 & value ) {
 	translation = value;
-}
-
-int NiBSplineTransformInterpolator::GetTranslationOffset() {
-	return translationOffset;
-}
-
-void NiBSplineTransformInterpolator::SetTranslationOffset( int value ) {
-	translationOffset = value;
 }
 
 Quaternion NiBSplineTransformInterpolator::GetRotation() const {
 	return rotation;
 }
 
-void NiBSplineTransformInterpolator::SetRotation( Quaternion value ) {
+void NiBSplineTransformInterpolator::SetRotation( const Quaternion & value ) {
 	rotation = value;
-}
-
-int NiBSplineTransformInterpolator::GetRotationOffset() {
-	return rotationOffset;
-}
-
-void NiBSplineTransformInterpolator::SetRotationOffset( int value ) {
-	rotationOffset = value;
 }
 
 float NiBSplineTransformInterpolator::GetScale() const {
@@ -156,13 +141,57 @@ void NiBSplineTransformInterpolator::SetScale( float value ) {
 	scale = value;
 }
 
-int NiBSplineTransformInterpolator::GetScaleOffset() {
+unsigned int NiBSplineTransformInterpolator::GetTranslationOffset() const {
+	return translationOffset;
+}
+
+void NiBSplineTransformInterpolator::SetTranslationOffset( unsigned int value ) {
+	translationOffset = value;
+}
+
+unsigned int NiBSplineTransformInterpolator::GetRotationOffset() const {
+	return rotationOffset;
+}
+
+void NiBSplineTransformInterpolator::SetRotationOffset( unsigned int value ) {
+	rotationOffset = value;
+}
+
+unsigned int NiBSplineTransformInterpolator::GetScaleOffset() const {
 	return scaleOffset;
 }
 
-void Niflib::NiBSplineTransformInterpolator::SetScaleOffset( int value ) {
+void NiBSplineTransformInterpolator::SetScaleOffset( unsigned int value ) {
 	scaleOffset = value;
 }
+
+****End Example Naive Implementation***/
+
+//--BEGIN MISC CUSTOM CODE--//
+Vector3 NiBSplineTransformInterpolator::GetTranslation() const {
+	return translation;
+}
+
+void NiBSplineTransformInterpolator::SetTranslation( Vector3 value ) {
+	translation = value;
+}
+
+Quaternion NiBSplineTransformInterpolator::GetRotation() const {
+	return rotation;
+}
+
+void NiBSplineTransformInterpolator::SetRotation( Quaternion value ) {
+	rotation = value;
+}
+
+float NiBSplineTransformInterpolator::GetScale() const {
+	return scale;
+}
+
+void NiBSplineTransformInterpolator::SetScale( float value ) {
+	scale = value;
+}
+
 
 vector< Quaternion > NiBSplineTransformInterpolator::GetQuatRotateControlData() const
 {

@@ -182,5 +182,17 @@ std::list<NiObject *> bhkLimitedHingeConstraint::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+LimitedHingeDescriptor bhkLimitedHingeConstraint::GetLimitedHinge() const {
+	return limitedHinge;
+}
+
+void bhkLimitedHingeConstraint::SetLimitedHinge( const LimitedHingeDescriptor & value ) {
+	limitedHinge = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

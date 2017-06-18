@@ -179,6 +179,26 @@ std::list<NiObject *> BSPSysHavokUpdateModifier::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<Ref<NiNode > > BSPSysHavokUpdateModifier::GetNodes() const {
+	return nodes;
+}
+
+void BSPSysHavokUpdateModifier::SetNodes( const vector<Ref<NiNode > >& value ) {
+	nodes = value;
+}
+
+Ref<NiPSysModifier > BSPSysHavokUpdateModifier::GetModifier() const {
+	return modifier;
+}
+
+void BSPSysHavokUpdateModifier::SetModifier( Ref<NiPSysModifier > value ) {
+	modifier = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

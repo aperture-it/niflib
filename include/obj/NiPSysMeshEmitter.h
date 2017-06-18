@@ -20,7 +20,7 @@ All rights reserved.  Please see niflib.h for license. */
 namespace Niflib {
 
 // Forward define of referenced NIF objects
-class NiTriBasedGeom;
+class NiAVObject;
 class NiPSysMeshEmitter;
 typedef Ref<NiPSysMeshEmitter> NiPSysMeshEmitterRef;
 
@@ -57,33 +57,82 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Links to meshes used for emitting.
+	// \return The current value.
+	vector<Ref<NiAVObject > > GetEmitterMeshes() const;
+
+	// Links to meshes used for emitting.
+	// \param[in] value The new value.
+	void SetEmitterMeshes( const vector<Ref<NiAVObject > >& value );
+
+	// The way the particles get their initial direction and speed.
+	// \return The current value.
+	VelocityType GetInitialVelocityType() const;
+
+	// The way the particles get their initial direction and speed.
+	// \param[in] value The new value.
+	void SetInitialVelocityType( const VelocityType & value );
+
+	// The parts of the mesh that the particles emit from.
+	// \return The current value.
+	EmitFrom GetEmissionType() const;
+
+	// The parts of the mesh that the particles emit from.
+	// \param[in] value The new value.
+	void SetEmissionType( const EmitFrom & value );
+
+	// The emission axis.
+	// \return The current value.
+	Vector3 GetEmissionAxis() const;
+
+	// The emission axis.
+	// \param[in] value The new value.
+	void SetEmissionAxis( const Vector3 & value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
-	/*!
-	 * Adds a single geometry to the collection. The collection will expand if necessary.
-	 * \param[in] mesh The shape to add to the collection.
-	 */
-	NIFLIB_API bool AddEmitterMesh( Ref<NiTriBasedGeom > mesh );
+	// Links to meshes used for emitting.
+	// \return The current value.
+	vector<Ref<NiAVObject > > GetEmitterMeshes() const;
 
-	/*!
-	 * Remove a single geometry from the collection.
-	 * \param[in] mesh The shape remove from the collection.
-	 */
-	NIFLIB_API bool RemoveEmitterMesh( Ref<NiTriBasedGeom > mesh );
+	// Links to meshes used for emitting.
+	// \param[in] value The new value.
+	void SetEmitterMeshes(const vector<Ref<NiAVObject > >& value);
 
-	/*!
-	 * Replace a single geometry by another in the specified shape group.
-	 * \param[in] newmesh The geometry put into the collection.
-	 * \param[in] oldmesh The geometry remove from collection.
-	 */
-	NIFLIB_API bool ReplaceEmitterMesh( Ref<NiTriBasedGeom > newmesh, Ref<NiTriBasedGeom > oldmesh );
+	// The way the particles get their initial direction and speed.
+	// \return The current value.
+	VelocityType GetInitialVelocityType() const;
+
+	// The way the particles get their initial direction and speed.
+	// \param[in] value The new value.
+	void SetInitialVelocityType(VelocityType value);
+
+	// The parts of the mesh that the particles emit from.
+	// \return The current value.
+	EmitFrom GetEmissionType() const;
+
+	// The parts of the mesh that the particles emit from.
+	// \param[in] value The new value.
+	void SetEmissionType(EmitFrom value);
+
+	// The emission axis.
+	// \return The current value.
+	Vector3 GetEmissionAxis() const;
+
+	// The emission axis.
+	// \param[in] value The new value.
+	void SetEmissionAxis(const Vector3 & value);
 
 	//--END CUSTOM CODE--//
 protected:
 	/*! The number of references to emitter meshes that follow. */
 	mutable unsigned int numEmitterMeshes;
 	/*! Links to meshes used for emitting. */
-	vector<Ref<NiTriBasedGeom > > emitterMeshes;
+	vector<Ref<NiAVObject > > emitterMeshes;
 	/*! The way the particles get their initial direction and speed. */
 	VelocityType initialVelocityType;
 	/*! The parts of the mesh that the particles emit from. */

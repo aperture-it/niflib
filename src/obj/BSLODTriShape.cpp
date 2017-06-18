@@ -36,26 +36,6 @@ const Type & BSLODTriShape::GetType() const {
 	return TYPE;
 }
 
-unsigned int BSLODTriShape::GetLODLevelSize(const unsigned int level) const {
-	switch (level)
-	{
-		case 0:		return level0Size;
-		case 1:		return level1Size;
-		case 2:		return level2Size;
-	}
-
-	return 0;
-}
-
-void BSLODTriShape::SetLODLevelSize(const unsigned int level, unsigned int size) {
-	switch (level)
-	{
-		case 0:		{ level0Size = size; break; }
-		case 1:		{ level1Size = size; break; }
-		case 2:		{ level2Size = size; break; }
-	}
-}			
-
 NiObject * BSLODTriShape::Create() {
 	return new BSLODTriShape;
 }
@@ -130,6 +110,34 @@ std::list<NiObject *> BSLODTriShape::GetPtrs() const {
 	ptrs = NiTriBasedGeom::GetPtrs();
 	return ptrs;
 }
+
+/***Begin Example Naive Implementation****
+
+unsigned int BSLODTriShape::GetLevel0Size() const {
+	return level0Size;
+}
+
+void BSLODTriShape::SetLevel0Size( unsigned int value ) {
+	level0Size = value;
+}
+
+unsigned int BSLODTriShape::GetLevel1Size() const {
+	return level1Size;
+}
+
+void BSLODTriShape::SetLevel1Size( unsigned int value ) {
+	level1Size = value;
+}
+
+unsigned int BSLODTriShape::GetLevel2Size() const {
+	return level2Size;
+}
+
+void BSLODTriShape::SetLevel2Size( unsigned int value ) {
+	level2Size = value;
+}
+
+****End Example Naive Implementation***/
 
 //--BEGIN MISC CUSTOM CODE--//
 

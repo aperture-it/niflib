@@ -30,7 +30,6 @@ struct SkinTransform {
 	/*! Scaling part (only uniform scaling is supported). */
 	float scale;
 	//--BEGIN MISC CUSTOM CODE--//
-
 	//--END CUSTOM CODE--//
 };
 

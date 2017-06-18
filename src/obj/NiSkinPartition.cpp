@@ -507,6 +507,18 @@ std::list<NiObject *> NiSkinPartition::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<SkinPartition > NiSkinPartition::GetSkinPartitionBlocks() const {
+	return skinPartitionBlocks;
+}
+
+void NiSkinPartition::SetSkinPartitionBlocks( const vector<SkinPartition >& value ) {
+	skinPartitionBlocks = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 int NiSkinPartition::GetNumPartitions() const {

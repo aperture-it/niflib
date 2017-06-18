@@ -53,6 +53,18 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Vertices
+	// \return The current value.
+	vector<Vector3 > GetVertices() const;
+
+	// Vertices
+	// \param[in] value The new value.
+	void SetVertices( const vector<Vector3 >& value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

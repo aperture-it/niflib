@@ -139,6 +139,18 @@ std::list<NiObject *> BSFurnitureMarker::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+vector<FurniturePosition > BSFurnitureMarker::GetPositions() const {
+	return positions;
+}
+
+void BSFurnitureMarker::SetPositions( const vector<FurniturePosition >& value ) {
+	positions = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 vector<FurniturePosition> BSFurnitureMarker::GetFurniturePositions() const {

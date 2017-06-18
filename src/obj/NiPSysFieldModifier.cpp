@@ -139,6 +139,50 @@ std::list<NiObject *> NiPSysFieldModifier::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+Ref<NiAVObject > NiPSysFieldModifier::GetFieldObject() const {
+	return fieldObject;
+}
+
+void NiPSysFieldModifier::SetFieldObject( Ref<NiAVObject > value ) {
+	fieldObject = value;
+}
+
+float NiPSysFieldModifier::GetMagnitude() const {
+	return magnitude;
+}
+
+void NiPSysFieldModifier::SetMagnitude( float value ) {
+	magnitude = value;
+}
+
+float NiPSysFieldModifier::GetAttenuation() const {
+	return attenuation;
+}
+
+void NiPSysFieldModifier::SetAttenuation( float value ) {
+	attenuation = value;
+}
+
+bool NiPSysFieldModifier::GetUseMaxDistance() const {
+	return useMaxDistance;
+}
+
+void NiPSysFieldModifier::SetUseMaxDistance( bool value ) {
+	useMaxDistance = value;
+}
+
+float NiPSysFieldModifier::GetMaxDistance() const {
+	return maxDistance;
+}
+
+void NiPSysFieldModifier::SetMaxDistance( float value ) {
+	maxDistance = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

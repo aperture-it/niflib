@@ -251,6 +251,34 @@ std::list<NiObject *> NiAdditionalGeometryData::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+unsigned short NiAdditionalGeometryData::GetNumVertices() const {
+	return numVertices;
+}
+
+void NiAdditionalGeometryData::SetNumVertices( unsigned short value ) {
+	numVertices = value;
+}
+
+vector<AdditionalDataInfo > NiAdditionalGeometryData::GetBlockInfos() const {
+	return blockInfos;
+}
+
+void NiAdditionalGeometryData::SetBlockInfos( const vector<AdditionalDataInfo >& value ) {
+	blockInfos = value;
+}
+
+vector<AdditionalDataBlock > NiAdditionalGeometryData::GetBlocks() const {
+	return blocks;
+}
+
+void NiAdditionalGeometryData::SetBlocks( const vector<AdditionalDataBlock >& value ) {
+	blocks = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

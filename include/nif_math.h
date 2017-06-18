@@ -1196,6 +1196,16 @@ struct Quaternion {
 	* \return The inverse of this quaternion.
 	*/
 	NIFLIB_API Quaternion Inverse() const;
+
+		/* This function calculates the magnitude of this vector
+	* \return the magnitude of the vector; its length.
+	*/
+	NIFLIB_API float Magnitude() const;
+
+	/* This function returns a normalization of this vector.  A vector pointing in the same
+	* direction but with a magnitude, or length, of 1.
+	*/
+	NIFLIB_API Quaternion Normalized() const;
 };
 
 
@@ -1380,6 +1390,14 @@ struct InertiaMatrix {
 	*/
 	NIFLIB_API float Adjoint( int skip_r, int skip_c ) const;
 };
+
+// Declaration of half float
+typedef uint16_t hfloat;
+
+NIFLIB_API float ConvertHFloatToFloat(hfloat h);
+NIFLIB_API hfloat ConvertFloatToHFloat(float f);
+NIFLIB_API float ConvertByteToFloat(byte value);
+NIFLIB_API byte ConvertFloatToByte(float value);
 
 
 //--ostream functions for printing with cout--//

@@ -56,6 +56,66 @@ public:
 	 */
 	NIFLIB_API virtual const Type & GetType() const;
 
+	/***Begin Example Naive Implementation****
+
+	// Starting frame/position on atlas
+	// \return The current value.
+	unsigned int GetStartFrame() const;
+
+	// Starting frame/position on atlas
+	// \param[in] value The new value.
+	void SetStartFrame( unsigned int value );
+
+	// Random chance to start on a different frame?
+	// \return The current value.
+	float GetStartFrameFudge() const;
+
+	// Random chance to start on a different frame?
+	// \param[in] value The new value.
+	void SetStartFrameFudge( float value );
+
+	// Ending frame/position on atlas
+	// \return The current value.
+	float GetEndFrame() const;
+
+	// Ending frame/position on atlas
+	// \param[in] value The new value.
+	void SetEndFrame( float value );
+
+	// Frame to start looping
+	// \return The current value.
+	float GetLoopStartFrame() const;
+
+	// Frame to start looping
+	// \param[in] value The new value.
+	void SetLoopStartFrame( float value );
+
+	// Unknown.
+	// \return The current value.
+	float GetLoopStartFrameFudge() const;
+
+	// Unknown.
+	// \param[in] value The new value.
+	void SetLoopStartFrameFudge( float value );
+
+	// Unknown
+	// \return The current value.
+	float GetFrameCount() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetFrameCount( float value );
+
+	// Unknown
+	// \return The current value.
+	float GetFrameCountFudge() const;
+
+	// Unknown
+	// \param[in] value The new value.
+	void SetFrameCountFudge( float value );
+
+	****End Example Naive Implementation***/
+
 	//--BEGIN MISC CUSTOM CODE--//
 
 	//--END CUSTOM CODE--//

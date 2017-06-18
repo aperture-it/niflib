@@ -205,6 +205,18 @@ std::list<NiObject *> NiPSMeshEmitter::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+IndexString NiPSMeshEmitter::GetName() const {
+	return name;
+}
+
+void NiPSMeshEmitter::SetName( const IndexString & value ) {
+	name = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

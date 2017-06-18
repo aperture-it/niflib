@@ -28,7 +28,6 @@ struct Region {
 	/*! Unknown. */
 	unsigned int numIndices;
 	//--BEGIN MISC CUSTOM CODE--//
-
 	//--END CUSTOM CODE--//
 };
 

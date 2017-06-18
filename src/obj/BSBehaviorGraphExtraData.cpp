@@ -108,6 +108,26 @@ std::list<NiObject *> BSBehaviorGraphExtraData::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+IndexString BSBehaviorGraphExtraData::GetBehaviourGraphFile() const {
+	return behaviourGraphFile;
+}
+
+void BSBehaviorGraphExtraData::SetBehaviourGraphFile( const IndexString & value ) {
+	behaviourGraphFile = value;
+}
+
+byte BSBehaviorGraphExtraData::GetControlsBaseSkeleton() const {
+	return controlsBaseSkeleton;
+}
+
+void BSBehaviorGraphExtraData::SetControlsBaseSkeleton( byte value ) {
+	controlsBaseSkeleton = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 //--END CUSTOM CODE--//

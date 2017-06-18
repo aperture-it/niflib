@@ -131,5 +131,25 @@ std::list<NiObject *> NiTextureModeProperty::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+short NiTextureModeProperty::GetPs2L() const {
+	return ps2L;
+}
+
+void NiTextureModeProperty::SetPs2L( short value ) {
+	ps2L = value;
+}
+
+short NiTextureModeProperty::GetPs2K() const {
+	return ps2K;
+}
+
+void NiTextureModeProperty::SetPs2K( short value ) {
+	ps2K = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 //--END CUSTOM CODE--//

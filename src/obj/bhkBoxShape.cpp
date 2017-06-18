@@ -9,6 +9,7 @@ All rights reserved.  Please see niflib.h for license. */
 
 //--BEGIN FILE HEAD CUSTOM CODE--//
 #include "../../include/Inertia.h"
+#include <algorithm>
 //--END CUSTOM CODE--//
 
 #include "../../include/FixLink.h"
@@ -116,6 +117,26 @@ std::list<NiObject *> bhkBoxShape::GetPtrs() const {
 	ptrs = bhkConvexShape::GetPtrs();
 	return ptrs;
 }
+
+/***Begin Example Naive Implementation****
+
+Vector3 bhkBoxShape::GetDimensions() const {
+	return dimensions;
+}
+
+void bhkBoxShape::SetDimensions( const Vector3 & value ) {
+	dimensions = value;
+}
+
+float bhkBoxShape::GetMinimumSize() const {
+	return minimumSize;
+}
+
+void bhkBoxShape::SetMinimumSize( float value ) {
+	minimumSize = value;
+}
+
+****End Example Naive Implementation***/
 
 //--BEGIN MISC CUSTOM CODE--//
 

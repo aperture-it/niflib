@@ -57,13 +57,14 @@ void bhkRigidBody::Read( istream& in, list<unsigned int> & link_stack, const Nif
 	for (unsigned int i1 = 0; i1 < 2; i1++) {
 		NifStream( unknown2Shorts[i1], in, info );
 	};
+	if ( (info.userVersion < 12) ) {
+		NifStream( layerCopy, in, info );
+		NifStream( colFilterCopy, in, info );
+	};
 	if ( (info.userVersion >= 12) ) {
 		NifStream( skyrimLayerCopy, in, info );
 		NifStream( flagsAndPartNumberCopy, in, info );
-	} else {
-	NifStream( layerCopy, in, info );
-	NifStream( colFilterCopy, in, info );
-	}
+	};
 	for (unsigned int i1 = 0; i1 < 7; i1++) {
 		NifStream( unknown7Shorts[i1], in, info );
 	};
@@ -135,13 +136,14 @@ void bhkRigidBody::Write( ostream& out, const map<NiObjectRef,unsigned int> & li
 	for (unsigned int i1 = 0; i1 < 2; i1++) {
 		NifStream( unknown2Shorts[i1], out, info );
 	};
+	if ( (info.userVersion < 12) ) {
+		NifStream( layerCopy, out, info );
+		NifStream( colFilterCopy, out, info );
+	};
 	if ( (info.userVersion >= 12) ) {
 		NifStream( skyrimLayerCopy, out, info );
 		NifStream( flagsAndPartNumberCopy, out, info );
-	} else {
-	NifStream( layerCopy, out, info );
-	NifStream( colFilterCopy, out, info );
-	}
+	};
 	for (unsigned int i1 = 0; i1 < 7; i1++) {
 		NifStream( unknown7Shorts[i1], out, info );
 	};
@@ -250,7 +252,7 @@ std::string bhkRigidBody::asString( bool verbose ) const {
 	out << "  Layer Copy:  " << layerCopy << endl;
 	out << "  Col Filter Copy:  " << colFilterCopy << endl;
 	out << "  Skyrim Layer Copy:  " << skyrimLayerCopy << endl;
-	out << "  Flags And PartNumber Copy:  " << flagsAndPartNumberCopy << endl;
+	out << "  Flags And Part Number Copy:  " << flagsAndPartNumberCopy << endl;
 	array_output_count = 0;
 	for (unsigned int i1 = 0; i1 < 7; i1++) {
 		if ( !verbose && ( array_output_count > MAXARRAYDUMP ) ) {
@@ -343,6 +345,218 @@ std::list<NiObject *> bhkRigidBody::GetPtrs() const {
 	return ptrs;
 }
 
+/***Begin Example Naive Implementation****
+
+hkResponseType bhkRigidBody::GetCollisionResponse_() const {
+	return collisionResponse_;
+}
+
+void bhkRigidBody::SetCollisionResponse_( const hkResponseType & value ) {
+	collisionResponse_ = value;
+}
+
+unsigned short bhkRigidBody::GetProcessContactCallbackDelay_() const {
+	return processContactCallbackDelay_;
+}
+
+void bhkRigidBody::SetProcessContactCallbackDelay_( unsigned short value ) {
+	processContactCallbackDelay_ = value;
+}
+
+OblivionLayer bhkRigidBody::GetLayerCopy() const {
+	return layerCopy;
+}
+
+void bhkRigidBody::SetLayerCopy( const OblivionLayer & value ) {
+	layerCopy = value;
+}
+
+byte bhkRigidBody::GetColFilterCopy() const {
+	return colFilterCopy;
+}
+
+void bhkRigidBody::SetColFilterCopy( byte value ) {
+	colFilterCopy = value;
+}
+
+SkyrimLayer bhkRigidBody::GetSkyrimLayerCopy() const {
+	return skyrimLayerCopy;
+}
+
+void bhkRigidBody::SetSkyrimLayerCopy( const SkyrimLayer & value ) {
+	skyrimLayerCopy = value;
+}
+
+byte bhkRigidBody::GetFlagsAndPartNumberCopy() const {
+	return flagsAndPartNumberCopy;
+}
+
+void bhkRigidBody::SetFlagsAndPartNumberCopy( byte value ) {
+	flagsAndPartNumberCopy = value;
+}
+
+Vector4 bhkRigidBody::GetTranslation() const {
+	return translation;
+}
+
+void bhkRigidBody::SetTranslation( const Vector4 & value ) {
+	translation = value;
+}
+
+QuaternionXYZW bhkRigidBody::GetRotation() const {
+	return rotation;
+}
+
+void bhkRigidBody::SetRotation( const QuaternionXYZW & value ) {
+	rotation = value;
+}
+
+Vector4 bhkRigidBody::GetLinearVelocity() const {
+	return linearVelocity;
+}
+
+void bhkRigidBody::SetLinearVelocity( const Vector4 & value ) {
+	linearVelocity = value;
+}
+
+Vector4 bhkRigidBody::GetAngularVelocity() const {
+	return angularVelocity;
+}
+
+void bhkRigidBody::SetAngularVelocity( const Vector4 & value ) {
+	angularVelocity = value;
+}
+
+InertiaMatrix bhkRigidBody::GetInertia() const {
+	return inertia;
+}
+
+void bhkRigidBody::SetInertia( const InertiaMatrix & value ) {
+	inertia = value;
+}
+
+Vector4 bhkRigidBody::GetCenter() const {
+	return center;
+}
+
+void bhkRigidBody::SetCenter( const Vector4 & value ) {
+	center = value;
+}
+
+float bhkRigidBody::GetMass() const {
+	return mass;
+}
+
+void bhkRigidBody::SetMass( float value ) {
+	mass = value;
+}
+
+float bhkRigidBody::GetLinearDamping() const {
+	return linearDamping;
+}
+
+void bhkRigidBody::SetLinearDamping( float value ) {
+	linearDamping = value;
+}
+
+float bhkRigidBody::GetAngularDamping() const {
+	return angularDamping;
+}
+
+void bhkRigidBody::SetAngularDamping( float value ) {
+	angularDamping = value;
+}
+
+float bhkRigidBody::GetFriction() const {
+	return friction;
+}
+
+void bhkRigidBody::SetFriction( float value ) {
+	friction = value;
+}
+
+float bhkRigidBody::GetRollingfrictionmultiplier_() const {
+	return rollingfrictionmultiplier_;
+}
+
+void bhkRigidBody::SetRollingfrictionmultiplier_( float value ) {
+	rollingfrictionmultiplier_ = value;
+}
+
+float bhkRigidBody::GetRestitution() const {
+	return restitution;
+}
+
+void bhkRigidBody::SetRestitution( float value ) {
+	restitution = value;
+}
+
+float bhkRigidBody::GetMaxLinearVelocity() const {
+	return maxLinearVelocity;
+}
+
+void bhkRigidBody::SetMaxLinearVelocity( float value ) {
+	maxLinearVelocity = value;
+}
+
+float bhkRigidBody::GetMaxAngularVelocity() const {
+	return maxAngularVelocity;
+}
+
+void bhkRigidBody::SetMaxAngularVelocity( float value ) {
+	maxAngularVelocity = value;
+}
+
+float bhkRigidBody::GetPenetrationDepth() const {
+	return penetrationDepth;
+}
+
+void bhkRigidBody::SetPenetrationDepth( float value ) {
+	penetrationDepth = value;
+}
+
+MotionSystem bhkRigidBody::GetMotionSystem() const {
+	return motionSystem;
+}
+
+void bhkRigidBody::SetMotionSystem( const MotionSystem & value ) {
+	motionSystem = value;
+}
+
+DeactivatorType bhkRigidBody::GetDeactivatorType() const {
+	return deactivatorType;
+}
+
+void bhkRigidBody::SetDeactivatorType( const DeactivatorType & value ) {
+	deactivatorType = value;
+}
+
+SolverDeactivation bhkRigidBody::GetSolverDeactivation() const {
+	return solverDeactivation;
+}
+
+void bhkRigidBody::SetSolverDeactivation( const SolverDeactivation & value ) {
+	solverDeactivation = value;
+}
+
+MotionQuality bhkRigidBody::GetQualityType() const {
+	return qualityType;
+}
+
+void bhkRigidBody::SetQualityType( const MotionQuality & value ) {
+	qualityType = value;
+}
+
+vector<Ref<bhkSerializable > > bhkRigidBody::GetConstraints() const {
+	return constraints;
+}
+
+void bhkRigidBody::SetConstraints( const vector<Ref<bhkSerializable > >& value ) {
+	constraints = value;
+}
+
+****End Example Naive Implementation***/
+
 //--BEGIN MISC CUSTOM CODE--//
 
 OblivionLayer bhkRigidBody::GetLayerCopy() const {
@@ -351,14 +565,6 @@ OblivionLayer bhkRigidBody::GetLayerCopy() const {
 
 void bhkRigidBody::SetLayerCopy( OblivionLayer value ) {
 	layerCopy = value;
-}
-
-SkyrimLayer bhkRigidBody::GetSkyrimLayerCopy() const {
-	return skyrimLayerCopy;
-}
-
-void bhkRigidBody::SetSkyrimLayerCopy( SkyrimLayer value ) {
-	skyrimLayerCopy = value;
 }
 
 Vector4 bhkRigidBody::GetTranslation() const {
@@ -567,14 +773,6 @@ void bhkRigidBody::UpdateMassProperties(float density, bool solid, float mass)
 			inertia *= mass_correction;
 		}
 	}
-}
-
-array<7,unsigned short> bhkRigidBody::GetUnknown7Shorts() const {
-	return unknown7Shorts;
-}
-
-void bhkRigidBody::SetUnknown7Shorts(const array<7,unsigned short> & in ) {
-	unknown7Shorts = in;
 }
 
 //--END CUSTOM CODE--//
